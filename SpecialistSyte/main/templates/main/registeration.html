@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Регистрация в BeeBuzz.NET</title>
+	<link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+	<link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+	<!--<link rel="stylesheet" href="register.css">-->
+	<style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            line-height: 1.4;
+            background-color: #f6f6f6;
+        }
+
+        .beebuzz {
+            display: flex;
+            background: #fffc0a;
+            height: 70px;
+        }
+
+        .beebuzz_name {
+            text-align: center;
+            vertical-align: middle;
+            margin: auto;
+            font-size: 16px;
+        }
+
+        .register {
+            margin: auto;
+            margin-top: 35px;
+            left: 50%;
+            top: 50%;
+            width: 450px;
+            height: 500px;
+            background: #f6f6f6;
+        }
+
+        .form-group {
+            margin: 10px;
+            padding: 10px;
+            font-size: 14px;
+            font-family: sans-serif;
+        }
+
+        .vvod {
+            border: none;
+            display: flex;
+            background-color: #ebebeb;
+            height: 13px;
+            width: 400px;
+            border-radius: 15px;
+            padding: 10px;
+        }
+
+        .button-reg {
+            font-size: 16px;
+            display: flex;
+            margin: auto;
+            left: 50%;
+            top: 50%;
+            padding: 15px 35px;
+            border: none;
+            background: #e8e616;
+        }
+	</style>
+
+</head>
+
+<body>
+
+	<form action="" method="post">
+		<nav class="beebuzz">
+			<div class="beebuzz_name">
+				<h1>Регистрация в BeeBuzz.NET</h1>
+			</div>
+		</nav>
+
+		<nav class="reg">
+			<div class="register">
+
+				<div class="form-group">
+					<label>Имя пользователя</label>
+					<input class="vvod" type="text" placeholder="Введите имя пользователя">
+				</div>
+
+				<div class="form-group">
+					<label>Пароль</label>
+					<input class="vvod" type="password" placeholder="Введите пароль">
+				</div>
+
+				<div class="form-group">
+					<label>Подтверждение пароля</label>
+					<input class="vvod" type="text" placeholder="Подвердите новый пароль">
+				</div>
+
+				<div class="form-group">
+					<label>e-mail</label>
+					<input class="vvod" type="text" placeholder="Введите электронную почту">
+				</div>
+
+				<div class="form-group">
+					<label>Роль на сайте</label>
+					<div class="form-check">
+						<input class="form-check-input"
+							   type="radio" name="exampleRadios"
+							   id="exampleRadios1"
+							   value="option1" checked>
+
+						<label class="form-check-label"
+							   for="exampleRadios1">
+							Специалист
+						</label>
+					</div>
+
+					<div class="form-check">
+						<input class="form-check-input"
+							   type="radio" name="exampleRadios"
+							   id="exampleRadios1"
+							   value="option1" checked>
+
+						<label class="form-check-label"
+							   for="exampleRadios1">
+							Пользователь
+						</label>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label>Дата рождения</label>
+					<input class="vvod" type="text" placeholder="Введите дату рождения">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<button type="submit"
+						class="button-reg"> Зарегистрироваться
+				</button>
+			</div>
+		</nav>
+	</form>
+</body>
+</html>
