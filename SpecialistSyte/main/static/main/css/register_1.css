@@ -1,0 +1,115 @@
+    body {
+        font-family: 'Noto Sans', sans-serif;
+        line-height: 1.4;
+        background-color: #f6f6f6;
+    }
+
+    .beebuzz {
+        display: flex;
+        background: #fffc0a;
+        height: 70px;
+    }
+
+    .beebuzz_name {
+        text-align: center;
+        vertical-align: middle;
+        margin: auto;
+        font-size: 16px;
+    }
+
+    .register {
+        margin: auto;
+        margin-top: 35px;
+        left: 50%;
+        top: 50%;
+        width: 450px;
+        height: 500px;
+        background: #f6f6f6;
+    }
+
+    .form-group {
+        margin: 10px;
+        padding: 10px;
+        font-size: 14px;
+        font-family: sans-serif;
+    }
+
+    .vvod {
+       border: none;
+       display: flex;
+       background-color: #ebebeb;
+       height: 13px;
+       width: 400px;
+       border-radius: 15px;
+       padding: 10px;
+    }
+
+    .vvod1 {
+       border: none;
+       display: flex;
+       background-color: #ebebeb;
+       height: 13px;
+       width: 400px;
+       border-radius: 15px;
+       padding: 10px;
+    }
+
+    .vvod2 {
+       border: none;
+       display: flex;
+       background-color: #ebebeb;
+       height: 13px;
+       width: 400px;
+       border-radius: 15px;
+       padding: 10px;
+    }
+
+    .vvod3 {
+       border: none;
+       display: flex;
+       background-color: #ebebeb;
+       height: 13px;
+       width: 400px;
+       border-radius: 15px;
+       padding: 10px;
+    }
+
+    .vvod4 {
+       border: none;
+       display: flex;
+       background-color: #ebebeb;
+       height: 13px;
+       width: 400px;
+       border-radius: 15px;
+       padding: 10px;
+    }
+
+    .button-reg {
+        font-size: 16px;
+        display: flex;
+        margin: auto;
+        left: 50%;
+        top: 50%;
+        padding: 15px 35px;
+        border: none;
+        background: #e8e616;
+    }
+
+    .button-reg:hover {
+        
+        background: #9e9c0f;
+    }
+
+    .label-reg {
+        margin-left: 15px;
+        padding: 2px;
+    }/*rgb(173, 171, 18)*/
+
+
+
+    .error {
+        background: orangered;
+        color: #fff;
+        padding: 5px;
+        margin: 5px;
+      }
