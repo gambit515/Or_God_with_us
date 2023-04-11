@@ -1,54 +1,6 @@
-/*Фон*/
-
-/*body {
-  background-image: url("рабочие, log in.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}*/
-
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: yellow;
-  padding: 10px;
-  width: 100%;
-}
-
-.logo {
-  width: 200px; /* установите нужную ширину */
-  height: 100px; /* установите нужную высоту */
-  /*margin: ; /* установите нужный отступ */
-}
-
-.logo img {
-  width: 100%;
-  height: 100%;
-  /*object-fit: contain;*/
-}
-
-nav ul {
-  list-style: none;
+body {
   margin: 0;
-  padding: 0;
-  display: flex;
 }
-
-nav li {
-  margin-right: 20px;
-}
-
-nav a {
-  color: black;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  text-transform: uppercase;
-}
-
-
-
-
 
 .search-box {
     display: flex;
@@ -136,4 +88,52 @@ nav a {
   padding: 10px;
   width: 100%;
   
+}
+
+
+
+
+
+/*Далее оформление шапки*/
+
+#logotip {
+  margin-left: 100px;
+}
+
+.namelogo {
+  font-size: 20px;
+  margin-left: 40px;
+  font-weight: bold;
+}
+
+.namelogo2 {
+  margin-left: 15px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: yellow;
+  padding: 10px;
+  width: 100%;
+  height: 60px;
+}
+
+.text-sh ul {
+  list-style: none;
+  margin-right: 70px;
+  padding: 0;
+  display: flex;
+}
+
+.text-sh li {
+
+  margin-right: 20px;
+}
+
+.text-sh a {
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
 }

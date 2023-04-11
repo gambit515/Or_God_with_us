@@ -1,33 +1,43 @@
 {% load static %}
 <!DOCTYPE html>
-	<html lang="ru">
-	<head>
-		<meta charset="UTF-8">
-	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900'
-	rel='stylesheet' type='text/css'>
-	<link href="{% static 'main/css/startsheet_1.css' %}" rel="stylesheet" type="text/css" media="all" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="style.css" >
-	 <link rel="icon" href="{% static 'main/images/startsheet_1.ico' %}" type="image/x-icon">
-		<title>BeeBuzz</title>
+<html lang="ru">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>BeeBuzz</title>
+    <link rel="stylesheet" href="{% static 'main/css/startsheet_1.css' %}">
+</head>
 
-<header>
- <div class="logo">
-  <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}"alt=""/></a>
-</div>
-  <nav>
-    <ul>
-      	<li><a href="#">Создать заказ</a></li>
-      	<li><a href="#">Найти специалиста</a></li>
-      	<li><a href="#">Войти</a></li>
-		<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
-    </ul>
-  </nav>
-</header>
+<body>
+	
+	<header>
+        <div class="logo">
+            <table>
+                <td>
+                    <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70"/></a>
+                </td>
+                <td>
+                    <div class="namelogo"><label>BeeBuzz.NET</label></div>
+                    <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
+                </td>
+            </table>
+       </div>
+         <nav class="text-sh">
+           <ul>
+                 <li><a href="#">Создать заказ</a></li>
+                 <li><a href="#">Найти специалиста</a></li>
+                 <li><a href="#">Войти</a></li>
+               <li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
+           </ul>
+         </nav>
+    </header>
 
-
-<table align="center">
+		<table align="center">
 			<tr>
 				<td align="center" valign="bottom">
 
@@ -50,32 +60,32 @@
 		</table>
 
 
-<section class="about">
-<div class="wrap_about">
+	<section class="about">
+	<div class="wrap_about">
 
-<article class="grid">
-  <img src="{% static 'main/images/startsheet_4.jpeg' %}" width="220px" height="208px" alt="">
-    <p>Организовываем уборку разного уровня загрязнения в любых помощениях. <a href="#"> Узнать подробнее</a></p>
-</article>
-<article class="grid">
-  <img  src="{% static 'main/images/startsheet_5.jpg' %}" width="220px" height="208px" alt="">
-    <p>Организовываем ремонт разного уровня сложности в любых помощениях. <a href="#">Узнать подробнее</a></p>
-</article>
-<article class="grid">
-  <img src="{% static 'main/images/startsheet_6.jpg' %}" width="220px" height="208px" alt="">
-    <p>Организовываем ремонт разного уровня сложности в любых помощениях. <a href="#">Узнать подробнее</a></p>
-</article>
-<article class="grid">
-  <img src="{% static 'main/images/startsheet_7.jpeg' %}" width="220px" height="208px" alt="">
-    <p>Организовываем уборку разного уровня загрязнения в любых помощениях. <a href="#"> Узнать подробнее</a></p>
-</article>
-<div class="clear"></div>
-</div>
-</section>
+	<article class="grid">
+	<img src="{% static 'main/images/startsheet_4.jpeg' %}" width="220px" height="208px" alt="">
+		<p>Организовываем уборку разного уровня загрязнения в любых помощениях. <a href="#"> Узнать подробнее</a></p>
+	</article>
+	<article class="grid">
+	<img  src="{% static 'main/images/startsheet_5.jpg' %}" width="220px" height="208px" alt="">
+		<p>Организовываем ремонт разного уровня сложности в любых помощениях. <a href="#">Узнать подробнее</a></p>
+	</article>
+	<article class="grid">
+	<img src="{% static 'main/images/startsheet_6.jpg' %}" width="220px" height="208px" alt="">
+		<p>Организовываем ремонт разного уровня сложности в любых помощениях. <a href="#">Узнать подробнее</a></p>
+	</article>
+	<article class="grid">
+	<img src="{% static 'main/images/startsheet_7.jpeg' %}" width="220px" height="208px" alt="">
+		<p>Организовываем уборку разного уровня загрязнения в любых помощениях. <a href="#"> Узнать подробнее</a></p>
+	</article>
+	<div class="clear"></div>
+	</div>
+	</section>
 
-  <div class="podval">
+ 	<div class="podval">
         <p> Контактная информация: Phone:+7(902)**** ; Email: info@amoskin.com; Адрес: г. Красноярск, КрасРаб 31А; </p>
-      </div>
+    </div>
 
-	</body>
-	</html>
+</body>
+</html>
