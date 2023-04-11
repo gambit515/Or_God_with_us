@@ -17,18 +17,19 @@
 <body>
 
     <nav class="shapka">
-        <div class="logo">
+        <div class="logo"  >
             <img src="{% static 'main/images/logo.png' %}" width="100px">
+            <div class="text-sh">
+                <ul>
+                    <li><a href="#">Создать заказ</a></li>
+                    <li><a href="#">Найти специалиста</a></li>
+                    <li><a href="#">Войти</a></li>
+                    <li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
+                </ul>
+            </div>
         </div>
 
-        <div class="text-sh">
-            <ul>
-                <li><a href="#">Создать заказ</a></li>
-                <li><a href="#">Найти специалиста</a></li>
-                <li><a href="#">Войти</a></li>
-                <li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
-            </ul>
-        </div>
+        
 
     </nav>
     

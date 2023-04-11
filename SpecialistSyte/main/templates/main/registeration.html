@@ -31,8 +31,24 @@
 				<!-- Поставил ID элементам так как использую для скрипта-->
 				
 				<div class="form-group">
-					<div class="label-reg"> <label for = "user">Имя пользователя</label> </div>
-					<input class="vvod" type="text" placeholder="Введите имя пользователя" id = "user" autocomplete="username">
+					<label class="header">Фото профиля:</label>
+					
+					<input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+				</div>
+
+				<div class="form-group">
+					<div class="label-reg"> <label for = "user">Псевдоним пользователя</label> </div>
+					<input class="vvod" type="text" placeholder="Введите псевдоним пользователя" id = "user_psevdomin" autocomplete="user_psevdomin">
+				</div>
+
+				<div class="form-group">
+					<div class="label-reg"> <label for = "name-user">Имя пользователя</label> </div>
+					<input class="vvod" type="text" placeholder="Введите Ваше имя" id = "username" autocomplete="username">
+				</div>
+
+				<div class="form-group">
+					<div class="label-reg"> <label for = "family-user">Фамилия пользователя</label> </div>
+					<input class="vvod" type="text" placeholder="Введите Вашу фамилию" id = "userfamily" autocomplete="userfamily">
 				</div>
 				
 				<div class="form-group">

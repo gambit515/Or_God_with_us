@@ -1,4 +1,6 @@
-.logo
+.shapka {
+    display: inline-block;
+}
 
 .text-sh {
     list-style-type: none;
