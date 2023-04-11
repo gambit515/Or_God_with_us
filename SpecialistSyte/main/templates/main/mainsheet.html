@@ -24,6 +24,7 @@
     <body>
     {% for el in anketas %}
         <div>
+            <img src="{{el.Photo.url}}">
             <h3>{{el.Tittle}}</h3>
             <h3>{{el.Text}}</h3>
             <h3>{{el.Status}}</h3>
