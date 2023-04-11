@@ -21,25 +21,27 @@
 	<header>
         <div class="logo">
             <table>
-                <td>
-                    <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70"/></a>
-                </td>
-                <td>
-                    <div class="namelogo"><label>BeeBuzz.NET</label></div>
-                    <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
-                </td>
+                <tr>
+                    <td>
+                        <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+                    </td>
+                    <td>
+                        <div class="namelogo"><label>BeeBuzz.NET</label></div>
+                        <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
+                    </td>
+                </tr>
             </table>
-       </div>
-         <div class="text-sh">
-           <ul>
+        </div>
+        <div class="text-sh">
+            <ul>
                 <li><a href="#">Создать заказ</a></li>
                 <li><a href="#">Найти специалиста</a></li>
-				<li><a id="login" href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Войти</a></li>
+                <li><a id="login" href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Войти</a></li>
 
                 <!--<li><a href="#">Войти</a></li>
-                <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
-           </ul>
-         </nav>
+        <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
+            </ul>
+        </div>
     </header>
 
 	<table align="center" >
