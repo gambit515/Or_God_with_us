@@ -9,7 +9,7 @@ class Users(models.Model):
     Name = models.CharField('Имя',max_length=50)
     Patronymic = models.CharField('Отчество', max_length=50)
     UserType = models.CharField('Тип пользователя',max_length=50)
-    Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/")
+    Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/",null=True)
     Time_create = models.DateTimeField('Время создания',auto_now_add=True)
     Notes = models.TextField('Краткое описание',max_length = 500,null=True)
 
