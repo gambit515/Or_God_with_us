@@ -1,11 +1,11 @@
 from .models import Users
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, EmailInput, ImageField, Textarea
 
 
 class TaskForm(ModelForm):
     class Meta:
         model = Users
-        fields = ["Login","Password","Email","SerName","Name"]
+        fields = ["Login","Password","Email","SerName","Name","Photo","Notes","Patronymic"]
         widgets = {
             "Login":TextInput(attrs={
                 'class': 'vvod',
@@ -21,7 +21,7 @@ class TaskForm(ModelForm):
                 'id': 'password',
                 'autocomplete': 'current-password'
             }),
-            "Email": TextInput(attrs={
+            "Email": EmailInput(attrs={
                 'class': 'vvod3',
                 'type': 'email',
                 'placeholder': 'Введите электронную почту',
@@ -36,6 +36,21 @@ class TaskForm(ModelForm):
                 'autocomplete': 'userfamily'
             }),
             "Name": TextInput(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите ваше имя',
+                'id': 'username',
+                'autocomplete': 'username'
+            }),
+            "Patronymic": TextInput(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите ваше имя',
+                'id': 'username',
+                'autocomplete': 'username'
+            }),
+            "Photo": ImageField(),
+            "Notes": Textarea(attrs={
                 'class': 'vvod',
                 'type': 'text',
                 'placeholder': 'Введите ваше имя',
