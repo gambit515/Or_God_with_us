@@ -21,28 +21,16 @@
     </ul>
   </nav>
 </header>
-
-
-<table align="center">
-			<tr>
-				<td align="center" valign="bottom">
-
-					<nav class="lp">
-						<div class="lp_lab">
-							<label>МЫ СМОЖЕМ ВАМ ПОМОЧЬ!<br>Сервис по подбору персонала<br><br><br><br></label>
-						</div>
-						<div class="search-box">
-							<input type="text" class="search-txt" placeholder="Что вы ищете?">
-						</div>
-
-					</nav>
-				</td>
-				<td>
-					<div class="image-vd">
-						<img src="{% static 'main/images/mainsheet_1.png' %}" width="270" align="right">
-					</div>
-				</td>
-			</tr>
-		</table>
-	</body>
+    <body>
+    {% for el in anketas %}
+        <div>
+            <h3>{{el.Tittle}}</h3>
+            <h3>{{el.Text}}</h3>
+            <h3>{{el.Status}}</h3>
+            <h3>{{el.Lang_cat}}</h3>
+            <h3>{{el.Soft_cat}}</h3>
+            <h3>{{el.Author}}</h3>
+        </div>
+    {% endfor %}
+    </body>
 </html>
