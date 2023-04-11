@@ -37,10 +37,9 @@
 				</div>
 
 				<div class="form-group">
-					<div class="label-reg"> <label for = "user">Псевдоним пользователя</label> </div>
-					{{ form.Login }}
-					<!--<input class="vvod" type="text" placeholder="Введите псевдоним пользователя" id = "user_psevdomin" autocomplete="user_psevdomin">-->
-
+					<div class="label-reg"> <label for = "family-user">Фамилия пользователя</label> </div>
+					{{ form.SerName }}
+					<!--<input class="vvod" type="text" placeholder="Введите вашу фамилию" id = "userfamily" autocomplete="userfamily">-->
 				</div>
 
 				<div class="form-group">
@@ -50,10 +49,20 @@
 				</div>
 
 				<div class="form-group">
-					<div class="label-reg"> <label for = "family-user">Фамилия пользователя</label> </div>
-					{{ form.SerName }}
-					<!--<input class="vvod" type="text" placeholder="Введите вашу фамилию" id = "userfamily" autocomplete="userfamily">-->
+					<div class="label-reg"> <label for = "otchestvo-user">Отчество пользователя</label> </div>
+					<input class="vvod" type="text" placeholder="Введите ваше имя" id = "otchestvoname" autocomplete="otchestvoname">
 				</div>
+
+				<div class="form-group">
+					<div class="label-reg"> <label for = "user">Псевдоним пользователя</label> </div>
+					{{ form.Login }}
+					<!--<input class="vvod" type="text" placeholder="Введите псевдоним пользователя" id = "user_psevdomin" autocomplete="user_psevdomin">-->
+
+				</div>
+
+				
+
+				
 				
 				<div class="form-group">
 					<div  class="label-reg"> <label for = "password">Пароль</label> </div>
@@ -72,6 +81,7 @@
 					<!--<input class="vvod3" type="email" id = "mail" placeholder="Введите электронную почту" autocomplete="email">-->
 				</div>
 
+				<!--
 				<div class="form-group">
 					<label>Роль на сайте</label>
 					<div class="form-check">
@@ -86,7 +96,8 @@
 						</label>
 					</div>
 
-					<!-- изменил ID у радио-баттон-->
+					изменил ID у радио-баттон
+
 					<div class="form-check">
 						<input class="form-check-input"
 							   type="radio" name="exampleRadios"
@@ -99,13 +110,13 @@
 						</label>
 					</div>
 				</div>
-
+					
 				<div class="form-group">
 					<div class="label-reg"> <label for = "BirthDay">Дата рождения</label> </div>
 					<input class="vvod4" type="date" placeholder="Введите дату рождения" id = "BirthDay">
 				</div>
-
-
+									-->
+									
 				<!-- Работающая кнопка -->
 				<input class="button-reg" type="submit" value="Зарегистрироваться">
 			</form>
