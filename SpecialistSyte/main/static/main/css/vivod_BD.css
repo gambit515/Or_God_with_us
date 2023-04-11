@@ -1,34 +1,22 @@
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: yellow;
-    padding: 10px;
-    width: 100%;
-    height: 60px;
-  }
+body {
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+}
 
-  .text-sh ul {
-    list-style: none;
-    margin-right: 70px;
-    padding: 0;
-    display: flex;
-  }
-  
-  .text-sh li {
+#tdfirst {
+  float: left;
+  width: 230px;
+  padding: 5x;
+  margin: 20px 10px 30px 13px;
+}
 
-    margin-right: 20px;
-  }
-  
-  .text-sh a {
-    font-size: 18px;
-    color: black;
-    text-decoration: none;
-  }
+.label-menu {
+  margin-top: 10px;
+}
 
-
-.anketa label{
-    text-indent: 15px;
+.anketa label {
+    text-indent: 25px;
     margin: auto;
     display: block;
     padding: 1px;
@@ -36,11 +24,54 @@ header {
 }
 
 .tittle h5 {
-    font-size: 16px;
-    text-indent: 0px;
+    font-size: 18px;
+    text-indent: 60px;
     font-weight: bold;
-    text-align: center;
     margin: 0;
     padding: 0;
 }
 
+
+/*Далее оформление шапки*/
+
+#logotip {
+  margin-left: 100px;
+}
+
+.namelogo {
+  font-size: 20px;
+  margin-left: 40px;
+  font-weight: bold;
+}
+
+.namelogo2 {
+  margin-left: 15px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: yellow;
+  padding: 10px;
+  width: 100%;
+  height: 60px;
+}
+
+.text-sh ul {
+  list-style: none;
+  margin-right: 70px;
+  padding: 0;
+  display: flex;
+}
+
+.text-sh li {
+
+  margin-right: 20px;
+}
+
+.text-sh a {
+  font-size: 18px;
+  color: black;
+  text-decoration: none;
+}

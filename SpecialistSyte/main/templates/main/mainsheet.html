@@ -18,7 +18,15 @@
 
     <header>
         <div class="logo">
-         <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}"alt="" width="60"/></a>
+            <table>
+                <td>
+                    <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70"/></a>
+                </td>
+                <td>
+                    <div class="namelogo"><label>BeeBuzz.NET</label></div>
+                    <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
+                </td>
+            </table>
        </div>
          <nav class="text-sh">
            <ul>
@@ -30,43 +38,62 @@
          </nav>
     </header>
     
-
-    {% for el in anketas %}
-
-        <table>
-            <tr>
-                <td>
-                    <nav class="anketa">
-                        <div class="photo">
-                            <img src="{{el.Photo.url}}" width="300">
-                        </div>
-                        <div class="tittle">
-                            <h5>{{el.Tittle}}</h5>
-                        </div>
-                        <div class="text">
-                            <label>{{el.Text}}</label>
-                        </div>
-                        <div class="status">
-                            <label>{{el.Status}}</label>
-                        </div>
-                        <div class="lang_cat">
-                            <label>{{el.Lang_cat}}</label>
-                        </div>
-                        <div class="soft_cat">
-                            <label>{{el.Soft_cat}}</label>
-                        </div>
-                        <div class="author">
-                            <label>{{el.Author}}</label>
-                        </div>
-                    </nav>
-                </td>
-
+    <table>
+        <tr>
+            <td id="tdfirst" valign="top">
+                <div class="label-menu"> <label>Категории софта</label></div>
+                <div class="chbox">
+                    <div> <input type="checkbox" id="cb1"> <label for="cb1">Backend</label> </div>
+                    <div> <input type="checkbox" id="cb2"> <label for="cb2">Frontend</label> </div>
+                </div>
                 
-            </tr>
-        </table>
-
-    {% endfor %}
-
+                <div class="label-menu"> <label>Языки программирования</label> </div>
+                <div class="chbox">
+                    <div> <input type="checkbox" id="cb1"> <label for="cb1">C#</label> </div>
+                    <div> <input type="checkbox" id="cb2"> <label for="cb2">C++</label> </div>
+                    <div> <input type="checkbox" id="cb3"> <label for="cb3">Java</label> </div>
+                </div>
+            </td>
+    
+            <td>
+                <table>                       
+                        {% for el in anketas %}
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="photo" style="margin-top: 15px;">
+                                            <img src="{{el.Photo.url}}" width="250">
+                                        </div>
+                                    </td>
+                                    <td valign="top">
+                                        <div class="anketa" style="margin-top: 15px">
+                                            <div class="tittle">
+                                                <h5>{{el.Tittle}}</h5>
+                                            </div>
+                                            <div class="text">
+                                                <label>{{el.Text}}</label>
+                                            </div>
+                                            <div class="status">
+                                                <label>{{el.Status}}</label>
+                                            </div>
+                                            <div class="lang_cat">
+                                                <label>{{el.Lang_cat}}</label>
+                                            </div>
+                                            <div class="soft_cat">
+                                                <label>{{el.Soft_cat}}</label>
+                                            </div>
+                                            <div class="author">
+                                                <label>{{el.Author}}</label>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        {% endfor %}
+                </table>
+            </td>
+        </tr>
+    </table>
 
 </body>
 </html>
