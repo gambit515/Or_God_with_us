@@ -2,6 +2,19 @@ body {
   font-size: 16px;
   height: auto;
   margin: 0;
+  background-color: none;
+}
+
+#ttablee {
+  background-color: rgb(255, 255, 198);
+}
+
+.verticalline {
+    border-left: 6px solid black;
+    height: inherit;
+    position: absolute;
+    left: 50%;
+    top: 0;
 }
 
 #tdfirst {

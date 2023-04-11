@@ -38,7 +38,10 @@
          </nav>
     </header>
     
-    <table>
+    <div class="verticalline"></div>
+    <!--<div style="border-left: 3px solid black; padding-left: 225px;"></div>-->
+
+    <table id="ttablee">
         <tr>
             <td id="tdfirst" valign="top">
                 <div class="label-menu"> <label>Категории софта</label></div>
@@ -64,6 +67,7 @@
                                         <div class="photo" style="margin-top: 15px;">
                                             <img src="{{el.Photo.url}}" width="250">
                                         </div>
+                                        
                                     </td>
                                     <td valign="top">
                                         <div class="anketa" style="margin-top: 15px">
@@ -85,8 +89,10 @@
                                             <div class="author">
                                                 <label>{{el.Author}}</label>
                                             </div>
+                                            
                                         </div>
                                     </td>
+                                    <hr style="border: 1px solid black;">
                                 </tr>
                             </table>
                         {% endfor %}
