@@ -16,47 +16,57 @@
 
 <body>
 
-    <nav class="shapka">
-        <div class="logo"  >
-            <img src="{% static 'main/images/logo.png' %}" width="100px">
-            <div class="text-sh">
-                <ul>
-                    <li><a href="#">Создать заказ</a></li>
-                    <li><a href="#">Найти специалиста</a></li>
-                    <li><a href="#">Войти</a></li>
-                    <li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
-                </ul>
-            </div>
-        </div>
-
-        
-
-    </nav>
+    <header>
+        <div class="logo">
+         <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}"alt="" width="60"/></a>
+       </div>
+         <nav class="text-sh">
+           <ul>
+                 <li><a href="#">Создать заказ</a></li>
+                 <li><a href="#">Найти специалиста</a></li>
+                 <li><a href="#">Войти</a></li>
+               <li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
+           </ul>
+         </nav>
+    </header>
     
+
     {% for el in anketas %}
-    <nav class="anketa">
-        <div class="photo">
-            <img src="{{el.Photo.url}}">
-        </div>
-        <div class="tittle">
-            <p>{{el.Tittle}}</p>
-        </div>
-        <div class="text">
-            <p>{{el.Text}}</p>
-        </div>
-        <div class="status">
-            <p>{{el.Status}}</p>
-        </div>
-        <div class="lang_cat">
-            <p>{{el.Lang_cat}}</p>
-        </div>
-        <div class="soft_cat">
-            <p>{{el.Soft_cat}}</p>
-        </div>
-        <div class="author">
-            <p>{{el.Author}}</p>
-        </div>
-    </nav>
+
+        <table>
+            <tr>
+                <td>
+                    <nav class="anketa">
+                        <div class="photo">
+                            <img src="{{el.Photo.url}}" width="300">
+                        </div>
+                        <div class="tittle">
+                            <h5>{{el.Tittle}}</h5>
+                        </div>
+                        <div class="text">
+                            <label>{{el.Text}}</label>
+                        </div>
+                        <div class="status">
+                            <label>{{el.Status}}</label>
+                        </div>
+                        <div class="lang_cat">
+                            <label>{{el.Lang_cat}}</label>
+                        </div>
+                        <div class="soft_cat">
+                            <label>{{el.Soft_cat}}</label>
+                        </div>
+                        <div class="author">
+                            <label>{{el.Author}}</label>
+                        </div>
+                    </nav>
+                </td>
+
+                
+            </tr>
+        </table>
+
     {% endfor %}
+
+
 </body>
 </html>
