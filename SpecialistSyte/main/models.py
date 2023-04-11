@@ -7,10 +7,11 @@ class Users(models.Model):
     Email = models.EmailField('Почта',max_length=254)
     SerName = models.CharField('Фамилия',max_length=50)
     Name = models.CharField('Имя',max_length=50)
+    Patronymic = models.CharField('Отчество', max_length=50)
     UserType = models.CharField('Тип пользователя',max_length=50)
     Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/")
-    Birth_date = models.DateTimeField('Дата рождения')
     Time_create = models.DateTimeField('Время создания',auto_now_add=True)
+    Notes = models.TextField('Краткое описание',max_length = 500,null=True)
 
     def __str__(self):
         return self.Login
@@ -19,13 +20,15 @@ class Users(models.Model):
         verbose_name_plural = "Пользователи сайта"
         ordering = ['Login']
 class Anketa(models.Model):
-    Tittle = models.CharField('Название анкеты',max_length=50)
-    Text = models.TextField('Текст анкеты',max_length=500)
-    Status = models.CharField('Статус',max_length=50)
+    Tittle = models.CharField('Название анкеты',max_length=100)
+    Text = models.TextField('Текст анкеты',max_length=1000)
     Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/")
     Lang_cat = models.ForeignKey('Lang_categori',on_delete=models.PROTECT,verbose_name="Язык программирования")
     Soft_cat = models.ForeignKey('Soft_categori', on_delete=models.PROTECT, verbose_name="Категория софта")
     Author = models.ForeignKey('Users', on_delete=models.PROTECT, verbose_name="Автор анкеты")
+    Place = models.CharField('Место оказания услуг', max_length=100,null=True)
+    Price = models.IntegerField('Стоимость оказания услуг',null=True)
+    Time = models.CharField('Сроки оказания услуг',max_length=50,null=True)
 
     def __str__(self):
         return self.Tittle
