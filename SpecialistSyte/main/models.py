@@ -7,9 +7,9 @@ class Users(models.Model):
     Email = models.EmailField('Почта',max_length=254)
     SerName = models.CharField('Фамилия',max_length=50)
     Name = models.CharField('Имя',max_length=50)
-    Patronymic = models.CharField('Отчество',max_length=50)
     UserType = models.CharField('Тип пользователя',max_length=50)
     Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/")
+    Birth_date = models.DateTimeField('Дата рождения')
     Time_create = models.DateTimeField('Время создания',auto_now_add=True)
 
     def __str__(self):

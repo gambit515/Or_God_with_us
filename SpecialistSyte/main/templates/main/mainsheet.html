@@ -1,37 +1,61 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<meta charset="UTF-8">
-	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900'
-	rel='stylesheet' type='text/css'>
-	<link href="{% static 'main/css/mainsheet.css' %}" rel="stylesheet" type="text/css" media="all" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="style.css" >
-		<title>BeeBuzz</title>
 
-<header>
-  <div class="logo">Логотип</div>
-  <nav>
-    <ul>
-      <li><a href="#">Создать заказ</a></li>
-      <li><a href="#">Найти специалиста</a></li>
-      <li><a href="#">Войти</a></li>
-      <li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
-    </ul>
-  </nav>
-</header>
-    <body>
-    {% for el in anketas %}
-        <div>
-            <img src="{{el.Photo.url}}">
-            <h3>{{el.Tittle}}</h3>
-            <h3>{{el.Text}}</h3>
-            <h3>{{el.Status}}</h3>
-            <h3>{{el.Lang_cat}}</h3>
-            <h3>{{el.Soft_cat}}</h3>
-            <h3>{{el.Author}}</h3>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>BeeBuzz</title>
+    <link rel="stylesheet" href="{% static 'main/css/vivod_BD.css' %}">
+</head>
+
+
+<body>
+
+    <nav class="shapka">
+        <div class="logo">
+            <img src="{% static 'main/images/logo.png' %}" width="100px">
         </div>
+
+        <div class="text-sh">
+            <ul>
+                <li><a href="#">Создать заказ</a></li>
+                <li><a href="#">Найти специалиста</a></li>
+                <li><a href="#">Войти</a></li>
+                <li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
+            </ul>
+        </div>
+
+    </nav>
+    
+    {% for el in anketas %}
+    <nav class="anketa">
+        <div class="photo">
+            <img src="{{el.Photo.url}}">
+        </div>
+        <div class="tittle">
+            <p>{{el.Tittle}}</p>
+        </div>
+        <div class="text">
+            <p>{{el.Text}}</p>
+        </div>
+        <div class="status">
+            <p>{{el.Status}}</p>
+        </div>
+        <div class="lang_cat">
+            <p>{{el.Lang_cat}}</p>
+        </div>
+        <div class="soft_cat">
+            <p>{{el.Soft_cat}}</p>
+        </div>
+        <div class="author">
+            <p>{{el.Author}}</p>
+        </div>
+    </nav>
     {% endfor %}
-    </body>
+</body>
 </html>
