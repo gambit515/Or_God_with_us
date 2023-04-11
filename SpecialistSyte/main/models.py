@@ -20,7 +20,7 @@ class Users(models.Model):
         ordering = ['Login']
 class Anketa(models.Model):
     Tittle = models.CharField('Название анкеты',max_length=50)
-    Text = models.CharField('Текст анкеты',max_length=50)
+    Text = models.TextField('Текст анкеты',max_length=500)
     Status = models.CharField('Статус',max_length=50)
     Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/")
     Lang_cat = models.ForeignKey('Lang_categori',on_delete=models.PROTECT,verbose_name="Язык программирования")
