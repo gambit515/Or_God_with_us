@@ -5,35 +5,75 @@ const UserInput = document.querySelector('#user');
 const passwordInput = document.querySelector('#password');
 const DpasswordInput = document.querySelector('#Dpassword');
 const MailInput = document.querySelector('#mail');
-const RadiosInput = document.querySelector('#exampleRadios1');
+const RadiosInput1 = document.querySelector('#exampleRadios1');
+const RadiosInput2 = document.querySelector('#exampleRadios2');
+const BirthDayInput = document.querySelector('#BirthDay');
 const msg = document.querySelector('.msg');
 
 
-
+//Общий код проверки всех полей:
 
 //запуск функции по нажатию кнопки
 myForm.addEventListener('submit', onSubmit);
 
-//проверка на соответствие паролей
+
 function onSubmit(e){
-    console.log(passwordInput.value);
+    
+   //e.preventDefault();
 
-    if(passwordInput.value === DpasswordInput.value){
-        console.log('success');
-
-    }else {
-
+    if(UserInput.value === ""){
+        e.preventDefault();
+        msg.classList.add('error');
+        msg.innerHTML = 'Не введено поле \"имя пользователя\"!';
+        setTimeout(()=> {
+            msg.classList.remove('error');
+            msg.innerHTML = '';
+        }, 3000);
+        
+    }else if (passwordInput.value === "" || DpasswordInput.value === "") {
     e.preventDefault();
     msg.classList.add('error');
-    msg.innerHTML = 'Пароль не соответствует!';
-    setTimeout(()=> {
+    msg.innerHTML = 'Поля c паролями не должны быть пустыми!';
+    setTimeout(() => {
         msg.classList.remove('error');
         msg.innerHTML = '';
     }, 3000);
-    }
+    } else if (passwordInput.value !== DpasswordInput.value) {
+    e.preventDefault();
+    msg.classList.add('error');
+    msg.innerHTML = 'Пароли не совпадают!';
+    setTimeout(() => {
+        msg.classList.remove('error');
+        msg.innerHTML = '';
+    }, 3000);
+    } else if(MailInput.value === ""){
+        e.preventDefault();
+        msg.classList.add('error');
+        msg.innerHTML = 'Не введено поле \"E-mail\"!';
+        setTimeout(()=> {
+            msg.classList.remove('error');
+            msg.innerHTML = '';
+        }, 3000);
+    }else if(BirthDayInput.value === ""){
+        e.preventDefault();
+        msg.classList.add('error');
+        msg.innerHTML = 'Не введено поле \"Дата рождения\"!';
+        setTimeout(()=> {
+            msg.classList.remove('error');
+            msg.innerHTML = '';
+        }, 3000);
+       
+    } else {
+        console.log(UserInput.value);
+        console.log(passwordInput.value);
+        console.log(DpasswordInput.value);
+        console.log(MailInput.value);
+
+        if(RadiosInput1.checked){
+            console.log(RadiosInput1.value);
+        }else {
+            console.log(RadiosInput2.value); 
+        }
+        console.log(BirthDayInput.value);
+    } 
 }
-
-
-
-
-
