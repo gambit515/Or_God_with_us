@@ -1,6 +1,12 @@
 body {
   margin: 0;
+  /*background-color: #f8ed21;*/
+  background-color: rgb(255, 255, 245);
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  border-left: 10px solid #222222;
+  border-right: 10px solid #222222;
 }
+
 
 .search-box {
     display: flex;
@@ -24,16 +30,10 @@ body {
     transition: .4s;
 }
 
-.lp {
-    width: 500px;
-    height: 200px;
-}
-
 .lp_lab {
-    font-size: 20px;
-    font-family: sans-serif;
-    text-align: center;
-    }
+    font-size: 30px;
+    width: auto;
+}
 
 /*Блоки*/
    .about{
@@ -49,7 +49,7 @@ body {
 .grid{
   width: 20%; /* ширина белого блока */
   float: left; /* выстраивание в ряд трех белых блоков */
-  background-color: #f6ff00; /* цвет блока */
+  background-color: white; /* цвет блока */
   border-radius: 20px; /*Закругленные края блока*/
   margin: 0 1.5% 0 1.5%; /* отступы для белых блоков */
   border: 1px solid black;
@@ -81,15 +81,16 @@ body {
  /*Подвал с детьми*/
 .podval {
 
-  background-color: #f6ff00;
+  background-color: #222222;
   margin: 0 auto;
-  display: flex;
+  font-size: 20px;
+  color: #fbfbfb;
+  text-align: center;
   max-width: 100%;
-  padding: 10px;
-  width: 100%;
+  padding: 7px;
+  width: auto;
   
 }
-
 
 
 
@@ -101,24 +102,30 @@ body {
 }
 
 .namelogo {
-  font-size: 20px;
-  margin-left: 40px;
+  font-size: 28px;
+  margin-left: 65px;
   font-weight: bold;
+  color: #fbfbfb;
 }
 
 .namelogo2 {
-  margin-left: 15px;
+  font-size: 20px;
+  margin-left: 35px;
+  color: #fbfbfb;
 }
+
+
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: yellow;
+  background-color: #222222;
   padding: 10px;
-  width: 100%;
-  height: 60px;
+  width: auto;
+  height: 70px;
 }
+
 
 .text-sh ul {
   list-style: none;
@@ -128,12 +135,20 @@ header {
 }
 
 .text-sh li {
-
   margin-right: 20px;
 }
 
 .text-sh a {
   font-size: 18px;
-  color: black;
+  color: #fbfbfb;
   text-decoration: none;
+}
+
+#login {
+  font-size: 20px;
+  color: #222222;
+  font-weight:  bold;
+  padding: 10px 40px 10px 40px;
+  background-color: #fbfbfb;
+  border: 3px solid black;
 }
