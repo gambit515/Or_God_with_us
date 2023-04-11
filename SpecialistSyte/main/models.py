@@ -18,4 +18,39 @@ class Users(models.Model):
         verbose_name = "Пользователи сайта"
         verbose_name_plural = "Пользователи сайта"
         ordering = ['Login']
+class Anketa(models.Model):
+    Tittle = models.CharField('Название анкеты',max_length=50)
+    Text = models.CharField('Текст анкеты',max_length=50)
+    Status = models.CharField('Статус',max_length=50)
+    Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/")
+    Lang_cat = models.ForeignKey('Lang_categori',on_delete=models.PROTECT,verbose_name="Язык программирования")
+    Soft_cat = models.ForeignKey('Soft_categori', on_delete=models.PROTECT, verbose_name="Категория софта")
+    Author = models.ForeignKey('Users', on_delete=models.PROTECT, verbose_name="Автор анкеты")
 
+    def __str__(self):
+        return self.Tittle
+    class Meta:
+        verbose_name = "Анкеты пользователей"
+        verbose_name_plural = "Анкеты пользователей"
+        ordering = ['Tittle']
+
+class Lang_categori(models.Model):
+    Tittle = models.CharField('Язык программирования',max_length=50)
+
+    def __str__(self):
+        return self.Tittle
+    class Meta:
+        verbose_name = "Языки программирования"
+        verbose_name_plural = "Языки программирования"
+        ordering = ['Tittle']
+
+
+class Soft_categori(models.Model):
+    Tittle = models.CharField('Категории софта',max_length=50)
+
+    def __str__(self):
+        return self.Tittle
+    class Meta:
+        verbose_name = "Категории софта"
+        verbose_name_plural = "Категории софта"
+        ordering = ['Tittle']
