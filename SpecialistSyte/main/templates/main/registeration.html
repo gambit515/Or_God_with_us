@@ -13,6 +13,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
 
     <title> Регистрация в BeeBuzz.NET</title>
+	
+
+<!--src="{% static 'main/js/Animation.js' %}"-->
+
+	
+
     <link href="{% static 'main/css/register_1.css' %}" rel="stylesheet">
 	<link rel="stylesheet" href="register_1.css">
 </head>
@@ -36,8 +42,8 @@
 		</table>
 	</nav>
 
-	<nav class="reg">
-		<div class="register">
+	<nav class="reg" >
+		<div class="register"  id="animated-element">
 			<div class="msg"></div>
 			<form id = "form-group" method="post" enctype="multipart/form-data">
 				{% csrf_token %}
@@ -143,16 +149,27 @@
 									-->
 									
 				<!-- Работающая кнопка -->
-				<input class="button-reg" type="submit" value="Зарегистрироваться">
+				<input class="button-reg" type="submit" value="Зарегистрироваться"  >
 			</form>
+			
 		</div>
+		<script src="{% static 'main/js/animation.js' %}"> 
+		
+		
+		
+		
+		</script>
 	</nav>
 	
 
 
 		<!-- {% static 'main/js/registration_1.js' %} -->
-	<script src="{% static 'main/js/registration_1.js' %}"></script>
+		
+		
 
+
+	<script src="{% static 'main/js/registration_1.js' %}"> </script>
+	
 	<div class="podval">
         <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
     </div>

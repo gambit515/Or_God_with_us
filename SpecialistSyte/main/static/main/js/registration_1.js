@@ -10,7 +10,7 @@ const RadiosInput2 = document.querySelector('#exampleRadios2');
 const BirthDayInput = document.querySelector('#BirthDay');
 const msg = document.querySelector('.msg');
 
-
+/*
 console.log(UserInput);
 console.log(passwordInput);
 console.log(DpasswordInput);
@@ -19,6 +19,7 @@ console.log(RadiosInput1);
 console.log(RadiosInput2);
 console.log(BirthDayInput);
 console.log(msg);
+*/
 
 
 //Общий код проверки всех полей:
@@ -74,6 +75,7 @@ function onSubmit(e){
         }, 3000);
        
     } else {
+        /*
         console.log(UserInput.value);
         console.log(passwordInput.value);
         console.log(DpasswordInput.value);
@@ -85,5 +87,8 @@ function onSubmit(e){
             console.log(RadiosInput2.value); 
         }
         console.log(BirthDayInput.value);
+        */
     } 
 }
+
+

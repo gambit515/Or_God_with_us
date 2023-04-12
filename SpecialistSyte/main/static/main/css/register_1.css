@@ -5,7 +5,17 @@ body {
     font-family: 'Sofia Sans Condensed', sans-serif;
     border-left: 10px solid #222222;
     border-right: 10px solid #222222;
+
   }
+
+  
+  #animated-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease-in-out;
+
+  }
+  
 
     .beebuzz {
         display: flex;
@@ -49,6 +59,7 @@ body {
        width: 400px;
        border-radius: 15px;
        padding: 10px;
+
     }
 
     .vvod1 {
