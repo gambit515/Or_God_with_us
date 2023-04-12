@@ -48,14 +48,14 @@
     <table style="padding-bottom: 40px;">
         <tr>
             <td id="tdfirst" valign="top">
-                {% if cat_selected == 0 %}
+                {% if soft_cat_selected == 0 and lang_cat_selected == 0 %}
                     <li>Категории софта и языки исполнения</li>
                 {% else %}
                     <li><a href="{% url 'main' %}">Категории софта</a></li>
                 {% endif %}
 
                 {% for c in soft_cat %}
-                    {% if c.pk == cat_selected %}
+                    {% if c.pk == soft_cat_selected %}
                         <li>{{c.Tittle}}</li>
                     {% else %}
                         <li><a href="{{ c.get_absolute_url }}">{{c.Tittle}}</a> </li>
@@ -63,7 +63,7 @@
                 {% endfor %}
 
                 {% for c in lang_cat %}
-                    {% if c.pk == cat_selected %}
+                    {% if c.pk == lang_cat_selected %}
                         <li>{{c.Tittle}}</li>
                     {% else %}
                         <li><a href="{{ c.get_absolute_url }}">{{c.Tittle}}</a> </li>
