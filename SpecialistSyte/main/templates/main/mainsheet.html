@@ -42,7 +42,6 @@
                 {% else %}
                 <li><a id="login" href="{% url 'log' %}">Войти</a></li>
                 {% endif %}
-                <li>{{request.user}}</li>
 
                 <!--<li><a href="#">Войти</a></li>
         <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
@@ -54,9 +53,9 @@
         <tr>
             <td id="tdfirst" valign="top">
                 {% if soft_cat_selected == 0 and lang_cat_selected == 0 %}
-                    <li>Категории софта и языки исполнения</li>
+                    <li>Все анкеты</li>
                 {% else %}
-                    <li><a href="{% url 'main' %}">Категории софта</a></li>
+                    <li><a href="{% url 'main' %}">Все анкеты</a></li>
                 {% endif %}
 
                 {% for c in soft_cat %}
