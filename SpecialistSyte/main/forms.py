@@ -1,13 +1,14 @@
 from .models import Users
+from django import forms
 from django.forms import ModelForm, TextInput, EmailInput, Textarea, ClearableFileInput, ImageField
 
+class PostForm(forms.ModelForm):
 
-class TaskForm(ModelForm):
     class Meta:
         model = Users
         fields = ["Login","Password","Email","SerName","Name","Photo","Notes","Patronymic","UserType"]
         widgets = {
-            "Login":TextInput(attrs={
+            "Login": TextInput(attrs={
                 'class': 'vvod',
                 'type': 'text',
                 'placeholder': 'Введите псевдоним пользователя',
@@ -61,7 +62,7 @@ class TaskForm(ModelForm):
                 'name': "Photo",
                 'id': 'id_Photo',
                 'accept': "image/*",
-                'required':"",
+                'required': "",
             }),
             "Notes": Textarea(attrs={
                 'class': 'vvod',

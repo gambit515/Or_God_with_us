@@ -1,7 +1,18 @@
 from django.shortcuts import render, redirect
-from .models import Anketa
-from .forms import TaskForm
+from django.views.generic import ListView, CreateView
+from django.urls import reverse_lazy
+from .models import Anketa, Users
+from .forms import PostForm
 
+class StartPageView(ListView):
+    model = Users
+    template_name = 'main/startsheet.html'
+
+class CreatePostView(CreateView): # new
+    model = Users
+    form_class = PostForm
+    template_name = 'main/registeration.html'
+    success_url = reverse_lazy('main')
 
 def createanketas(request):
     return render(request, 'main/createanketas.html')
@@ -10,23 +21,6 @@ def createanketas(request):
 def mainsheet(request):
     anketas =  Anketa.objects.all()
     return render(request, 'main/mainsheet.html',{'anketas':anketas})
-
-
-def registration(request):
-    error = ''
-    if request.method == 'POST':
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('main')
-        else:
-            error = 'Форма была неверной'
-    form = TaskForm
-    context = {
-        'form': form,
-        'error': error
-    }
-    return render(request, 'main/registeration.html',context)
 
 
 def startsheet(request):
