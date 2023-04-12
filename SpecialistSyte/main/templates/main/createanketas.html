@@ -1,88 +1,98 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Регистрация в BeeBuzz.NET</title>
-	<!--<link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
-	<link rel="stylesheet" href="libs/bootstrap-grid.min.css">-->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="{% static 'main/css/register_1.css' %}" rel="stylesheet">
-	<link rel="stylesheet" href="register_1.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
 
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
+
+    <title> Регистрация в BeeBuzz.NET</title>
+    <link href="{% static 'main/css/register_1.css' %}" rel="stylesheet">
+	<link rel="stylesheet" href="register_1.css">
 </head>
+
 
 <body>
 
-
+	<span>{{ error }}</span>
 	<nav class="beebuzz">
 		<div class="beebuzz_name">
-			<h1>Регистрация в BeeBuzz.NET</h1>
+			<h1>Создание анкеты на BeeBuzz.NET</h1>
 		</div>
 	</nav>
 
 	<nav class="reg">
 		<div class="register">
 			<div class="msg"></div>
-			<form id = "form-group" method="post">
+			<form id = "form-group" method="post" enctype="multipart/form-data">
 				{% csrf_token %}
 				<!-- Поставил ID элементам так как использую для скрипта-->
 
 				<div class="form-group">
 					<label class="header">Фото анкеты:</label>
-
-					<input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+					{{ form.Photo }}
 				</div>
 
 				<div class="form-group">
-					<div class="label-reg"> <label for = "user">Заголовок анкеты</label> </div>
-					<input class="vvod" type="text" placeholder="Введите заголовок анкеты" id = "user_psevdomin" autocomplete="user_psevdomin">
+					<div class="label-reg"> <label for = "family-user">Заголовок анкеты</label> </div>
+					{{ form.Tittle }}
+				</div>
+
+				<div class="form-group">
+					<div class="label-reg"> <label for = "name-user">Текст анкеты</label> </div>
+					{{ form.Text }}
+				</div>
+
+				<div class="form-group">
+					<div class="label-reg"> <label for = "otchestvo-user">Место исполнения</label> </div>
+					{{ form.Place }}
+				</div>
+
+				<div class="form-group">
+					<div class="label-reg"> <label for = "user">Плата за выполнение</label> </div>
+					{{ form.Price }}
 
 				</div>
 
 				<div class="form-group">
-					<div class="label-reg"> <label for = "name-user">Содержание анкеты</label> </div>
-                    <textarea placeholder="Введите содержание анкеты"></textarea>
+					<div  class="label-reg"> <label for = "user">Время на выполнение</label> </div>
+					{{ form.Time }}
 				</div>
 
 				<div class="form-group">
-					<div class="label-reg"> <label for = "family-user">Место оказания услуг</label> </div>
-					<input class="vvod" type="text" placeholder="Введите место оказания услуг" id = "userfamily" autocomplete="userfamily">
-				</div>
-
-                <div class="form-group">
-					<div class="label-reg"> <label for = "name-user">Стоимость оказания услуг</label> </div>
-                    <textarea placeholder="Введите стоимость оказания услуг"></textarea>
-				</div>
-
-                <div class="form-group">
-					<div class="label-reg"> <label for = "name-user">Требуемый язык программирования для исполнения</label> </div>
-                    <textarea placeholder="Введите требуемый язык программирования для исполнения"></textarea>
-				</div>
-
-                <div class="form-group">
-					<div class="label-reg"> <label for = "name-user">Требуемый язык программирования для исполнения</label> </div>
-                    <textarea placeholder="Введите требуемый язык программирования для исполнения"></textarea>
-				</div>
-
-                <div class="form-group">
-					<div class="label-reg"> <label for = "name-user">Сроки оказания услуг</label> </div>
-                    <textarea placeholder="Введите сроки оказания услуг"></textarea>
+					<div  class="label-reg"> <label for = "user">Язык исполнения</label> </div>
+					{{ form.Lang_cat }}
 				</div>
 
 				<div class="form-group">
-					<div class="label-reg"> <label for = "name-user">Категория софта</label> </div>
-                    <textarea placeholder="Введите требуемую категорию софта"></textarea>
+					<div  class="label-reg"> <label for = "user">Категория софта</label> </div>
+					{{ form.Soft_cat }}
+				</div>
+
+				<div class="form-group">
+					<div  class="label-reg"> <label for = "user">Автор поста</label> </div>
+					{{ form.Author }}
 				</div>
 				<!-- Работающая кнопка -->
-				<input class="button-reg" type="submit" value="Зарегистрироваться">
+				<input class="button-reg" type="submit" value="Создать анкету">
 			</form>
 		</div>
 	</nav>
+
+
+
 		<!-- {% static 'main/js/registration_1.js' %} -->
-	<!--<script src="{% static 'main/js/registration_1.js' %}"></script>-->
+	<script src="{% static 'main/js/registration_1.js' %}"></script>
+
+	<div class="podval">
+        <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
+    </div>
 
 </body>
 </html>

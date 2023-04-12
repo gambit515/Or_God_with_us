@@ -1,5 +1,6 @@
-from .models import Users
+from .models import Users, Anketa, Soft_categori, Lang_categori
 from django import forms
+from django.core.exceptions import ValidationError
 from django.forms import ModelForm, TextInput, EmailInput, Textarea, ClearableFileInput, ImageField
 
 class PostForm(forms.ModelForm):
@@ -72,3 +73,56 @@ class PostForm(forms.ModelForm):
                 'autocomplete': 'textar'
             }),
         }
+
+class AnketaForm(forms.ModelForm):
+    Lang_cat = forms.ModelChoiceField(queryset=Lang_categori.objects.all())
+    Soft_cat = forms.ModelChoiceField(queryset=Soft_categori.objects.all())
+    Author = forms.ModelChoiceField(queryset=Users.objects.all())
+    class Meta:
+        model = Anketa
+        fields = ["Tittle","Text","Photo","Lang_cat","Soft_cat","Author","Place","Price","Time"]
+        widgets = {
+            "Tittle": TextInput(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите название анкеты',
+                'id': 'anketa_tittle',
+                'autocomplete': 'anketa_tittle'
+            }),
+            "Text": Textarea(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите текст анкеты',
+                'id': 'anketa_text',
+                'autocomplete': 'anketa_text'
+            }),
+            "Photo": ClearableFileInput(attrs={
+                'type': 'file',
+                'name': "Photo",
+                'id': 'anketa_photo',
+                'accept': "image/*",
+                'required': "",
+            }),
+            "Place": TextInput(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите место выполнения',
+                'id': 'anketa_place',
+                'autocomplete': 'anketa_place'
+            }),
+            "Price": TextInput(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите плату за выполнение',
+                'id': 'anketa_price',
+                'autocomplete': 'anketa_price'
+            }),
+            "Time": TextInput(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите сроки выполнения',
+                'id': 'anketa_price',
+                'autocomplete': 'anketa_price'
+            })
+        }
+
