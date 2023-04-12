@@ -39,7 +39,8 @@ def mainsheet(request):
         'anketas':anketas,
         'soft_cat':soft_cat,
         'lang_cat':lang_cat,
-        'cat_selected': 0,
+        'soft_cat_selected': 0,
+        'lang_cat_selected': 0,
     }
     return render(request, 'main/mainsheet.html',context)
 
@@ -69,7 +70,8 @@ def show_soft_cat(request,soft_cat_id):
         'anketas': anketas,
         'soft_cat': soft_cat,
         'lang_cat': lang_cat,
-        'cat_selected': 1,
+        'soft_cat_selected': soft_cat_id,
+        'lang_cat_selected': 0,
     }
 
     return render(request, 'main/mainsheet.html', context)
@@ -82,7 +84,8 @@ def show_lang_cat(request,lang_cat_id):
         'anketas': anketas,
         'soft_cat': soft_cat,
         'lang_cat': lang_cat,
-        'cat_selected': 1,
+        'soft_cat_selected': 0,
+        'lang_cat_selected': lang_cat_id,
     }
 
     return render(request, 'main/mainsheet.html', context)
