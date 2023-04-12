@@ -1,81 +1,117 @@
 {% load static %}
 <!DOCTYPE html>
-	<html lang="ru">
-	<head>
-		<meta charset="UTF-8">
-	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900'
-	rel='stylesheet' type='text/css'>
-	<link href="{% static 'main/css/startsheet_1.css' %}" rel="stylesheet" type="text/css" media="all" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="style.css" >
-	 <link rel="icon" href="{% static 'main/images/startsheet_1.ico' %}" type="image/x-icon">
-		<title>BeeBuzz</title>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
 
+    <title>BeeBuzz.NET</title>
+    <link rel="stylesheet" href="{% static 'main/css/startsheet_1.css' %}">
+</head>
 
-<header>
- <div class="logo">
-  <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}"alt=""/></a>
-</div>
-  <nav>
-    <ul>
-      	<li><a href="#">Создать заказ</a></li>
-      	<li><a href="#">Найти специалиста</a></li>
-      	<li><a href="#">Войти</a></li>
-		<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
-    </ul>
-  </nav>
-</header>
+<body>
+	
+	<header>
+        <div class="logo">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+                    </td>
+                    <td>
+                        <div class="namelogo"><label>BeeBuzz.NET</label></div>
+                        <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="text-sh">
+            <ul>
+                <li><a href="#">Создать заказ</a></li>
+                <li><a href="#">Найти специалиста</a></li>
+                <li><a id="login" href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Войти</a></li>
 
+                <!--<li><a href="#">Войти</a></li>
+        <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
+            </ul>
+        </div>
+    </header>
 
-<table align="center">
-			<tr>
-				<td align="center" valign="bottom">
-
-					<nav class="lp">
-						<div class="lp_lab">
-							<label>МЫ СМОЖЕМ ВАМ ПОМОЧЬ!<br>Сервис по подбору персонала<br><br><br><br></label>
-						</div>
-						<div class="search-box">
-							<input type="text" class="search-txt" placeholder="Что вы ищете?">
-						</div>
-
-					</nav>
-				</td>
-				<td>
-					<div class="image-vd">
-						<img src="{% static 'main/images/startsheet_3.png' %}" width="270" align="right">
+	<table align="center" >
+		<tr>
+			<td align="center" valign="middle" style="width: 750px;">
+				<nav class="lp">
+					<div class="lp_lab">
+						<label>Хотите работу, которая развивает ваши знания и навыки?<br>Мы сможем Вам помочь!<br><br></label>
 					</div>
-				</td>
-			</tr>
-		</table>
+					<div class="search-box">
+						<input type="text" class="search-txt" placeholder="Что вы ищете?">
+					</div>
+				</nav>
+			</td>
+			<td align="left" valign="bottom" style="width: 370px;">
+				<div class="image-vd">
+					<img src="{% static 'main/images/danya.png' %}" width="270">
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	<hr style="border: 2px solid #222222; width: auto; margin-top: 30px; margin-bottom: 30px;">
 
+	<table align="center">
+		<tr>
+			<td align="right" valign="bottom" style="width: 370px;">
+				<div class="image-vd2">
+					<img src="{% static 'main/images/egorik.png' %}" width="320">
+				</div>
+			</td>
+			<td align="center" valign="middle" style="width: 750px;">
+				<nav class="lp2" style="margin-left: 15px;">
+					<div class="lp_lab">
+						<label>У нас открыты вакансии в разных областях!<br>Выбирай уже сейчас
+							к какой команде профессианолов ты хочешь присоединиться!<br><br></label>
+					</div>
+					<input class="button-log" type="submit" value="Войти в профиль">
+				</nav>
+			</td>
+		</tr>
+	</table>
 
-<section class="about">
-<div class="wrap_about">
+	<hr style="border: 2px solid #222222; width: auto; margin-top: 30px; margin-bottom: 30px;">
 
-<article class="grid">
-  <img src="{% static 'main/images/startsheet_4.jpeg' %}" width="220px" height="208px" alt="">
-    <p>Организовываем уборку разного уровня загрязнения в любых помощениях. <a href="#"> Узнать подробнее</a></p>
-</article>
-<article class="grid">
-  <img  src="{% static 'main/images/startsheet_5.jpg' %}" width="220px" height="208px" alt="">
-    <p>Организовываем ремонт разного уровня сложности в любых помощениях. <a href="#">Узнать подробнее</a></p>
-</article>
-<article class="grid">
-  <img src="{% static 'main/images/startsheet_6.jpg' %}" width="220px" height="208px" alt="">
-    <p>Организовываем ремонт разного уровня сложности в любых помощениях. <a href="#">Узнать подробнее</a></p>
-</article>
-<article class="grid">
-  <img src="{% static 'main/images/startsheet_7.jpeg' %}" width="220px" height="208px" alt="">
-    <p>Организовываем уборку разного уровня загрязнения в любых помощениях. <a href="#"> Узнать подробнее</a></p>
-</article>
-<div class="clear"></div>
-</div>
-</section>
+	<section class="about" style="padding-bottom: 40px;">
+	<div class="wrap_about">
+		<article class="grid">
+		<img src="{% static 'main/images/startsheet_4.jpeg' %}" width="220px" height="208px" alt="">
+			<p>Организовываем уборку разного уровня загрязнения в любых помощениях. <a href="#"> Узнать подробнее</a></p>
+		</article>
+		<article class="grid">
+		<img  src="{% static 'main/images/startsheet_5.jpg' %}" width="220px" height="208px" alt="">
+			<p>Организовываем ремонт разного уровня сложности в любых помощениях. <a href="#">Узнать подробнее</a></p>
+		</article>
+		<article class="grid">
+		<img src="{% static 'main/images/startsheet_6.jpg' %}" width="220px" height="208px" alt="">
+			<p>Организовываем ремонт разного уровня сложности в любых помощениях. <a href="#">Узнать подробнее</a></p>
+		</article>
+		<article class="grid">
+		<img src="{% static 'main/images/startsheet_7.jpeg' %}" width="220px" height="208px" alt="">
+			<p>Организовываем уборку разного уровня загрязнения в любых помощениях. <a href="#"> Узнать подробнее</a></p>
+		</article>
+		<div class="clear"></div>
+	</div>
+	</section>
 
-  <div class="podval">
-        <p> Контактная информация: Phone:+7(902)**** ; Email: info@amoskin.com; Адрес: г. Красноярск, КрасРаб 31А; </p>
-      </div>
+    <div class="podval">
+        <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
+    </div>
 
-	</body>
-	</html>
+</body>
+</html>

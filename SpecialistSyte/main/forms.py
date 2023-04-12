@@ -1,11 +1,11 @@
 from .models import Users
-from django.forms import ModelForm, TextInput, EmailInput, ImageField, Textarea
+from django.forms import ModelForm, TextInput, EmailInput, Textarea, ClearableFileInput, ImageField
 
 
 class TaskForm(ModelForm):
     class Meta:
         model = Users
-        fields = ["Login","Password","Email","SerName","Name","Photo","Notes","Patronymic"]
+        fields = ["Login","Password","Email","SerName","Name","Photo","Notes","Patronymic","UserType"]
         widgets = {
             "Login":TextInput(attrs={
                 'class': 'vvod',
@@ -42,19 +42,32 @@ class TaskForm(ModelForm):
                 'id': 'username',
                 'autocomplete': 'username'
             }),
+            "UserType": TextInput(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите 1 или 2',
+                'id': 'usertype',
+                'autocomplete': 'usertype'
+            }),
             "Patronymic": TextInput(attrs={
                 'class': 'vvod',
                 'type': 'text',
-                'placeholder': 'Введите ваше имя',
-                'id': 'username',
-                'autocomplete': 'username'
+                'placeholder': 'Введите ваше отчество',
+                'id': 'otchestvoname',
+                'autocomplete': 'otchestvoname'
             }),
-            "Photo": ImageField(),
+            "Photo": ClearableFileInput(attrs={
+                'type': 'file',
+                'name': "Photo",
+                'id': 'id_Photo',
+                'accept': "image/*",
+                'required':"",
+            }),
             "Notes": Textarea(attrs={
                 'class': 'vvod',
                 'type': 'text',
-                'placeholder': 'Введите ваше имя',
-                'id': 'username',
-                'autocomplete': 'username'
+                'placeholder': 'Введите описание',
+                'id': 'textar',
+                'autocomplete': 'textar'
             }),
         }

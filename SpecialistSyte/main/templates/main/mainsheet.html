@@ -1,16 +1,19 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <title>BeeBuzz</title>
-    <link rel="stylesheet" href="{% static 'main/css/vivod_BD.css' %}">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
+
+    <title>BeeBuzz.NET</title>
+    <link rel="stylesheet" href="{% static 'main/css/mainsheet_1.css' %}">
 </head>
 
 
@@ -19,26 +22,30 @@
     <header>
         <div class="logo">
             <table>
-                <td>
-                    <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70"/></a>
-                </td>
-                <td>
-                    <div class="namelogo"><label>BeeBuzz.NET</label></div>
-                    <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
-                </td>
+                <tr>
+                    <td>
+                        <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+                    </td>
+                    <td>
+                        <div class="namelogo"><label>BeeBuzz.NET</label></div>
+                        <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
+                    </td>
+                </tr>
             </table>
-       </div>
-         <nav class="text-sh">
-           <ul>
-                 <li><a href="#">Создать заказ</a></li>
-                 <li><a href="#">Найти специалиста</a></li>
-                 <li><a href="#">Войти</a></li>
-               <li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>
-           </ul>
-         </nav>
+        </div>
+        <div class="text-sh">
+            <ul>
+                <li><a href="#">Создать заказ</a></li>
+                <li><a href="#">Найти специалиста</a></li>
+                <li><a id="login" href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Войти</a></li>
+
+                <!--<li><a href="#">Войти</a></li>
+        <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
+            </ul>
+        </div>
     </header>
     
-    <table>
+    <table style="padding-bottom: 40px;">
         <tr>
             <td id="tdfirst" valign="top">
                 <div class="label-menu"> <label>Категории софта</label></div>
@@ -64,6 +71,7 @@
                                         <div class="photo" style="margin-top: 15px;">
                                             <img src="{{el.Photo.url}}" width="250">
                                         </div>
+                                        
                                     </td>
                                     <td valign="top">
                                         <div class="anketa" style="margin-top: 15px">
@@ -85,8 +93,10 @@
                                             <div class="author">
                                                 <label>{{el.Author}}</label>
                                             </div>
+                                            
                                         </div>
                                     </td>
+                                    <hr style="border: 1px solid black;">
                                 </tr>
                             </table>
                         {% endfor %}
@@ -95,5 +105,8 @@
         </tr>
     </table>
 
+    <div class="podval">
+        <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
+    </div>
 </body>
 </html>
