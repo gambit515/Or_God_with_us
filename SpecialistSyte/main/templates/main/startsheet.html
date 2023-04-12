@@ -23,7 +23,7 @@
             <table>
                 <tr>
                     <td>
-                        <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+                        <a href="{% url 'start' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
                     </td>
                     <td>
                         <div class="namelogo"><label>BeeBuzz.NET</label></div>
@@ -34,9 +34,9 @@
         </div>
         <div class="text-sh">
             <ul>
-                <li><a href="{% url 'anket' %}">Создать заказ</a></li>
-                <li><a href="#">Найти специалиста</a></li>
-                <li><a id="login" href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Войти</a></li>
+                <li><a href="{% url 'anket' %}">Создать заявку</a></li>
+                <li><a href="{% url 'main' %}">Найти специалиста</a></li>
+                <li><a id="login" href="{% url 'reg' %}">Войти</a></li>
 
                 <!--<li><a href="#">Войти</a></li>
         <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
@@ -46,14 +46,18 @@
 
 	<table align="center" >
 		<tr>
-			<td align="center" valign="middle" style="width: 750px;">
+			<td align="center" valign="bottom" style="width: 750px; ">
 				<nav class="lp">
 					<div class="lp_lab">
 						<label>Хотите работу, которая развивает ваши знания и навыки?<br>Мы сможем Вам помочь!<br><br></label>
 					</div>
+
+					<input class="button-o-nas" type="submit" value="Подробнее о нас">
+					<!--
 					<div class="search-box">
 						<input type="text" class="search-txt" placeholder="Что вы ищете?">
 					</div>
+				-->
 				</nav>
 			</td>
 			<td align="left" valign="bottom" style="width: 370px;">
@@ -87,6 +91,8 @@
 
 	<hr style="border: 2px solid #222222; width: auto; margin-top: 30px; margin-bottom: 30px;">
 
+
+	<!--
 	<section class="about" style="padding-bottom: 40px;">
 	<div class="wrap_about">
 		<article class="grid">
@@ -110,6 +116,9 @@
 		<div class="clear"></div>
 	</div>
 	</section>
+-->
+
+
     <div class="podval">
         <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
     </div>

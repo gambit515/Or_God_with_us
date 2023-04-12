@@ -24,7 +24,7 @@
             <table>
                 <tr>
                     <td>
-                        <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+                        <a href="{% url 'start' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
                     </td>
                     <td>
                         <div class="namelogo"><label>BeeBuzz.NET</label></div>
@@ -35,9 +35,9 @@
         </div>
         <div class="text-sh">
             <ul>
-                <li><a href="{% url 'anket' %}">Создать заказ</a></li>
-                <li><a href="#">Найти специалиста</a></li>
-                <li><a id="login" href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Войти</a></li>
+                <li><a href="{% url 'anket' %}">Создать заявку</a></li>
+                <li><a href="{% url 'main' %}">Найти специалиста</a></li>
+                <li><a id="login" href="{% url 'reg' %}">Войти</a></li>
 
                 <!--<li><a href="#">Войти</a></li>
         <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->

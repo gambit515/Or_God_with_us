@@ -22,9 +22,18 @@
 
 	<span>{{ error }}</span>
 	<nav class="beebuzz">
-		<div class="beebuzz_name">
-			<h1>Регистрация в BeeBuzz.NET</h1>
-		</div>
+		<table align="center">
+			<tr>
+				<td>
+					<a href="{% url 'start' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+				</td>
+				<td>
+					<div class="beebuzz_name">
+						<h1>Регистрация в BeeBuzz.NET</h1>
+					</div>
+				</td>
+			</tr>
+		</table>
 	</nav>
 
 	<nav class="reg">
