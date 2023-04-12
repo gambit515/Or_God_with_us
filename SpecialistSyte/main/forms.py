@@ -4,26 +4,25 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm, TextInput, EmailInput, Textarea, ClearableFileInput, PasswordInput
+from django.contrib.auth.forms import AuthenticationForm
 
 class PostForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={
-                'class': 'vvod1',
-                'type': 'password',
-                'placeholder': 'Введите пароль',
-                'id': 'password',
-                'autocomplete': 'current-password'
-            }),)
     password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput(attrs={
                 'class': 'vvod1',
                 'type': 'password',
-                'placeholder': 'Введите пароль',
-                'id': 'password',
-                'autocomplete': 'current-password'
+                'placeholder': 'Введите повтор пароля',
+                'id': 'password2',
             }),)
     class Meta:
         model = User
-        fields = ['username', 'first_name','last_name', 'email']
+        fields = ['username', 'first_name','last_name', 'email','password']
         widgets = {
+            "password": PasswordInput(attrs={
+                'class': 'vvod1',
+                'type': 'password',
+                'placeholder': 'Введите пароль',
+                'id': 'password',
+            }),
             "username": TextInput(attrs={
                 'class': 'vvod',
                 'type': 'text',
@@ -58,19 +57,17 @@ class PostForm(forms.ModelForm):
         if cd['password'] != cd['password2']:
             raise forms.ValidationError('Passwords don\'t match.')
         return cd['password2']
-class UserRegistrationForm(forms.ModelForm):
-    password = forms.CharField(label='Password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput)
 
+    def save(self,commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data["password"])
+        if commit:
+            user.save()
+        return user
+class AuthUserForm(AuthenticationForm,forms.ModelForm):
     class Meta:
         model = User
-        fields = ('username', 'first_name','last_name', 'email')
-
-    def clean_password2(self):
-        cd = self.cleaned_data
-        if cd['password'] != cd['password2']:
-            raise forms.ValidationError('Passwords don\'t match.')
-        return cd['password2']
+        fields = ['username','password']
 class AnketaForm(forms.ModelForm):
     Lang_cat = forms.ModelChoiceField(queryset=Lang_categori.objects.all())
     Soft_cat = forms.ModelChoiceField(queryset=Soft_categori.objects.all())

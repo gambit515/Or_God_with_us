@@ -1,12 +1,12 @@
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
 from .models import Anketa, Soft_categori, Lang_categori
-from .forms import PostForm, AnketaForm, UserRegistrationForm
+from .forms import PostForm, AnketaForm, AuthUserForm
 
 class StartPageView(ListView):
     model = User
@@ -94,5 +94,12 @@ def show_lang_cat(request,lang_cat_id):
 
     return render(request, 'main/mainsheet.html', context)
 
-class LoginUser(LoginView):
-    template_name = 'login-form.html'
+class MyprojectLoginView(LoginView):
+    template_name = 'main/login-form.html'
+    form_class = AuthUserForm
+    success_url = reverse_lazy('main')
+    def get_success_url(self):
+        return self.success_url
+
+class Logout(LogoutView):
+    next_page = reverse_lazy('main')

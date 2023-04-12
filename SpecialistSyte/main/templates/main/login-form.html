@@ -20,8 +20,10 @@
     
     <nav class="login-form">
         <div class="login-name"><p>Вход в систему</p></div>
-
-        <div class="form-group">
+        <form id = "form-group" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <!--<div class="form-group">
             <div class="label-reg"> <label for = "email">e-mail</label> </div>
             <input class="vvod" type="email" placeholder="Введите e-mail" id = "usermail" autocomplete="usermail">
         </div>
@@ -29,7 +31,7 @@
         <div class="form-group">
             <div class="label-reg"> <label for = "password">Пароль</label> </div>
             <input class="vvod1" type="password" placeholder="Введите пароль" id = "userpassword" autocomplete="userpassword">
-        </div>
+        </div>-->
 
         <input class="button-vhod" type="submit" value="Войти">
 
@@ -39,6 +41,7 @@
                 У вас нет аккаунт в BeeBuzz.NET? <a href="#">Зарегистрироваться!</a>
             </P>
         </div>
+        </form>
     </nav>
 
 </body>
