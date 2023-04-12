@@ -103,6 +103,10 @@ header {
 }
 
 
+.text-sh li:hover {
+  color: white;
+  transform: scale(1.04);
+}
 
  /*Подвал с детьми*/
  .podval {

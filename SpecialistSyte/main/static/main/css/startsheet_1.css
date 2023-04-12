@@ -173,6 +173,11 @@ header {
   text-decoration: none;
 }
 
+.text-sh li:hover {
+  color: white;
+  transform: scale(1.04);
+}
+
 #login {
   font-size: 20px;
   color: #222222;
