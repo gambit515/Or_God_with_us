@@ -16,7 +16,7 @@ body {
 
   }
   
-
+/*
     .beebuzz {
         display: flex;
         justify-content: space-between;
@@ -26,15 +26,22 @@ body {
         width: auto;
         height: 70px;
     }
-
+*/
     .beebuzz_name {
-        color: #fbfbfb;
+        color: #222222;
         text-align: center;
         vertical-align: middle;
-        margin: auto;
         font-size: 16px;
+        margin-bottom: -20px;
+        margin: auto;
+        width: 450px;
+        text-align: center;
+        padding-top: 5px;
+        font-size: 20px;
+        
     }
 
+    
     .register {
         margin: auto;
         margin-top: 35px;
@@ -42,6 +49,9 @@ body {
         top: 50%;
         width: 450px;
         height: auto;
+        -webkit-box-shadow: 1px 0px 15px 5px rgba(34, 60, 80, 0.28);
+        -moz-box-shadow: 1px 0px 15px 5px rgba(34, 60, 80, 0.28);
+        box-shadow: 1px 0px 15px 5px rgba(34, 60, 80, 0.28)
     }
 
     .form-group {
@@ -142,9 +152,9 @@ body {
     color: #fff;
 }
 
-
 /*Подвал с детьми*/
 .podval {
+
     background-color: #222222;
     margin: 0 auto;
     font-size: 20px;
@@ -155,3 +165,71 @@ body {
     width: auto;
     
   }
+  
+  
+  
+  
+  /*Далее оформление шапки*/
+  
+  #logotip {
+    margin-left: 100px;
+  }
+  
+  .namelogo {
+    font-size: 28px;
+    margin-left: 65px;
+    font-weight: bold;
+    color: #fbfbfb;
+  }
+  
+  .namelogo2 {
+    font-size: 20px;
+    margin-left: 35px;
+    color: #fbfbfb;
+  }
+  
+  
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222222;
+    padding: 10px;
+    width: auto;
+    height: 70px;
+  }
+  
+  
+  .text-sh ul {
+    list-style: none;
+    margin-right: 70px;
+    padding: 0;
+    display: flex;
+  }
+  
+  .text-sh li {
+    margin-right: 20px;
+  }
+  
+  .text-sh a {
+    font-size: 18px;
+    color: #fbfbfb;
+    text-decoration: none;
+  }
+  
+  .text-sh li:hover {
+    color: white;
+    transform: scale(1.04);
+  }
+  
+  #login {
+    font-size: 20px;
+    color: #222222;
+    font-weight:  bold;
+    padding: 10px 40px 10px 40px;
+    background-color: #fbfbfb;
+    border: 3px solid black;
+  }
+  
+  
