@@ -37,7 +37,8 @@
             <ul>
                 <li><a href="{% url 'anket' %}">Создать заявку</a></li>
                 <li><a href="{% url 'main' %}">Найти специалиста</a></li>
-                <li><a id="login" href="{% url 'reg' %}">Войти</a></li>
+                <li><a id="login" href="{% url 'log' %}">Войти</a></li>
+                <li>{{request.user}}</li>
 
                 <!--<li><a href="#">Войти</a></li>
         <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
