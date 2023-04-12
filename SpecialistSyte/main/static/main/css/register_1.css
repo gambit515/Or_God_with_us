@@ -9,7 +9,11 @@ body {
 
     .beebuzz {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         background-color: #222222;
+        padding: 10px;
+        width: auto;
         height: 70px;
     }
 

@@ -43,23 +43,23 @@
         </div>
     </header>
 
-    <table style="height: 700px; margin: 10px 100px 10px 100px;">
+    <table style="height: 600px; margin: 20px 100px 20px 100px;">
         <tr>
-            <td align="center" valign="top" style="width: 500px;">    <!--подключить сюда картинку профиля и далее данные в lable из бд-->
-                <img src="C:\Users\Пользователь\Desktop\egorik.png" width="350px">
+            <td align="center" valign="top" style="width: 400px; ">    <!--подключить сюда картинку профиля и далее данные в lable из бд-->
+                <img src="{% static 'main/images/egorik.png' %}" width="300px">
             </td>
-            <td valign="top" style="width: 700px;">
+            <td valign="top" style="width: 550px;">
                 <div class="profile">
                     <p class="main-menu-info">
                         Псевдоним на сайте: <label class="dannye-bd">loubuii</label>
                     </p>
 
                     <p class="main-menu-info">
-                        Фио: <label class="dannye-bd">Трубинская Дарья Евгеньевна</label>
+                        ФИО пользователя: <label class="dannye-bd">Трубинская Дарья Евгеньевна</label>
                     </p>
 
                     <p class="main-menu-info">
-                        Описание пользователя: <p class="dannye-bd">DeaDушка идет за борт</p>
+                        Описание пользователя: <p class="dannye-bd-desc">DeaDушка идет за борт</p>
                     </p>
 
                     <p class="main-menu-info">
@@ -71,9 +71,16 @@
                     </p> 
                 </div>
             </td>
+            <td align="center" valign="top">
+                <input class="button-redac" type="submit" value ="Редактировать профиль">
+                <input class="button-vihod" type="submit" value="Выйти с аккаунта">
+            </td>
         </tr>
     </table>
 
+    
+    
+    
 
     <div class="podval">
         <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
