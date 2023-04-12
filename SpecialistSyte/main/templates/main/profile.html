@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
+
+    <title>BeeBuzz.NET</title>
+    <link rel="stylesheet" href="{% static 'main/css/profile_1.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+                    </td>
+                    <td>
+                        <div class="namelogo"><label>BeeBuzz.NET</label></div>
+                        <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="text-sh">
+            <ul>
+                <li><a href="#">Создать заказ</a></li>
+                <li><a href="#">Найти специалиста</a></li>
+                <li><a id="login" href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Войти</a></li>
+
+                <!--<li><a href="#">Войти</a></li>
+        <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
+            </ul>
+        </div>
+    </header>
+
+    <table style="height: 700px; margin: 10px 100px 10px 100px;">
+        <tr>
+            <td align="center" valign="top" style="width: 500px;">    <!--подключить сюда картинку профиля и далее данные в lable из бд-->
+                <img src="C:\Users\Пользователь\Desktop\egorik.png" width="350px">
+            </td>
+            <td valign="top" style="width: 700px;">
+                <div class="profile">
+                    <p class="main-menu-info">
+                        Псевдоним на сайте: <label class="dannye-bd">loubuii</label>
+                    </p>
+
+                    <p class="main-menu-info">
+                        Фио: <label class="dannye-bd">Трубинская Дарья Евгеньевна</label>
+                    </p>
+
+                    <p class="main-menu-info">
+                        Описание пользователя: <p class="dannye-bd">DeaDушка идет за борт</p>
+                    </p>
+
+                    <p class="main-menu-info">
+                        e-mail: <label class="dannye-bd">binemy72@mail.ru</label>
+                    </p>
+
+                    <p class="main-menu-info">
+                        Занятость профиля: <label class="dannye-bd">Специалист (я устал босс)</label>
+                    </p> 
+                </div>
+            </td>
+        </tr>
+    </table>
+
+
+    <div class="podval">
+        <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
+    </div>
+
+</body>
+</html>

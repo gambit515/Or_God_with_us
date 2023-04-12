@@ -58,6 +58,9 @@ def index(request):
     }
     return render(request,'main/index.html',context=context)
 
+def profile(request):
+    return render(request,'main/profile.html')
+
 def show_soft_cat(request,soft_cat_id):
     anketas = Anketa.objects.filter(Soft_cat_id=soft_cat_id)
     soft_cat = Soft_categori.objects.all()
