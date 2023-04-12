@@ -55,7 +55,7 @@ body {
   border: 1px solid black;
   min-height: 300px; /* минимальная высота белых блоков */
  }
- 
+
 .grid p { /* значения свойств для параграфа белого блока */
   color: #444444;
   font-size: 1.02em;
@@ -63,6 +63,7 @@ body {
   padding: 1em 1em 2em 1em;
   line-height: 1.9em;
  }
+ 
  .grid > h3 > p> a {
   background: #eb3f00;
   color: #ffffff;
