@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.views import LoginView, LogoutView
@@ -12,11 +13,19 @@ class StartPageView(ListView):
     model = User
     template_name = 'main/startsheet.html'
 
-class CreatePostView(CreateView): # new
+class CreatePostView(CreateView): #Класс регистрации
     model = User
     form_class = PostForm
     template_name = 'main/registeration.html'
     success_url = reverse_lazy('main')
+
+    def form_valid(self, form):
+        form_valid = super().form_valid(form)
+        username = form.cleaned_data["username"]
+        password = form.cleaned_data["password"]
+        aut_user = authenticate(username=username,password=password)
+        login(self.request, aut_user)
+        return form_valid
 
 class AnketaView(CreateView): # new
     model = Anketa
