@@ -12,12 +12,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
 
-    <title>BeeBuzz.NET</title>
+    <title>Главная страница BeeBuzz.NET</title>
     <link rel="stylesheet" href="{% static 'main/css/startsheet_1.css' %}">
 </head>
 
 <body>
 	
+	
+
 	<header>
         <div class="logo">
             <table>
@@ -49,15 +51,12 @@
 			<td align="center" valign="bottom" style="width: 750px; ">
 				<nav class="lp">
 					<div class="lp_lab">
-						<label>Хотите работу, которая развивает ваши знания и навыки?<br>Мы сможем Вам помочь!<br><br></label>
+						<label>Хотите работу, которая развивает ваши знания и навыки?<br>Мы сможем Вам помочь!<br><br><br></label>
 					</div>
 
-					<input class="button-o-nas" type="submit" value="Подробнее о нас">
-					<!--
-					<div class="search-box">
-						<input type="text" class="search-txt" placeholder="Что вы ищете?">
-					</div>
-				-->
+					<a href="{% url 'main' %}" class="button-zayvka">
+							Подобрать специалиста в своем деле
+					</a>
 				</nav>
 			</td>
 			<td align="left" valign="bottom" style="width: 370px;">
@@ -81,15 +80,37 @@
 				<nav class="lp2" style="margin-left: 15px;">
 					<div class="lp_lab">
 						<label>У нас открыты вакансии в разных областях!<br>Выбирай уже сейчас
-							к какой команде профессианолов ты хочешь присоединиться!<br><br></label>
+							к какой команде профессианолов ты хочешь присоединиться!<br><br><br></label>
 					</div>
-					<input class="button-log" type="submit" value="Войти в профиль">
+					<a href="{% url 'anket' %}" class="button-zayvka">
+						Присоединиться к команде
+					</a>					
 				</nav>
 			</td>
 		</tr>
 	</table>
 
 	<hr style="border: 2px solid #222222; width: auto; margin-top: 30px; margin-bottom: 30px;">
+
+	<table align="center" style="margin-bottom: 50px;">
+		<tr>
+			<td align="center" valign="bottom" style="width: 750px; ">
+				<div class="lp_lab">
+					<label>Именно здесь Вы можете показать свои умения<br><br></label>
+				</div>
+				<a href="#" class="button-zayvka">
+					Подробнее о нас
+				</a>
+			</td>
+		</tr>
+		<tr>
+			<td align="center" valign="bottom" style="width: 370px; margin-top: 30px; ">
+				<div class="image-vd3">
+					<img src="{% static 'main/images/andrey.png' %}" width="320">
+				</div>
+			</td>
+		</tr>
+	</table>
 
 
 	<!--
