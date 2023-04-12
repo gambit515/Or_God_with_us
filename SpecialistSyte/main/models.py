@@ -1,25 +1,26 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 # Create your models here.
-class Users(models.Model):
-    Login = models.CharField('Логин',max_length=50)
-    Password = models.CharField('Пароль',max_length=50)
-    Email = models.EmailField('Почта',max_length=254)
-    SerName = models.CharField('Фамилия',max_length=50)
-    Name = models.CharField('Имя',max_length=50)
-    Patronymic = models.CharField('Отчество', max_length=50)
-    UserType = models.CharField('Тип пользователя',max_length=50)
-    Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/",null=True)
-    Time_create = models.DateTimeField('Время создания',auto_now_add=True)
-    Notes = models.TextField('Краткое описание',max_length = 500,null=True)
+#class Users(models.Model):
+#   Login = models.CharField('Логин',max_length=50)
+#   Password = models.CharField('Пароль',max_length=50)
+#   Email = models.EmailField('Почта',max_length=254)
+#   SerName = models.CharField('Фамилия',max_length=50)
+#   Name = models.CharField('Имя',max_length=50)
+#   Patronymic = models.CharField('Отчество', max_length=50)
+#   UserType = models.CharField('Тип пользователя',max_length=50)
+#   Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/",null=True)
+#   Time_create = models.DateTimeField('Время создания',auto_now_add=True)
+#   Notes = models.TextField('Краткое описание',max_length = 500,null=True)
 
-    def __str__(self):
-        return self.Login
+#  def __str__(self):
+#       return self.Login
 
-    class Meta:
-        verbose_name = "Пользователи сайта"
-        verbose_name_plural = "Пользователи сайта"
-        ordering = ['Login']
+#   class Meta:
+#       verbose_name = "Пользователи сайта"
+#       verbose_name_plural = "Пользователи сайта"
+#       ordering = ['Login']
 
 
 class Anketa(models.Model):
@@ -28,7 +29,7 @@ class Anketa(models.Model):
     Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/")
     Lang_cat = models.ForeignKey('Lang_categori',on_delete=models.PROTECT,verbose_name="Язык программирования")
     Soft_cat = models.ForeignKey('Soft_categori', on_delete=models.PROTECT, verbose_name="Категория софта")
-    Author = models.ForeignKey('Users', on_delete=models.PROTECT, verbose_name="Автор анкеты")
+    Author = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="Автор анкеты")
     Place = models.CharField('Место оказания услуг', max_length=100,null=True)
     Price = models.IntegerField('Стоимость оказания услуг',null=True)
     Time = models.CharField('Сроки оказания услуг',max_length=50,null=True)

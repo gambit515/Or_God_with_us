@@ -1,16 +1,19 @@
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
+from django.contrib.auth.views import LoginView, LogoutView
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
-from .models import Anketa, Users, Soft_categori, Lang_categori
-from .forms import PostForm, AnketaForm
+from .models import Anketa, Soft_categori, Lang_categori
+from .forms import PostForm, AnketaForm, AuthUserForm
 
 class StartPageView(ListView):
-    model = Users
+    model = User
     template_name = 'main/startsheet.html'
 
 class CreatePostView(CreateView): # new
-    model = Users
+    model = User
     form_class = PostForm
     template_name = 'main/registeration.html'
     success_url = reverse_lazy('main')
@@ -46,8 +49,8 @@ def mainsheet(request):
 
 def startsheet(request):
     return render(request, 'main/startsheet.html')
-def login(request):
-    return render(request, 'main/login-form.html')
+#def login(request):
+#   return render(request, 'main/login-form.html')
 
 
 def show_anket(request,anket_id):
@@ -90,3 +93,13 @@ def show_lang_cat(request,lang_cat_id):
     }
 
     return render(request, 'main/mainsheet.html', context)
+
+class MyprojectLoginView(LoginView):
+    template_name = 'main/login-form.html'
+    form_class = AuthUserForm
+    success_url = reverse_lazy('main')
+    def get_success_url(self):
+        return self.success_url
+
+class Logout(LogoutView):
+    next_page = reverse_lazy('main')

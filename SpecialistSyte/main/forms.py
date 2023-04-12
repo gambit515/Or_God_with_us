@@ -1,83 +1,77 @@
-from .models import Users, Anketa, Soft_categori, Lang_categori
+from .models import Anketa, Soft_categori, Lang_categori
+from django.contrib.auth.models import User
 from django import forms
+from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.forms import ModelForm, TextInput, EmailInput, Textarea, ClearableFileInput, ImageField
+from django.forms import ModelForm, TextInput, EmailInput, Textarea, ClearableFileInput, PasswordInput
+from django.contrib.auth.forms import AuthenticationForm
 
 class PostForm(forms.ModelForm):
-
+    password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput(attrs={
+                'class': 'vvod1',
+                'type': 'password',
+                'placeholder': 'Введите повтор пароля',
+                'id': 'password2',
+            }),)
     class Meta:
-        model = Users
-        fields = ["Login","Password","Email","SerName","Name","Photo","Notes","Patronymic","UserType"]
+        model = User
+        fields = ['username', 'first_name','last_name', 'email','password']
         widgets = {
-            "Login": TextInput(attrs={
+            "password": PasswordInput(attrs={
+                'class': 'vvod1',
+                'type': 'password',
+                'placeholder': 'Введите пароль',
+                'id': 'password',
+            }),
+            "username": TextInput(attrs={
                 'class': 'vvod',
                 'type': 'text',
                 'placeholder': 'Введите псевдоним пользователя',
                 'id': 'user_psevdomin',
                 'autocomplete': 'user_psevdomin'
             }),
-            "Password": TextInput(attrs={
-                'class': 'vvod1',
-                'type': 'password',
-                'placeholder': 'Введите пароль',
-                'id': 'password',
-                'autocomplete': 'current-password'
+            "first_name": TextInput(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите ФИО',
+                'id': 'user_psevdomin',
+                'autocomplete': 'user_FIO'
             }),
-            "Email": EmailInput(attrs={
+            "email": EmailInput(attrs={
                 'class': 'vvod3',
                 'type': 'email',
                 'placeholder': 'Введите электронную почту',
                 'id': 'mail',
                 'autocomplete': 'email'
             }),
-            "SerName": TextInput(attrs={
+            "last_name": TextInput(attrs={
                 'class': 'vvod',
                 'type': 'text',
-                'placeholder': 'Введите вашу фамилию',
-                'id': 'userfamily',
-                'autocomplete': 'userfamily'
-            }),
-            "Name": TextInput(attrs={
-                'class': 'vvod',
-                'type': 'text',
-                'placeholder': 'Введите ваше имя',
-                'id': 'username',
-                'autocomplete': 'username'
-            }),
-            "UserType": TextInput(attrs={
-                'class': 'vvod',
-                'type': 'text',
-                'placeholder': 'Введите 1 или 2',
-                'id': 'usertype',
-                'autocomplete': 'usertype'
-            }),
-            "Patronymic": TextInput(attrs={
-                'class': 'vvod',
-                'type': 'text',
-                'placeholder': 'Введите ваше отчество',
-                'id': 'otchestvoname',
-                'autocomplete': 'otchestvoname'
-            }),
-            "Photo": ClearableFileInput(attrs={
-                'type': 'file',
-                'name': "Photo",
-                'id': 'id_Photo',
-                'accept': "image/*",
-                'required': "",
-            }),
-            "Notes": Textarea(attrs={
-                'class': 'vvod',
-                'type': 'text',
-                'placeholder': 'Введите описание',
-                'id': 'textar',
-                'autocomplete': 'textar'
+                'placeholder': 'Введите краткое описание',
+                'id': 'notes',
+                'autocomplete': 'notes'
             }),
         }
+    def clean_password2(self):
+        cd = self.cleaned_data
+        if cd['password'] != cd['password2']:
+            raise forms.ValidationError('Passwords don\'t match.')
+        return cd['password2']
 
+    def save(self,commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data["password"])
+        if commit:
+            user.save()
+        return user
+class AuthUserForm(AuthenticationForm,forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['username','password']
 class AnketaForm(forms.ModelForm):
     Lang_cat = forms.ModelChoiceField(queryset=Lang_categori.objects.all())
     Soft_cat = forms.ModelChoiceField(queryset=Soft_categori.objects.all())
-    Author = forms.ModelChoiceField(queryset=Users.objects.all())
+    Author = forms.ModelChoiceField(queryset=User.objects.all())
     class Meta:
         model = Anketa
         fields = ["Tittle","Text","Photo","Lang_cat","Soft_cat","Author","Place","Price","Time"]
