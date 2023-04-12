@@ -7,6 +7,7 @@ urlpatterns = [
     path('main/',views.mainsheet, name = 'main'),
     path('index/',views.index, name = 'index'),
     path('profile/',views.profile, name = 'prof'),
+    path('login/',views.login, name = 'log'),
     path('createanketas/',AnketaView.as_view(), name = 'anket'),
     path('registration/',CreatePostView.as_view(), name='reg'),
     path('test/',TestView.as_view(), name='test'),
