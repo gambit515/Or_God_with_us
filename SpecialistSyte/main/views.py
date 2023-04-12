@@ -44,9 +44,10 @@ def mainsheet(request):
     }
     return render(request, 'main/mainsheet.html',context)
 
-
 def startsheet(request):
     return render(request, 'main/startsheet.html')
+def login(request):
+    return render(request, 'main/login-form.html')
 
 
 def show_anket(request,anket_id):

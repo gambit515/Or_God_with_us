@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
+
+    <title>BeeBuzz.NET</title>
+    <link rel="stylesheet" href="{% static 'main/css/login_form_1.css' %}">
+</head>
+
+<body>
+    
+    <nav class="login-form">
+        <div class="login-name"><p>Вход в систему</p></div>
+
+        <div class="form-group">
+            <div class="label-reg"> <label for = "email">e-mail</label> </div>
+            <input class="vvod" type="email" placeholder="Введите e-mail" id = "usermail" autocomplete="usermail">
+        </div>
+
+        <div class="form-group">
+            <div class="label-reg"> <label for = "password">Пароль</label> </div>
+            <input class="vvod1" type="password" placeholder="Введите пароль" id = "userpassword" autocomplete="userpassword">
+        </div>
+
+        <input class="button-vhod" type="submit" value="Войти">
+
+        <div class="no-reg">
+            <a href="#">Забыли адрес электронной почты или пароль?</a>
+            <P>
+                У вас нет аккаунт в BeeBuzz.NET? <a href="#">Зарегистрироваться!</a>
+            </P>
+        </div>
+    </nav>
+
+</body>
+</html>
