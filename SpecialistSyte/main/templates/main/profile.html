@@ -56,19 +56,19 @@
             <td valign="top" style="width: 550px;">
                 <div class="profile">
                     <p class="main-menu-info">
-                        Псевдоним на сайте: <label class="dannye-bd">loubuii</label>
+                        Псевдоним на сайте: <label class="dannye-bd">{{ request.user }}</label>
                     </p>
 
                     <p class="main-menu-info">
-                        ФИО пользователя: <label class="dannye-bd">Трубинская Дарья Евгеньевна</label>
+                        ФИО пользователя: <label class="dannye-bd">{{ request.user.first_name }}</label>
                     </p>
 
                     <p class="main-menu-info">
-                        Описание пользователя: <p class="dannye-bd-desc">DeaDушка идет за борт</p>
+                        Описание пользователя: <p class="dannye-bd-desc">{{request.user.last_name}}</p>
                     </p>
 
                     <p class="main-menu-info">
-                        e-mail: <label class="dannye-bd">binemy72@mail.ru</label>
+                        e-mail: <label class="dannye-bd">{{request.user.email}}</label>
                     </p>
 
                     <p class="main-menu-info">
