@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 # Create your models here.
 class Users(models.Model):
     Login = models.CharField('Логин',max_length=50)
@@ -15,10 +15,13 @@ class Users(models.Model):
 
     def __str__(self):
         return self.Login
+
     class Meta:
         verbose_name = "Пользователи сайта"
         verbose_name_plural = "Пользователи сайта"
         ordering = ['Login']
+
+
 class Anketa(models.Model):
     Tittle = models.CharField('Название анкеты',max_length=100)
     Text = models.TextField('Текст анкеты',max_length=1000)
@@ -29,6 +32,9 @@ class Anketa(models.Model):
     Place = models.CharField('Место оказания услуг', max_length=100,null=True)
     Price = models.IntegerField('Стоимость оказания услуг',null=True)
     Time = models.CharField('Сроки оказания услуг',max_length=50,null=True)
+
+    def get_absolute_url(self):
+       return reverse('anket', kwargs = {'anket_id': self.pk})
 
     def __str__(self):
         return self.Tittle
@@ -42,6 +48,10 @@ class Lang_categori(models.Model):
 
     def __str__(self):
         return self.Tittle
+
+    def get_absolute_url(self):
+       return reverse('lang_cat', kwargs = {'lang_cat_id': self.pk})
+
     class Meta:
         verbose_name = "Языки программирования"
         verbose_name_plural = "Языки программирования"
@@ -53,6 +63,10 @@ class Soft_categori(models.Model):
 
     def __str__(self):
         return self.Tittle
+
+    def get_absolute_url(self):
+       return reverse('soft_cat', kwargs = {'soft_cat_id': self.pk})
+
     class Meta:
         verbose_name = "Категории софта"
         verbose_name_plural = "Категории софта"

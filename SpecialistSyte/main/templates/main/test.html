@@ -1,7 +1,3 @@
-<!-- templates/post.html -->
-<h1>Create Post Page</h1>
-<form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Submit New Post</button>
-</form>
+<li><h2>{{p.Tittle}}</h2></li>
+    <div></div>
+    <p><a href="{{ url 'post' p.pk }}">Читать пост</a></p>
