@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
     <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-	
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
@@ -17,8 +17,8 @@
 </head>
 
 <body>
-	
-	
+
+
 
 	<header>
         <div class="logo">
@@ -38,7 +38,11 @@
             <ul>
                 <li><a href="{% url 'anket' %}">Создать заявку</a></li>
                 <li><a href="{% url 'main' %}">Найти специалиста</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
+                {% else %}
                 <li><a id="login" href="{% url 'log' %}">Войти</a></li>
+                {% endif %}
 
                 <!--<li><a href="#">Войти</a></li>
         <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
@@ -66,7 +70,7 @@
 			</td>
 		</tr>
 	</table>
-	
+
 	<hr style="border: 2px solid #222222; width: auto; margin-top: 30px; margin-bottom: 30px;">
 
 	<table align="center">
@@ -84,7 +88,7 @@
 					</div>
 					<a href="{% url 'anket' %}" class="button-zayvka">
 						Присоединиться к команде
-					</a>					
+					</a>
 				</nav>
 			</td>
 		</tr>
@@ -121,7 +125,7 @@
 			<p>Организовываем уборку разного уровня загрязнения в любых помощениях. <a href="#"> Узнать подробнее</a></p>
 
 		</article>
-	
+
 		<article class="grid">
 		<img  src="{% static 'main/images/startsheet_5.jpg' %}"  style="max-width:75%; height:auto;" alt="">
 			<p>Организовываем ремонт разного уровня сложности в любых помощениях. <a href="#">Узнать подробнее</a></p>
@@ -139,23 +143,7 @@
 	</section>
 -->
 
-<script >
-var loginButton = document.getElementById("login");
 
-	if (loginButton) { // Проверяем, что кнопка с id="login" существует на странице
-	  loginButton.addEventListener('click', onSubmit);
-	}
-	
-	function onSubmit(e){
-	  e.preventDefault(); // Отменяем стандартное поведение ссылки
-	  
-	  var url = window.location.href; // Получаем текущий URL
-	  if (url.includes('localhost')) { // Проверяем, что сайт находится на localhost
-		window.location.href = 'registration.html?animation=1'; //этот костыль нет... (потом скрипт закину в JS)
-	  } else { // Если сайт не находится на localhost, то используем полный URL
-		window.location.href = 'http://127.0.0.1:8000/registration/?animation=1'; //этот костыль работает
-	  }
-	}</script>
 
     <div class="podval">
         <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>

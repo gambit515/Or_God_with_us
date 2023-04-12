@@ -35,7 +35,12 @@
             <ul>
                 <li><a href="#">Создать заказ</a></li>
                 <li><a href="#">Найти специалиста</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
+                {% else %}
                 <li><a id="login" href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Войти</a></li>
+                {% endif %}
+
 
                 <!--<li><a href="#">Войти</a></li>
         <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->

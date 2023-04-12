@@ -38,8 +38,25 @@
         <div class="no-reg">
             <a href="#">Забыли адрес электронной почты или пароль?</a>
             <P>
-                У вас нет аккаунт в BeeBuzz.NET? <a href="{% url 'reg' %}">Зарегистрироваться!</a>
+                У вас нет аккаунт в BeeBuzz.NET? <a id="reg" href="{% url 'reg' %}">Зарегистрироваться!</a>
             </P>
+                    <script >
+var loginButton = document.getElementById("reg");
+
+	if (loginButton) { // Проверяем, что кнопка с id="login" существует на странице
+	  loginButton.addEventListener('click', onSubmit);
+	}
+
+	function onSubmit(e){
+	  e.preventDefault(); // Отменяем стандартное поведение ссылки
+
+	  var url = window.location.href; // Получаем текущий URL
+	  if (url.includes('localhost')) { // Проверяем, что сайт находится на localhost
+		window.location.href = 'registration.html?animation=1'; //этот костыль нет... (потом скрипт закину в JS)
+	  } else { // Если сайт не находится на localhost, то используем полный URL
+		window.location.href = 'http://127.0.0.1:8000/registration/?animation=1'; //этот костыль работает
+	  }
+	}</script>
         </div>
         </form>
     </nav>

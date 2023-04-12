@@ -37,7 +37,11 @@
             <ul>
                 <li><a href="{% url 'anket' %}">Создать заявку</a></li>
                 <li><a href="{% url 'main' %}">Найти специалиста</a></li>
+                {% if request.user.is_authenticated %}
+                <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
+                {% else %}
                 <li><a id="login" href="{% url 'log' %}">Войти</a></li>
+                {% endif %}
                 <li>{{request.user}}</li>
 
                 <!--<li><a href="#">Войти</a></li>
