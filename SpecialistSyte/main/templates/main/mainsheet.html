@@ -123,9 +123,10 @@
                                                 <label>{{el.Author}}</label>
                                             </div>
                                         </div>
-                                        
+                                        <form id = "form-group" method="post" enctype="multipart/form-data">
+                                            {% csrf_token %}
                                         <input class="button-reg" type="submit" value="Откликнуться">
-
+                                        </form>
                                         <!--
                                         <a href="#" align="right" valign="bottom"
                                         style="text-decoration: none; 

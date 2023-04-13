@@ -8,7 +8,12 @@ from .models import *
 
 
 #admin.site.register(Users, UsersAdmin)
+class OtklAdmin(admin.ModelAdmin):
+    list_display = ('id','Anketa','Otkl_User')
+    search_fields = ('id','Anketa','Otkl_User')
 
+
+admin.site.register(Otkl, OtklAdmin)
 
 class AnketaAdmin(admin.ModelAdmin):
     list_display = ('id','Tittle')
