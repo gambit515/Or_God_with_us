@@ -114,6 +114,7 @@ def show_lang_cat(request,lang_cat_id):
     return render(request, 'main/mainsheet.html', context)
 
 class MyprojectLoginView(LoginView):
+    model = User
     template_name = 'main/login-form.html'
     form_class = AuthUserForm
     success_url = reverse_lazy('main')

@@ -69,6 +69,10 @@ class AuthUserForm(AuthenticationForm,forms.ModelForm):
     class Meta:
         model = User
         fields = ['username','password']
+    def __init__(self,*args,**kwargs):
+        super().__init__(*args,**kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'vvod'
 class AnketaForm(forms.ModelForm):
     Lang_cat = forms.ModelChoiceField(queryset=Lang_categori.objects.all())
     Soft_cat = forms.ModelChoiceField(queryset=Soft_categori.objects.all())

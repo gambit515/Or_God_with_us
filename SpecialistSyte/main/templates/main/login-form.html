@@ -57,20 +57,22 @@
 			<hr style="border: 1px solid #222222; width: 350px; margin-top: -15px;">
 			<div class="msg"></div>
 			<form id = "form-group" method="post" enctype="multipart/form-data">
-				<nav class="login-form">
-          <form id = "form-group" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+                <nav class="login-form">
               
-              <!--{% csrf_token %}
-              {{form}}-->
+
+
   
               <div class="form-group">
-              <div class="label-reg"> <label for = "email">e-mail</label> </div>
-              <input class="vvod" type="email" placeholder="Введите e-mail" id = "usermail" autocomplete="usermail">
+              <div class="label-reg"> <label for = "email">Логин</label> </div>
+                  {{form.username}}
+              <!--<input class="vvod" type="text" placeholder="Введите логин" id = "user_psevdomin" autocomplete="user_psevdomin">-->
           </div>
-  
+
           <div class="form-group">
               <div class="label-reg"> <label for = "password">Пароль</label> </div>
-              <input class="vvod1" type="password" placeholder="Введите пароль" id = "userpassword" autocomplete="userpassword">
+                    {{form.password}}
+              <!--<input class="vvod1" type="password" placeholder="Введите пароль" id = "userpassword" autocomplete="userpassword">-->
           </div>
   
           <input class="button-reg" type="submit" value="Войти">
@@ -101,7 +103,6 @@
           </div>
           </form>
       </nav>
-			</form>
 		</div>
 	</nav>
 
