@@ -128,6 +128,15 @@ class OtklForm(forms.ModelForm):
     class Meta:
         model = Otkl
         fields = ['Otkl_User','Anketa']
+        widgets = {
+            "Anketa": TextInput(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите номер анкеты',
+                'id': 'anketa_tittle',
+                'autocomplete': 'anketa_tittle'
+            }),
+        }
 
 
 

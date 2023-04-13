@@ -2,8 +2,9 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User, Group
 from django.contrib.auth.views import LoginView, LogoutView, TemplateView
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
+from django.template import RequestContext
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
 from .models import Anketa, Soft_categori, Lang_categori
@@ -58,14 +59,21 @@ class MainView(CreateView): # new
         anketas =  Anketa.objects.all()
         soft_cat = Soft_categori.objects.all()
         lang_cat = Lang_categori.objects.all()
+        form = OtklForm
         context = {
             'anketas':anketas,
             'soft_cat':soft_cat,
             'lang_cat':lang_cat,
+            'form':form,
             'soft_cat_selected': 0,
             'lang_cat_selected': 0,
         }
         return render(request, 'main/mainsheet.html',context)
+    def form_valid(self,form):
+        self.object = form.save(commit=False)
+        self.object.Otkl_User = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
 def startsheet(request):
     return render(request, 'main/startsheet.html')
@@ -74,7 +82,23 @@ def startsheet(request):
 
 
 def show_anket(request,anket_id):
-    return  HttpResponse(f"Оображение анкет с id ={anket_id}")
+    context = {
+        'anket_id': anket_id
+    }
+    if request.method == 'POST':
+        form = OtklForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.Otkl_User = request.user
+            instance.Anketa = Anketa.objects.get(id=anket_id)
+            instance.save()
+            return render(request, 'main/startsheet.html')
+    else:
+        form = OtklForm()
+
+    return render(request,'main/form.html', {'form': form} )
+    #return  HttpResponse(f"Оображение анкет с id ={anket_id}")
+    #return render(request, 'main/form.html', context)
 
 def index(request):
     ankets = Anketa.objects.all()

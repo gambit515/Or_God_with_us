@@ -1,5 +1,5 @@
 {% for p in ankets %}
     <li><h2>{{p.Tittle}}</h2></li>
     <div></div>
-    <p><a href="{{ p.get_absolute_url }}">Читать пост</a></p>
+    <p><a href="{% url 'ankets' p.pk %}">Читать пост</a></p>
 {% endfor %}

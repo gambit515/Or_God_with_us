@@ -52,25 +52,7 @@
         </div>
     </header>
     
-
-
-    <table style="padding-bottom: 40px; margin-top: 20px;">
-        <tr>
-            <td>
-                
-            </td>
-            <td style="display: flex; margin-left: 400px;">
-                <div class="form-group1">
-                    <div class="label-id"> <label for = "id-poisk" style="margin-left: 20px;">ID анкеты</label> </div>
-                    <input class="poisk" type="text" placeholder="Введите ID анкеты" id = "id-anket" autocomplete="id-anket">
-                </div>
-                    
-                <form id = "form-group" method="post" enctype="multipart/form-data">
-                    {% csrf_token %}
-                <input class="button-reg" type="submit" value="Откликнуться">
-                </form>
-            </td>
-        </tr>
+    <table style="padding-bottom: 40px;">
         <tr>
             <td id="tdfirst" valign="top" style="list-style-type: none; font-size: 20px; text-indent: 10px;">
                 <label align="center" style="text-align: center; font-weight: bold;">Критерии поиска:</label>
@@ -100,7 +82,7 @@
                     <div> <input type="checkbox" id="cb1"> <label for="cb1">Backend</label> </div>
                     <div> <input type="checkbox" id="cb2"> <label for="cb2">Frontend</label> </div>
                 </div>
-                
+
                 <div class="label-menu"> <label>Языки программирования</label> </div>
                 <div class="chbox">
                     <div> <input type="checkbox" id="cb1"> <label for="cb1">C#</label> </div>
@@ -108,9 +90,9 @@
                     <div> <input type="checkbox" id="cb3"> <label for="cb3">Java</label> </div>
                 </div>-->
             </td>
-    
+
             <td>
-                <table >                       
+                <table >
                         {% for el in anketas %}
                             <table>
                                 <tr>
@@ -118,7 +100,7 @@
                                         <div class="photo" style="margin-top: 15px;">
                                             <img src="{{el.Photo.url}}" width="250">
                                         </div>
-                                        
+
                                     </td>
                                     <td valign="top">
                                         <div class="anketa" style="margin-top: 15px">
@@ -144,10 +126,10 @@
                                                 <label>{{el.Author}}</label>
                                             </div>
                                         </div>
-                                        
+                                        <a href="{% url 'ankets' el.pk %}">Читать пост</a>
                                         <!--
                                         <a href="#" align="right" valign="bottom"
-                                        style="text-decoration: none; 
+                                        style="text-decoration: none;
                                         text-align: center;
                                         font-size: 16px;
                                         display: block;
@@ -161,6 +143,7 @@
                                     <hr style="border: 1px solid black;">
                                 </tr>
                             </table>
+
                         {% endfor %}
                 </table>
             </td>
