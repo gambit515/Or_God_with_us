@@ -97,30 +97,32 @@
         <tr>
             <td style="width: 300px;">
                 <label>Название заявки:<br></label>
-
-
             </td>
             <td style="width: 300px;">
                 <label>e-mail:<br></label>
-
-
             </td>
             <td style="width: 300px;">
                 <label>Роль на сайте:<br></label>
-
-
             </td>
         </tr>
+        
+        {% for c in otkl %}
+        {% if request.user == c.Anketa.Author %}
+        <tr>
+            <td>
+                <h4>{{c.Anketa}}</h4>
+            </td>
+            <td>
+                <h4>{{c.Otkl_User.email}}</h4>
+            </td>
+            <td>
+                <h4>{{c.Otkl_User.first_name}}</h4>
+            </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
     </table>
-
-    {% for c in otkl %}
-    {% if request.user == c.Anketa.Author %}
-    <h4>{{c.Anketa}}</h4>
-    <h4>{{c.Otkl_User.email}}</h4>
-    <h4>{{c.Otkl_User.first_name}}</h4>
-    {% endif %}
-    {% endfor %}
-
+  
     
     <script >
         var loginButton = document.getElementById("anket");
