@@ -126,7 +126,9 @@
                                                 <label>{{el.Author}}</label>
                                             </div>
                                         </div>
-                                        <a href="{% url 'ankets' el.pk %}">Читать пост</a>
+                                         {% if request.user|has_group:"Специалист" %}
+                                        <a href="{% url 'ankets' el.pk %}">Откликнуться</a>
+                                        {% endif %}
                                         <!--
                                         <a href="#" align="right" valign="bottom"
                                         style="text-decoration: none;
