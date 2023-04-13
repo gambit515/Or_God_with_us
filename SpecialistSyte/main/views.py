@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.template import RequestContext
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
-from .models import Anketa, Soft_categori, Lang_categori
+from .models import Anketa, Soft_categori, Lang_categori, Otkl
 from .forms import PostForm, AnketaForm, AuthUserForm, OtklForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -110,6 +110,13 @@ def index(request):
 class ProfileView(LoginRequiredMixin,TemplateView): # new
     template_name = 'main/profile.html'
     login_url = reverse_lazy('log')
+
+    def get(self, request):
+        otkl = Otkl.objects.all()
+        context = {
+            'otkl': otkl,
+        }
+        return render(request, 'main/profile.html', context)
 
 
 def show_soft_cat(request,soft_cat_id):

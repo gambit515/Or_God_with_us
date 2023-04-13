@@ -90,7 +90,13 @@
             </td>
         </tr>
     </table>
-
+    {% for c in otkl %}
+    {% if request.user == c.Anketa.Author %}
+    <h4>{{c.Anketa}}</h4>
+    <h4>{{c.Otkl_User.email}}</h4>
+    <h4>{{c.Otkl_User.first_name}}</h4>
+    {% endif %}
+    {% endfor %}
     
     <script >
         var loginButton = document.getElementById("anket");
