@@ -50,7 +50,7 @@
         </div>
     </header>
 
-    <table style="height: 600px; margin: 20px 100px 20px 100px;"
+    <table style="height: 600px; margin: 20px 100px 20px 100px; border-bottom: 2px solid #222222;">
         <tr>
             
             <td valign="top" style="width: 900px;">
@@ -90,6 +90,32 @@
             </td>
         </tr>
     </table>
+<<<<<<< HEAD
+
+
+
+    <label align="center" style="margin-left: 120px; font-size: 26px; padding: 10px; display: block;">Оставленные Вами заявки:</label>
+
+    <table align="center" border="1" style="margin-left: 300px;">
+        <tr>
+            <td style="width: 300px;">
+                <label>Название заявки:<br></label>
+
+
+            </td>
+            <td style="width: 300px;">
+                <label>e-mail:<br></label>
+
+
+            </td>
+            <td style="width: 300px;">
+                <label>Роль на сайте:<br></label>
+
+
+            </td>
+        </tr>
+    </table>
+=======
     {% for c in otkl %}
     {% if request.user == c.Anketa.Author %}
     <h4>{{c.Anketa}}</h4>
@@ -97,6 +123,7 @@
     <h4>{{c.Otkl_User.first_name}}</h4>
     {% endif %}
     {% endfor %}
+>>>>>>> ac18f20983712843dcb2dbe63876d48ef744b777
     
     <script >
         var loginButton = document.getElementById("anket");
@@ -118,7 +145,7 @@
 
     
 
-    <div class="podval">
+    <div class="podval" style="margin-top: 100px;">
         <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
     </div>
 
