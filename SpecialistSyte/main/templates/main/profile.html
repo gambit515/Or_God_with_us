@@ -90,9 +90,6 @@
             </td>
         </tr>
     </table>
-<<<<<<< HEAD
-
-
 
     <label align="center" style="margin-left: 120px; font-size: 26px; padding: 10px; display: block;">Оставленные Вами заявки:</label>
 
@@ -115,7 +112,7 @@
             </td>
         </tr>
     </table>
-=======
+
     {% for c in otkl %}
     {% if request.user == c.Anketa.Author %}
     <h4>{{c.Anketa}}</h4>
@@ -123,7 +120,7 @@
     <h4>{{c.Otkl_User.first_name}}</h4>
     {% endif %}
     {% endfor %}
->>>>>>> ac18f20983712843dcb2dbe63876d48ef744b777
+
     
     <script >
         var loginButton = document.getElementById("anket");
