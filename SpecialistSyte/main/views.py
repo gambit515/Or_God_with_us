@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.contrib.auth.views import LoginView, LogoutView, TemplateView
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -22,6 +22,8 @@ class CreatePostView(CreateView): #Класс регистрации
 
     def form_valid(self, form):
         form_valid = super().form_valid(form)
+        self.object.groups.clear()
+        self.object.groups.add(form.cleaned_data['groups'])
         username = form.cleaned_data["username"]
         password = form.cleaned_data["password"]
         aut_user = authenticate(username=username,password=password)
@@ -46,10 +48,6 @@ class TestView(CreateView): # new
     form_class = AnketaForm
     template_name = 'main/test.html'
     success_url = reverse_lazy('main')
-
-def createanketas(request):
-    return render(request, 'main/createanketas.html')
-
 
 def mainsheet(request):
     anketas =  Anketa.objects.all()
