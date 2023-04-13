@@ -1,4 +1,5 @@
 {% load static %}
+{% load auth_extras %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -34,14 +35,15 @@
         </div>
         <div class="text-sh">
             <ul>
-                <li><a id = "anket1" href="{% url 'anket' %}">Создать заявку</a></li>
-                <li><a href="{% url 'main' %}">Найти специалиста</a></li>
+                {% if request.user|has_group:"Работодатель" %}
+                <li><a id = "anket" href="{% url 'anket' %}">Создать анкету</a></li>
+                {% endif %}
+                <li><a href="{% url 'main' %}">Найти вакансию</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
                 {% else %}
                 <li><a id="login" href="{% url 'log' %}">Войти</a></li>
                 {% endif %}
-
                 <!--<li><a href="#">Войти</a></li>
         <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
             </ul>
