@@ -17,49 +17,99 @@
 </head>
 
 <body>
+  <header>
+    <div class="logo">
+        <table>
+            <tr>
+                <td>
+                    <a href="{% url 'start' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+                </td>
+                <td>
+                    <div class="namelogo"><label>BeeBuzz.NET</label></div>
+                    <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="text-sh">
+        <ul>
+            <li><a href="{% url 'anket' %}">Создать заявку</a></li>
+            <li><a href="{% url 'main' %}">Найти специалиста</a></li>
+            {% if request.user.is_authenticated %}
+            <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
+            {% else %}
+            <li><a id="login" href="{% url 'log' %}">Войти</a></li>
+            {% endif %}
+
+            <!--<li><a href="#">Войти</a></li>
+    <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
+        </ul>
+    </div>
+</header>
+
+<nav class="reg">
+		<div class="register">
+			<nav class="beebuzz" align="center" style="margin-top: 30px;">
+				<div class="beebuzz_name" >
+					<h1>Вход в систему</h1>
+				</div>
+			</nav>
+			<hr style="border: 1px solid #222222; width: 350px; margin-top: -15px;">
+			<div class="msg"></div>
+			<form id = "form-group" method="post" enctype="multipart/form-data">
+				<nav class="login-form">
+          <form id = "form-group" method="post" enctype="multipart/form-data">
+              
+              <!--{% csrf_token %}
+              {{form}}-->
+  
+              <div class="form-group">
+              <div class="label-reg"> <label for = "email">e-mail</label> </div>
+              <input class="vvod" type="email" placeholder="Введите e-mail" id = "usermail" autocomplete="usermail">
+          </div>
+  
+          <div class="form-group">
+              <div class="label-reg"> <label for = "password">Пароль</label> </div>
+              <input class="vvod1" type="password" placeholder="Введите пароль" id = "userpassword" autocomplete="userpassword">
+          </div>
+  
+          <input class="button-reg" type="submit" value="Войти">
+  
+          <div class="no-reg" align="center" >
+              <a href="#" style="color: black;" >Забыли адрес электронной почты или пароль?</a>
+              <P>
+                  У вас нет аккаунт в BeeBuzz.NET? <a id="reg" href="{% url 'reg' %}" style="color: black;">Зарегистрироваться!</a>
+              </P>
+              
+                      <script >
+  var loginButton = document.getElementById("reg");
+  
+    if (loginButton) { // Проверяем, что кнопка с id="login" существует на странице
+      loginButton.addEventListener('click', onSubmit);
+    }
+  
+    function onSubmit(e){
+      e.preventDefault(); // Отменяем стандартное поведение ссылки
+  
+      var url = window.location.href; // Получаем текущий URL
+      if (url.includes('localhost')) { // Проверяем, что сайт находится на localhost
+      window.location.href = 'registration.html?animation=1'; //этот костыль нет... (потом скрипт закину в JS)
+      } else { // Если сайт не находится на localhost, то используем полный URL
+      window.location.href = 'http://127.0.0.1:8000/registration/?animation=1'; //этот костыль работает
+      }
+    }</script>
+          </div>
+          </form>
+      </nav>
+			</form>
+		</div>
+	</nav>
+
     
-    <nav class="login-form">
-        <div class="login-name"><p>Вход в систему</p></div>
-        <form id = "form-group" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form}}
-            <!--<div class="form-group">
-            <div class="label-reg"> <label for = "email">e-mail</label> </div>
-            <input class="vvod" type="email" placeholder="Введите e-mail" id = "usermail" autocomplete="usermail">
-        </div>
 
-        <div class="form-group">
-            <div class="label-reg"> <label for = "password">Пароль</label> </div>
-            <input class="vvod1" type="password" placeholder="Введите пароль" id = "userpassword" autocomplete="userpassword">
-        </div>-->
 
-        <input class="button-vhod" type="submit" value="Войти">
-
-        <div class="no-reg">
-            <a href="#">Забыли адрес электронной почты или пароль?</a>
-            <P>
-                У вас нет аккаунт в BeeBuzz.NET? <a id="reg" href="{% url 'reg' %}">Зарегистрироваться!</a>
-            </P>
-                    <script >
-var loginButton = document.getElementById("reg");
-
-	if (loginButton) { // Проверяем, что кнопка с id="login" существует на странице
-	  loginButton.addEventListener('click', onSubmit);
-	}
-
-	function onSubmit(e){
-	  e.preventDefault(); // Отменяем стандартное поведение ссылки
-
-	  var url = window.location.href; // Получаем текущий URL
-	  if (url.includes('localhost')) { // Проверяем, что сайт находится на localhost
-		window.location.href = 'registration.html?animation=1'; //этот костыль нет... (потом скрипт закину в JS)
-	  } else { // Если сайт не находится на localhost, то используем полный URL
-		window.location.href = 'http://127.0.0.1:8000/registration/?animation=1'; //этот костыль работает
-	  }
-	}</script>
-        </div>
-        </form>
-    </nav>
-
+    <div class="podval" valign="bottom" style="margin-top: 350px;">
+      <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
+  </div>
 </body>
 </html>
