@@ -29,9 +29,9 @@ class Anketa(models.Model):
     Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/")
     Lang_cat = models.ForeignKey('Lang_categori',on_delete=models.PROTECT,verbose_name="Язык программирования")
     Soft_cat = models.ForeignKey('Soft_categori', on_delete=models.PROTECT, verbose_name="Категория софта")
-    Author = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name="Автор анкеты")
+    Author = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, verbose_name="Автор анкеты",null=True)
     Place = models.CharField('Место оказания услуг', max_length=100,null=True)
-    Price = models.IntegerField('Стоимость оказания услуг',null=True)
+    Price = models.CharField('Стоимость оказания услуг',max_length=100,null=True)
     Time = models.CharField('Сроки оказания услуг',max_length=50,null=True)
 
     def get_absolute_url(self):

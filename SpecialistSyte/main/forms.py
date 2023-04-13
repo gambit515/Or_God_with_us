@@ -1,12 +1,13 @@
 from .models import Anketa, Soft_categori, Lang_categori
 from django.contrib.auth.models import User
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Group
 from django.core.exceptions import ValidationError
 from django.forms import ModelForm, TextInput, EmailInput, Textarea, ClearableFileInput, PasswordInput
 from django.contrib.auth.forms import AuthenticationForm
 
 class PostForm(forms.ModelForm):
+    groups = forms.ModelChoiceField(queryset=Group.objects.all())
     password2 = forms.CharField(label='Repeat password', widget=forms.PasswordInput(attrs={
                 'class': 'vvod1',
                 'type': 'password',
@@ -15,7 +16,7 @@ class PostForm(forms.ModelForm):
             }),)
     class Meta:
         model = User
-        fields = ['username', 'first_name','last_name', 'email','password']
+        fields = ['username', 'first_name','last_name', 'email','password','groups']
         widgets = {
             "password": PasswordInput(attrs={
                 'class': 'vvod1',
@@ -71,10 +72,9 @@ class AuthUserForm(AuthenticationForm,forms.ModelForm):
 class AnketaForm(forms.ModelForm):
     Lang_cat = forms.ModelChoiceField(queryset=Lang_categori.objects.all())
     Soft_cat = forms.ModelChoiceField(queryset=Soft_categori.objects.all())
-    Author = forms.ModelChoiceField(queryset=User.objects.all())
     class Meta:
         model = Anketa
-        fields = ["Tittle","Text","Photo","Lang_cat","Soft_cat","Author","Place","Price","Time"]
+        fields = ["Tittle","Text","Photo","Lang_cat","Soft_cat","Place","Price","Time"]
         widgets = {
             "Tittle": TextInput(attrs={
                 'class': 'vvod',
@@ -119,4 +119,6 @@ class AnketaForm(forms.ModelForm):
                 'autocomplete': 'anketa_price'
             })
         }
+
+
 

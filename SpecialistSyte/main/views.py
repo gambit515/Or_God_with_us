@@ -1,13 +1,14 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView, LogoutView, TemplateView
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
 from .models import Anketa, Soft_categori, Lang_categori
 from .forms import PostForm, AnketaForm, AuthUserForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class StartPageView(ListView):
     model = User
@@ -27,11 +28,18 @@ class CreatePostView(CreateView): #Класс регистрации
         login(self.request, aut_user)
         return form_valid
 
-class AnketaView(CreateView): # new
+class AnketaView(LoginRequiredMixin,CreateView): # new
     model = Anketa
     form_class = AnketaForm
     template_name = 'main/createanketas.html'
     success_url = reverse_lazy('main')
+    login_url = reverse_lazy('log')
+
+    def form_valid(self,form):
+        self.object = form.save(commit=False)
+        self.object.Author = self.request.user
+        self.object.save()
+        return super().form_valid(form)
 
 class TestView(CreateView): # new
     model = Anketa
@@ -72,8 +80,10 @@ def index(request):
     }
     return render(request,'main/index.html',context=context)
 
-def profile(request):
-    return render(request,'main/profile.html')
+class ProfileView(LoginRequiredMixin,TemplateView): # new
+    template_name = 'main/profile.html'
+    login_url = reverse_lazy('log')
+
 
 def show_soft_cat(request,soft_cat_id):
     anketas = Anketa.objects.filter(Soft_cat_id=soft_cat_id)
