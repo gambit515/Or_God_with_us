@@ -18,4 +18,5 @@ urlpatterns = [
     path('lang_cat/<int:lang_cat_id>/', show_lang_cat, name='lang_cat'),
     path('logout',Logout.as_view(),name='logout'),
     path('about_us/',About_us_View.as_view(), name='about'),
+    path('form2/',views.form2,name='form2')
 ]

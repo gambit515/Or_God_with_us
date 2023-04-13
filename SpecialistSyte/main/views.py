@@ -92,7 +92,7 @@ def show_anket(request,anket_id):
             instance.Otkl_User = request.user
             instance.Anketa = Anketa.objects.get(id=anket_id)
             instance.save()
-            return render(request, 'main/startsheet.html')
+            return render(request, 'main/form2.html')
     else:
         form = OtklForm()
 
@@ -160,3 +160,6 @@ class Logout(LogoutView):
 
 class About_us_View(TemplateView):
     template_name = 'main/o-nas.html'
+
+def form2(request):
+    return render(request, 'main/form2.html')
