@@ -52,7 +52,25 @@
         </div>
     </header>
     
-    <table style="padding-bottom: 40px;">
+
+
+    <table style="padding-bottom: 40px; margin-top: 20px;">
+        <tr>
+            <td>
+                
+            </td>
+            <td style="display: flex; margin-left: 400px;">
+                <div class="form-group1">
+                    <div class="label-id"> <label for = "id-poisk" style="margin-left: 20px;">ID анкеты</label> </div>
+                    <input class="poisk" type="text" placeholder="Введите ID анкеты" id = "id-anket" autocomplete="id-anket">
+                </div>
+                    
+                <form id = "form-group" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                <input class="button-reg" type="submit" value="Откликнуться">
+                </form>
+            </td>
+        </tr>
         <tr>
             <td id="tdfirst" valign="top" style="list-style-type: none; font-size: 20px; text-indent: 10px;">
                 <label align="center" style="text-align: center; font-weight: bold;">Критерии поиска:</label>
@@ -126,10 +144,7 @@
                                                 <label>{{el.Author}}</label>
                                             </div>
                                         </div>
-                                        <form id = "form-group" method="post" enctype="multipart/form-data">
-                                            {% csrf_token %}
-                                        <input class="button-reg" type="submit" value="Откликнуться">
-                                        </form>
+                                        
                                         <!--
                                         <a href="#" align="right" valign="bottom"
                                         style="text-decoration: none; 

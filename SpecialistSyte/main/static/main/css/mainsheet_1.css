@@ -7,15 +7,26 @@ body {
   border-right: 10px solid #222222;
 }
 
+.poisk {
+  border: none;
+  display: flex;
+  background-color: #ebebeb;
+  height: 13px;
+  width: 400px;
+  border-radius: 15px;
+  padding: 10px;
+}
+
 .button-reg {
-  margin-left: 600px;
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  font-size: 25px;
+  margin-top: 15px;
+  margin-left: 50px;
   font-size: 16px;
   text-align: center;
   padding: 10px 25px;
   border: none;
   background: #222222;
-  margin-bottom: 10px;
-  margin-top: 30px;
   color:#fbfbfb;
   width: 250px;
 }
