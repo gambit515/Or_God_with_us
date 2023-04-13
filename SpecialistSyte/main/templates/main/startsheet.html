@@ -34,7 +34,7 @@
         </div>
         <div class="text-sh">
             <ul>
-                <li><a href="{% url 'anket' %}">Создать заявку</a></li>
+                <li><a id = "anket1" href="{% url 'anket' %}">Создать заявку</a></li>
                 <li><a href="{% url 'main' %}">Найти специалиста</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
@@ -84,7 +84,7 @@
 						<label>У нас открыты вакансии в разных областях!<br>Выбирай уже сейчас
 							к какой команде профессианолов ты хочешь присоединиться!<br><br><br></label>
 					</div>
-					<a href="{% url 'anket' %}" class="button-zayvka">
+					<a id = "anket2" href="{% url 'anket' %}" class="button-zayvka">
 						Присоединиться к команде
 					</a>
 				</nav>
@@ -113,6 +113,71 @@
 			</td>
 		</tr>
 	</table>
+
+	<script>
+		var firstButtonClicked = null; // Изначально переменная не определена
+		
+		var anketButton = document.getElementById("anket1");
+		if (anketButton) { // Проверяем, что кнопка с id="anket" существует на странице
+		  anketButton.addEventListener('click', onAnketClick);
+		}
+	  
+		var mainButton = document.getElementById("anket2");
+		if (mainButton) { // Проверяем, что кнопка с id="main" существует на странице
+		  mainButton.addEventListener('click', onMainClick);
+		}
+	  
+		function onAnketClick(e) {
+		  e.preventDefault(); // Отменяем стандартное поведение ссылки
+		  if (firstButtonClicked === null) { // Если это первое нажатие кнопки
+			firstButtonClicked = "anket1"; // Устанавливаем значение переменной firstButtonClicked
+		  }
+		  var url = window.location.href; // Получаем текущий URL
+              if (url.includes('localhost')) { // Проверяем, что сайт находится на localhost
+                window.location.href = 'createanketas.html?animation=1'; //этот костыль нет... (потом скрипт закину в JS)
+              } else { // Если сайт не находится на localhost, то используем полный URL
+                window.location.href = 'http://127.0.0.1:8000/createanketas/?animation=1'; //этот костыль работает
+              }
+		}
+	  
+		function onMainClick(e) {
+		  e.preventDefault(); // Отменяем стандартное поведение ссылки
+		  if (firstButtonClicked === null) { // Если это первое нажатие кнопки
+			firstButtonClicked = "anket2"; // Устанавливаем значение переменной firstButtonClicked
+		  }
+		  var url = window.location.href; // Получаем текущий URL
+              if (url.includes('localhost')) { // Проверяем, что сайт находится на localhost
+                window.location.href = 'createanketas.html?animation=1'; //этот костыль нет... (потом скрипт закину в JS)
+              } else { // Если сайт не находится на localhost, то используем полный URL
+                window.location.href = 'http://127.0.0.1:8000/createanketas/?animation=1'; //этот костыль работает
+              }
+		}
+	  </script>
+
+
+
+	<script >
+		/*
+        var loginButton = document.getElementById("anket");
+        
+            if (loginButton) { // Проверяем, что кнопка с id="login" существует на странице
+              loginButton.addEventListener('click', onSubmit);
+            }
+        
+            function onSubmit(e){
+              e.preventDefault(); // Отменяем стандартное поведение ссылки
+        
+              var url = window.location.href; // Получаем текущий URL
+              if (url.includes('localhost')) { // Проверяем, что сайт находится на localhost
+                window.location.href = 'createanketas.html?animation=1'; //этот костыль нет... (потом скрипт закину в JS)
+              } else { // Если сайт не находится на localhost, то используем полный URL
+                window.location.href = 'http://127.0.0.1:8000/createanketas/?animation=1'; //этот костыль работает
+              }
+            }*/</script>
+
+
+
+
 
     <div class="podval" style="margin-top: -57px;">
         <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>

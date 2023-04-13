@@ -35,7 +35,7 @@
         </div>
         <div class="text-sh">
             <ul>
-                <li><a href="{% url 'anket' %}">Создать заявку</a></li>
+                <li><a id="anket" href="{% url 'anket' %}">Создать заявку</a></li>
                 <li><a href="{% url 'main' %}">Найти специалиста</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
@@ -130,6 +130,28 @@
             </td>
         </tr>
     </table>
+
+    <script >
+        var loginButton = document.getElementById("anket");
+        
+            if (loginButton) { // Проверяем, что кнопка с id="login" существует на странице
+              loginButton.addEventListener('click', onSubmit);
+            }
+        
+            function onSubmit(e){
+              e.preventDefault(); // Отменяем стандартное поведение ссылки
+        
+              var url = window.location.href; // Получаем текущий URL
+              if (url.includes('localhost')) { // Проверяем, что сайт находится на localhost
+                window.location.href = 'createanketas.html?animation=1'; //этот костыль нет... (потом скрипт закину в JS)
+              } else { // Если сайт не находится на localhost, то используем полный URL
+                window.location.href = 'http://127.0.0.1:8000/createanketas/?animation=1'; //этот костыль работает
+              }
+            }</script>
+
+
+
+
 
     <div class="podval">
         <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
