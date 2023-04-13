@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  /*background-color: #f8ed21;*/
+  background-color: rgb(255, 255, 245);
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  border-left: 10px solid #222222;
+  border-right: 10px solid #222222;
+}
+
+
+ .o-nas {
+  text-indent: 20px;
+  margin-left: 40px;
+ }
+
+
+
+
+ /*Подвал с детьми*/
+ .podval {
+
+  background-color: #222222;
+  margin: 0 auto;
+  font-size: 20px;
+  color: #fbfbfb;
+  text-align: center;
+  max-width: 100%;
+  padding: 7px;
+  width: auto;
+  
+}
+
+
+/*Далее оформление шапки*/
+
+#logotip {
+  margin-left: 100px;
+}
+
+.namelogo {
+  font-size: 28px;
+  margin-left: 65px;
+  font-weight: bold;
+  color: #fbfbfb;
+  margin-bottom: -30px;
+}
+
+.namelogo2 {
+  font-size: 20px;
+  margin-left: 35px;
+  color: #fbfbfb;
+  margin-bottom: 0;
+}
+
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222222;
+  padding: 10px;
+  width: auto;
+  height: 70px;
+}
+
+
+.text-sh ul {
+  list-style: none;
+  margin-right: 70px;
+  padding: 0;
+  display: flex;
+}
+
+.text-sh li {
+  margin-right: 20px;
+}
+
+.text-sh a {
+  font-size: 18px;
+  color: #fbfbfb;
+  text-decoration: none;
+}
+
+.text-sh li:hover {
+  color: white;
+  transform: scale(1.04);
+}
+
+#login {
+  font-size: 20px;
+  color: #222222;
+  font-weight:  bold;
+  padding: 10px 40px 10px 40px;
+  background-color: #fbfbfb;
+  border: 3px solid black;
+}

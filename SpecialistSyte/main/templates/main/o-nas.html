@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
+
+    <title>BeeBuzz.NET</title>
+    <link rel="stylesheet" href="{% static 'main/css/o-nas.css' %}">
+</head>
+
+<body>
+    
+    <header>
+        <div class="logo">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{% url 'start' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+                    </td>
+                    <td>
+                        <div class="namelogo"><p>BeeBuzz.NET</p></div>
+                        <div class="namelogo2"><p>Сервис для поиска специалистов по оказанию услуг</p></div>                    
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="text-sh">
+            <ul>
+                <li><a href="{% url 'anket' %}">Создать заявку</a></li>
+                <li><a href="{% url 'main' %}">Найти специалиста</a></li>
+                <li><a id="login" href="{% url 'reg' %}">Войти</a></li>
+
+                <!--<li><a href="#">Войти</a></li>
+        <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
+            </ul>
+        </div>
+    </header>
+
+
+    <div class="o-nas">
+        <div class="vah-o-nas">
+            <p><b>О нашей команде:</b></p>
+        </div>
+        <p>Web Wizards - это спонтанно собранная команда, собравшаяся выполнить и достичь опреденной общей задачи. <br>
+            Наш сайт BeeBuzz.NET по подбору персонала представляет собой интернет-платформу, где работодатели могут размещать 
+            свои вакансии и искать кандидатов на свободные должности. Соискатели же могут создавать профили, искать 
+            подходящие вакансии и откликаться на них. Такой сайт позволяет наиболее эффективно и быстро находить подходящих 
+            кандидатов на свободные должности, сокращая время и затраты на проведение рекрутинговой кампании. <br>
+            <p> <b>Руководитель:</b> <br> Амоскин Александр Федорович <br> Backend-разработчик <br><br> </p>
+            <p> <b>Соруководители:</b> <br> Пахомов Александр Николаевич <br> Специалист по JS <br><br> 
+                Трубинская Дарья Евгеньевна <br> Frontend-разработчик и дизайнер <br><br> </p>
+            
+            
+            
+        </p>
+    </div>
+
+    <div class="maya">
+        <img src="C:\Users\Пользователь\Desktop\майязеби.png" width="600" align="right">
+    </div>
+    
+
+    <div class="podval" valign="bottom" style="margin-top: 450px;">
+        <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
+    </div>
+
+</body>
+</html>
