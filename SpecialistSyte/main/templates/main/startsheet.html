@@ -36,7 +36,7 @@
         <div class="text-sh">
             <ul>
                 {% if request.user|has_group:"Работодатель" %}
-                <li><a id = "anket" href="{% url 'anket' %}">Создать анкету</a></li>
+                <li><a id = "anket1" href="{% url 'anket' %}">Создать анкету</a></li>
                 {% endif %}
                 <li><a href="{% url 'main' %}">Найти вакансию</a></li>
                 {% if request.user.is_authenticated %}
