@@ -1,4 +1,4 @@
-from .models import Anketa, Soft_categori, Lang_categori
+from .models import Anketa, Soft_categori, Lang_categori, Otkl
 from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth.models import User, Group
@@ -123,6 +123,11 @@ class AnketaForm(forms.ModelForm):
                 'autocomplete': 'anketa_price'
             })
         }
+
+class OtklForm(forms.ModelForm):
+    class Meta:
+        model = Otkl
+        fields = ['Otkl_User','Anketa']
 
 
 
