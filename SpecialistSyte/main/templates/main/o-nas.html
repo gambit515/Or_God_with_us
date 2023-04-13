@@ -36,7 +36,7 @@
             <ul>
                 <li><a href="{% url 'anket' %}">Создать заявку</a></li>
                 <li><a href="{% url 'main' %}">Найти специалиста</a></li>
-                <li><a id="login" href="{% url 'reg' %}">Войти</a></li>
+                <li><a id="login" href="{% url 'log' %}">Войти</a></li>
 
                 <!--<li><a href="#">Войти</a></li>
         <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
@@ -64,7 +64,7 @@
     </div>
 
     <div class="maya">
-        <img src="C:\Users\Пользователь\Desktop\майязеби.png" width="600" align="right">
+        <img src="{% static 'main/images/майязеби.png' %}" width="600" align="right">
     </div>
     
 
