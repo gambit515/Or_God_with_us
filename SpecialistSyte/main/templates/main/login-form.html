@@ -54,57 +54,29 @@
 					<h1>Вход в систему</h1>
 				</div>
 			</nav>
-			<hr style="border: 1px solid #222222; width: 350px; margin-top: -15px;">
+				<hr style="border: 1px solid #222222; width: 350px; margin-top: -15px;">
 			<div class="msg"></div>
 			<form id = "form-group" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+                <nav class="login-form">
 		<nav class="login-form">
-              
-              <!--{% csrf_token %}
-              {{form}}-->
-  
+
               <div class="form-group">
-              <div class="label-reg"> <label for = "email">e-mail</label> </div>
-              <input class="vvod" type="email" placeholder="Введите e-mail" id = "usermail" autocomplete="usermail">
-          </div>
-  
+              <div class="label-reg"> <label for = "email">Логин</label> </div>
+                  {{form.username}}
+              <!--<input class="vvod" type="text" placeholder="Введите логин" id = "user_psevdomin" autocomplete="user_psevdomin">-->
+
           <div class="form-group">
               <div class="label-reg"> <label for = "password">Пароль</label> </div>
-              <input class="vvod1" type="password" placeholder="Введите пароль" id = "userpassword" autocomplete="userpassword">
+                    {{form.password}}
+              <!--<input class="vvod1" type="password" placeholder="Введите пароль" id = "userpassword" autocomplete="userpassword">-->
           </div>
-  
+
           <input class="button-reg" type="submit" value="Войти">
-  
-          <div class="no-reg" align="center" >
-              <a href="#" style="color: black;" >Забыли адрес электронной почты или пароль?</a>
-              <P>
-                  У вас нет аккаунт в BeeBuzz.NET? <a id="reg" href="{% url 'reg' %}" style="color: black;">Зарегистрироваться!</a>
-              </P>
-              
-                      <script >
-  var loginButton = document.getElementById("reg");
-  
-    if (loginButton) { // Проверяем, что кнопка с id="login" существует на странице
-      loginButton.addEventListener('click', onSubmit);
-    }
-  
-    function onSubmit(e){
-      e.preventDefault(); // Отменяем стандартное поведение ссылки
-  
-      var url = window.location.href; // Получаем текущий URL
-      if (url.includes('localhost')) { // Проверяем, что сайт находится на localhost
-      window.location.href = 'registration.html?animation=1'; //этот костыль нет... (потом скрипт закину в JS)
-      } else { // Если сайт не находится на localhost, то используем полный URL
-      window.location.href = 'http://127.0.0.1:8000/registration/?animation=1'; //этот костыль работает
-      }
-    }</script>
           </div>
           </form>
       </nav>
-			</form>
-		</div>
-	</nav>
 
-    
 
 
     <div class="podval" valign="bottom" style="margin-top: 350px;">
