@@ -7,6 +7,28 @@ body {
   border-right: 10px solid #222222;
 }
 
+.button-reg {
+  margin-left: 600px;
+  font-size: 16px;
+  text-align: center;
+  padding: 10px 25px;
+  border: none;
+  background: #222222;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  color:#fbfbfb;
+  width: 250px;
+}
+
+.button-reg:hover {
+  transform: scale(1.03);
+  background: #3e3e3e;
+}
+
+.label-reg {
+  margin-left: 15px;
+  padding: 2px;
+}/*rgb(173, 171, 18)*/
 
 .verticalline {
     border-left: 6px solid black;
