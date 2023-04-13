@@ -51,18 +51,19 @@
     
     <table style="padding-bottom: 40px;">
         <tr>
-            <td id="tdfirst" valign="top">
+            <td id="tdfirst" valign="top" style="list-style-type: none; font-size: 20px; text-indent: 10px;">
+                <label align="center" style="text-align: center; font-weight: bold;">Критерии поиска:</label>
                 {% if soft_cat_selected == 0 and lang_cat_selected == 0 %}
-                    <li>Все анкеты</li>
+                    <li >Все анкеты</li>
                 {% else %}
-                    <li><a href="{% url 'main' %}">Все анкеты</a></li>
+                    <li><a href="{% url 'main' %}" style="color: black; ">Все анкеты</a></li>
                 {% endif %}
 
                 {% for c in soft_cat %}
                     {% if c.pk == soft_cat_selected %}
                         <li>{{c.Tittle}}</li>
                     {% else %}
-                        <li><a href="{{ c.get_absolute_url }}">{{c.Tittle}}</a> </li>
+                        <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
                     {% endif %}
                 {% endfor %}
 
@@ -70,7 +71,7 @@
                     {% if c.pk == lang_cat_selected %}
                         <li>{{c.Tittle}}</li>
                     {% else %}
-                        <li><a href="{{ c.get_absolute_url }}">{{c.Tittle}}</a> </li>
+                        <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
                     {% endif %}
                 {% endfor %}
                 <!--<div class="label-menu"> <label>Категории софта</label></div>

@@ -1,88 +1,218 @@
 body {
-  color: white;
-}
-
-.form-group {
-  margin: 10px;
-  padding: 10px;
-  font-size: 14px;
-  font-family: sans-serif;
-}
-
-.vvod {
- border: none;
- display: flex;
- background-color: #ebebeb;
- height: 13px;
- width: 400px;
- border-radius: 15px;
- padding: 10px;
-}
-
-.vvod1 {
- border: none;
- display: flex;
- background-color: #ebebeb;
- height: 13px;
- width: 400px;
- border-radius: 15px;
- padding: 10px;
- margin-bottom: 20px;
-}
-
-.label-reg {
-  margin-left: 15px;
-  padding: 2px;
-  color: white;
-}
-
-.login-name {
-  font-size: 20px;
-  font-weight: bold;
-  text-align: center;
-  color: white;
-  padding: 6px;
-  border: 2px solid white;
-}
-
-.login-form {
-  height: auto;
-  width: auto;
-  padding: 20px;
-  padding-bottom: 40px;
-  font-family: 'Sofia Sans Condensed', sans-serif;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #313131;
-}
-
-.button-vhod {
-  border: 2px solid white;
-  font-size: 16px;
-  display: flex;
-  margin: auto;
-  left: 50%;
-  top: 50%;
-  width: auto;
-  padding: 15px 100px;
-  border: none;
-  background: #171717;
-  margin-bottom: 30px;
-  color:#fbfbfb;
-}
-
-.button-vhod:hover {
-  transform: scale(1.05);
-  background: #3e3e3e;
-}
-
-.no-reg {
-  padding: 0;
   margin: 0;
+  /*background-color: #f8ed21;*/
+  background-color: rgb(255, 255, 245);
+  font-family: 'Sofia Sans Condensed', sans-serif;
+  border-left: 10px solid #222222;
+  border-right: 10px solid #222222;
+  
+}
+
+
+#animated-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-in-out;
+
+}
+
+/*
+  .beebuzz {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222222;
+      padding: 10px;
+      width: auto;
+      height: 70px;
+  }
+*/
+  .beebuzz_name {
+      color: #222222;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 16px;
+      margin-bottom: -20px;
+      margin: auto;
+      width: 450px;
+      text-align: center;
+      padding-top: 5px;
+      font-size: 20px;
+      
+  }
+
+  
+  .register {
+      margin: auto;
+      margin-top: 35px;
+      left: 50%;
+      top: 50%;
+      width: 450px;
+      height: 420px;
+      -webkit-box-shadow: 1px 0px 15px 5px rgba(34, 60, 80, 0.28);
+      -moz-box-shadow: 1px 0px 15px 5px rgba(34, 60, 80, 0.28);
+      box-shadow: 1px 0px 15px 5px rgba(34, 60, 80, 0.28)
+  }
+
+  .form-group {
+      margin: 10px;
+      padding: 10px;
+      font-size: 14px;
+      font-family: sans-serif;
+  }
+
+  .vvod {
+     border: none;
+     display: flex;
+     background-color: #ebebeb;
+     height: 13px;
+     width: 400px;
+     border-radius: 15px;
+     padding: 10px;
+
+  }
+
+  .vvod1 {
+     border: none;
+     display: flex;
+     background-color: #ebebeb;
+     height: 13px;
+     width: 400px;
+     border-radius: 15px;
+     padding: 10px;
+  }
+
+  .vvod2 {
+     border: none;
+     display: flex;
+     background-color: #ebebeb;
+     height: 13px;
+     width: 400px;
+     border-radius: 15px;
+     padding: 10px;
+  }
+
+
+  .button-reg {
+      font-size: 16px;
+      text-align: center;
+      display: block;
+      margin: auto;
+      left: 50%;
+      top: 50%;
+      padding: 15px 35px;
+      border: none;
+      background: #222222;
+      margin-bottom: 10px;
+      margin-top: 30px;
+      color:#fbfbfb;
+      width: 350px;
+  }
+
+  .button-reg:hover {
+      transform: scale(1.03);
+      background: #3e3e3e;
+  }
+
+  .label-reg {
+      margin-left: 15px;
+      padding: 2px;
+  }/*rgb(173, 171, 18)*/
+
+
+
+.error {
+  margin: auto;
+  margin-top: 35px;
+  left: 50%;
+  font-size: 22px;
+  height: 30px;
+  width: 400px;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #474747;
   text-align: center;
+  vertical-align: middle;
+  color: #fff;
+}
+
+/*Подвал с детьми*/
+.podval {
+  
+  background-color: #222222;
+  margin: 0 auto;
+  font-size: 20px;
+  color: #fbfbfb;
+  text-align: center;
+  max-width: 100%;
+  padding: 7px;
+  width: auto;
+  
+}
+
+
+
+
+/*Далее оформление шапки*/
+
+#logotip {
+  margin-left: 100px;
+}
+
+.namelogo {
+  font-size: 28px;
+  margin-left: 65px;
+  font-weight: bold;
+  color: #fbfbfb;
+}
+
+.namelogo2 {
+  font-size: 20px;
+  margin-left: 35px;
+  color: #fbfbfb;
+}
+
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222222;
+  padding: 10px;
+  width: auto;
+  height: 70px;
+}
+
+
+.text-sh ul {
+  list-style: none;
+  margin-right: 70px;
+  padding: 0;
+  display: flex;
+}
+
+.text-sh li {
+  margin-right: 20px;
+}
+
+.text-sh a {
   font-size: 18px;
-  color: inherit;
+  color: #fbfbfb;
   text-decoration: none;
 }
+
+.text-sh li:hover {
+  color: white;
+  transform: scale(1.04);
+}
+
+#login {
+  font-size: 20px;
+  color: #222222;
+  font-weight:  bold;
+  padding: 10px 40px 10px 40px;
+  background-color: #fbfbfb;
+  border: 3px solid black;
+}
+

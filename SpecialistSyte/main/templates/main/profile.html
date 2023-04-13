@@ -22,7 +22,7 @@
             <table>
                 <tr>
                     <td>
-                        <a href="{% url 'main' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
+                        <a href="{% url 'start' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
                     </td>
                     <td>
                         <div class="namelogo"><label>BeeBuzz.NET</label></div>
@@ -33,27 +33,24 @@
         </div>
         <div class="text-sh">
             <ul>
-                <li><a href="#">Создать заказ</a></li>
-                <li><a href="#">Найти специалиста</a></li>
+                <li><a href="{% url 'anket' %}">Создать заявку</a></li>
+                <li><a href="{% url 'main' %}">Найти специалиста</a></li>
                 {% if request.user.is_authenticated %}
                 <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
                 {% else %}
-                <li><a id="login" href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Войти</a></li>
+                <li><a id="login" href="{% url 'log' %}">Войти</a></li>
                 {% endif %}
-
-
+    
                 <!--<li><a href="#">Войти</a></li>
         <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
             </ul>
         </div>
     </header>
 
-    <table style="height: 600px; margin: 20px 100px 20px 100px;">
+    <table style="height: 600px; margin: 20px 100px 20px 100px;"
         <tr>
-            <td align="center" valign="top" style="width: 400px; ">    <!--подключить сюда картинку профиля и далее данные в lable из бд-->
-                <img src="{% static 'main/images/egorik.png' %}" width="300px">
-            </td>
-            <td valign="top" style="width: 550px;">
+            
+            <td valign="top" style="width: 900px;">
                 <div class="profile">
                     <p class="main-menu-info">
                         Псевдоним на сайте: <label class="dannye-bd">{{ request.user }}</label>
@@ -76,9 +73,17 @@
                     </p> 
                 </div>
             </td>
-            <td align="center" valign="top">
-                <input class="button-redac" type="submit" value ="Редактировать профиль">
-                <a href="{% url 'logout' %}">Выйти с аккаунта</a>
+            <td align="center" valign="top" style="width: 300px;">
+                <div class="button">
+                    <a href="#" style="text-decoration: none; color:#fbfbfb;">Редактировать профиль</a>
+                </div>
+
+                <!--<input class="button-redac" type="submit" value ="Редактировать профиль">-->
+
+                <div class="button">
+                    <a href="{% url 'logout' %}" style="text-decoration: none; color:#fbfbfb;">Выйти с аккаунта</a>
+                </div>
+                
             </td>
         </tr>
     </table>

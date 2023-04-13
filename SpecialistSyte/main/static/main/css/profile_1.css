@@ -27,9 +27,8 @@ body {
   margin: 0 10px 0 10px;
 }
 
-.button-redac {
-  text-align: center;
-  width: 250px;
+.button {
+  width: 150px;
   font-size: 14px;
   margin: auto;
   left: 50%;
@@ -37,31 +36,14 @@ body {
   padding: 15px 35px;
   border: none;
   background: #222222;
-  margin-bottom: 10px;
   color:#fbfbfb;
+  margin-bottom: 30px;
 }
-.button-redac:hover {
+.button:hover {
   transform: scale(1.03);
   background: #3e3e3e;
 }
 
-.button-vihod {
-  text-align: center;
-  width: 250px;
-  font-size: 14px;
-  margin: auto;
-  left: 50%;
-  top: 50%;
-  padding: 15px 35px;
-  border: none;
-  background: #222222;
-  margin-bottom: 40px;
-  color:#fbfbfb;
-}
-.button-vihod:hover {
-  transform: scale(1.03);
-  background: #3e3e3e;
-}
 
 
 
