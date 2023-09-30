@@ -33,63 +33,36 @@
 
                         <li class="menu__categories-list-item">
                             <input type="radio" name="category" id="category1" data-category="1">
-                            <label for="category1">Категория 1</label>
+                            <label for="category1">Руководители</label>
                         </li>
                         <li class="menu__categories-list-item">
                             <input type="radio" name="category" id="category2" data-category="2">
-                            <label for="category2">Категория 2</label>
+                            <label for="category2">С высшим медицинским образованием</label>
                         </li>
                         <li class="menu__categories-list-item">
                             <input type="radio" name="category" id="category3" data-category="3">
-                            <label for="category3">Категория 3</label>
+                            <label for="category3">С высшим немедицинским образованием</label>
                         </li>
                         <li class="menu__categories-list-item">
                             <input type="radio" name="category" id="category4" data-category="4">
-                            <label for="category4">Категория 4</label>
+                            <label for="category4">Младший медицинский персонал</label>
                         </li>
                         <li class="menu__categories-list-item">
                             <input type="radio" name="category" id="category5" data-category="5">
-                            <label for="category5">Категория 5</label>
+                            <label for="category5">IT</label>
                         </li>
-                        <!--
-
-                        <li class="menu__categories-list-item">
-                            <input type="radio" name="category">
-                            <label>Один</label>
+                    <li class="menu__categories-list-item">
+                            <input type="radio" name="category" id="category6" data-category="6">
+                            <label for="category5">Со средним медицинским образованием</label>
                         </li>
-                        <li class="menu__categories-list-item">
-                            <input type="radio" name="category">
-                            <label>Один</label>
-                        </li>
-                        <li class="menu__categories-list-item">
-                            <input type="radio" name="category">
-                            <label>Один</label>
-                        </li>
-                        <li class="menu__categories-list-item">
-                            <input type="radio" name="category">
-                            <label>Один</label>
-                        </li>
-                        <li class="menu__categories-list-item">
-                            <input type="radio" name="category">
-                            <label>Один</label>
-                        </li>
-                        <li class="menu__categories-list-item">
-                            <input type="radio" name="category">
-                            <label>Один</label>
-                        </li>
-                        <li class="menu__categories-list-item">
-                            <input type="radio" name="category">
-                            <label>Один</label>
-                        </li>
-                        <li class="menu__categories-list-item">
-                            <input type="radio" name="category">
-                            <label>Один</label>
-                        </li>-->
                     </ul>
                 </div>
                 <div class="menu__subcategories menu__categories">
-                    <ul class="menu__subcategories-list">
-                        <li>
+
+
+                            <div id="category-content-0" class="category-content">
+
+                            </div>
                             <div id="category-content-1" class="category-content">
                                 {% for c in lang_cat %}
                                 {% if c.MainCategory.id == 1 %}
@@ -146,8 +119,19 @@
                             {% endif %}
                             {% endfor %}
                                 </div>
-                        </li>
-                    </ul>
+                    <div id="category-content-6" class="category-content">
+                        {% for c in lang_cat %}
+                            {% if c.MainCategory.id == 6 %}
+                                {% if c.pk == lang_cat_selected %}
+                                    <li>{{c.Tittle}}</li>
+                                {% else %}
+                                    <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
+                                {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                                </div>
+
+
                 </div>
                 <div class="search-box">
                 </div>
@@ -180,24 +164,25 @@
         </div>
     </main>
             <script>
-                const categoryButtons = document.querySelectorAll('[data-category]');
-                const categoryContents = document.querySelectorAll('.category-content');
+                // Получите все кнопки категорий и соответствующие им блоки контента
+                    const categoryButtons = document.querySelectorAll('[data-category]');
+                    const categoryContents = document.querySelectorAll('.category-content');
 
-                // Добавьте обработчик событий для каждой кнопки
-                categoryButtons.forEach(button => {
-                    button.addEventListener('change', function () {
-                        // Получите выбранную категорию из data-category
-                        const selectedCategory = this.getAttribute('data-category');
+                    // Установите обработчик событий для каждой кнопки
+                    categoryButtons.forEach(button => {
+                        button.addEventListener('change', function () {
+                            // Получите значение data-category выбранной кнопки
+                            const selectedCategory = this.getAttribute('data-category');
 
-                        // Скрыть все контенты категорий
-                        categoryContents.forEach(content => {
-                            content.style.display = 'none';
+                            // Скрыть все блоки контента
+                            categoryContents.forEach(content => {
+                                content.style.display = 'none';
+                            });
+
+                            // Отобразить соответствующий блок контента
+                            document.getElementById(`category-content-${selectedCategory}`).style.display = 'block';
                         });
-
-                        // Отобразить выбранный контент
-                        document.getElementById(`category-content-${selectedCategory}`).style.display = 'block';
                     });
-                });
             </script>
     <script src="{% static 'main/js/main.js' %}"></script>
 </body>
