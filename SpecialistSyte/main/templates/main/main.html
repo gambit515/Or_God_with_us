@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+    <title>Вакансии</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'main' %}"><img src="{% static 'main/images/full-logo 2.svg' %}" class="logo-image" width="70" /></a>
+        </div>
+        <div class="menu">
+            <ul class="menu-list">
+                <li>
+                    <a href="{% url 'partners' %}" class="partners request-link">Партнеры</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}" class="about request-link">О нас</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <h1 class="open-vacan">Открытые вакансии</h1>
+            <div class="aside-menu">
+                <div class="menu__categories">
+                    <ul class="menu__categories-list">
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category">
+                            <label>Один</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category">
+                            <label>Один</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category">
+                            <label>Один</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category">
+                            <label>Один</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category">
+                            <label>Один</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category">
+                            <label>Один</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category">
+                            <label>Один</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category">
+                            <label>Один</label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu__subcategories menu__categories">
+                    <ul class="menu__subcategories-list">
+                        <li>
+                            <li class="menu__categories-list-item">
+                                <input type="radio" name="subcategory">
+                                <label>Один</label>
+                            </li>
+                            <li class="menu__categories-list-item">
+                                <input type="radio" name="subcategory">
+                                <label>Один</label>
+                            </li>
+                            <li class="menu__categories-list-item">
+                                <input type="radio" name="subcategory">
+                                <label>Один</label>
+                            </li>
+                            <li class="menu__categories-list-item">
+                                <input type="radio" name="subcategory">
+                                <label>Один</label>
+                            </li>
+                            <li class="menu__categories-list-item">
+                                <input type="radio" name="subcategory">
+                                <label>Один</label>
+                            </li>
+                        </li>
+                    </ul>
+                </div>
+                <div class="search-box">
+                </div>
+            </div>
+            <div class="vacancies">
+                <!-- <a class="vacancy-open" id="vacancy">
+                    
+                </a> -->
+                {% for el in results %}
+                <div class="vacancies-list">
+                    <div class="vacancies-item" id="vacancy-item">
+                        <h3>{{el.Tittle}}</h3>
+                        <p class="vacancy-description">
+                            {{el.Text}}
+                        </p>
+                        <label>{{el.Lang_cat}}</label>
+                        <label>{{el.Status}}</label>
+                        <label>{{el.Price}}</label>
+                        <img src="{{el.Photo.url}}" width="250">
+                        <p class="skills">
+                            {{el.Text2}}
+                        </p>
+                        <p class="salary">
+                            0
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+                <!--
+                <div class="vacancies-list">
+                    <div class="vacancies-item" id="vacancy-item">
+                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                        <p class="vacancy-description">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                            Eaque optio nostrum quas cumque, nemo officia error dolore corporis iure illum accusamus eum, 
+                            ipsa minima rem laboriosam culpa, voluptas fugiat neque!
+                        </p>
+                        <p class="skills">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                            Eaque optio nostrum quas cumque, nemo officia error dolore corporis iure illum accusamus eum, 
+                            ipsa minima rem laboriosam culpa, voluptas fugiat neque!
+                        </p>
+                        <p class="salary">
+                            0
+                        </p>
+                    </div>
+                </div>
+                <div class="vacancies-list">
+                    <div class="vacancies-item" id="vacancy-item">
+                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
+                        <p class="vacancy-description">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                            Eaque optio nostrum quas cumque, nemo officia error dolore corporis iure illum accusamus eum, 
+                            ipsa minima rem laboriosam culpa, voluptas fugiat neque!
+                        </p>
+                        <p class="skills">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                            Eaque optio nostrum quas cumque, nemo officia error dolore corporis iure illum accusamus eum, 
+                            ipsa minima rem laboriosam culpa, voluptas fugiat neque!
+                        </p>
+                        <p class="salary">
+                            0
+                        </p>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </main>
+
+    <script src="{% static 'main/js/main.js' %}"></script>
+</body>
+</html>
