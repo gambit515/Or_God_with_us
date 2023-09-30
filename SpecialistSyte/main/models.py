@@ -96,3 +96,28 @@ class Main_categori(models.Model):
         verbose_name = "Основные категория"
         verbose_name_plural = "Основные категория"
         ordering = ['Tittle']
+
+
+
+class Otklik(models.Model):
+    FIO = models.CharField('ФИО',max_length=550)
+    Anketa = models.ForeignKey('Anketa', on_delete=models.CASCADE, blank=True, verbose_name="Вакансия на которую откликнулись")
+    BirthDate = models.CharField('Дата рождения', max_length=500)
+    Email = models.EmailField('Почта', max_length=500)
+    Phone = models.CharField('Телефон', max_length=100)
+    Citizenship = models.CharField('Гражданство', max_length=300)
+    Place = models.CharField('Место жительства', max_length=300)
+    Portfolio = models.CharField('Ссылка на портфолио', max_length=500)
+    Rezume = models.CharField('Резюме', max_length=500)
+    DatePost = models.DateTimeField('Время отправки',auto_now_add=True)
+
+    def __str__(self):
+        return self.FIO
+
+    def get_absolute_url(self):
+       return reverse('otklik', kwargs = {'otklik': self.pk})
+
+    class Meta:
+        verbose_name = "Отклики"
+        verbose_name_plural = "Отклики"
+        ordering = ['DatePost']

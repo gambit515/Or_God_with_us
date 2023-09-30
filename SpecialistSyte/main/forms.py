@@ -1,4 +1,4 @@
-from .models import Anketa, Soft_categori, Lang_categori, Otkl
+from .models import Anketa, Soft_categori, Lang_categori, Otkl, Otklik
 from django import forms
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ValidationError
@@ -129,6 +129,9 @@ class OtklForm(forms.ModelForm):
                 'autocomplete': 'anketa_tittle'
             }),
         }
-
+class OtklikForm(forms.ModelForm):
+    class Meta:
+        model = Otklik
+        fields = ['FIO', 'BirthDate', 'Email', 'Phone', 'Citizenship', 'Place', 'Portfolio', 'Rezume']
 
 

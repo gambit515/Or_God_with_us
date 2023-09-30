@@ -8,7 +8,7 @@ from django.template import RequestContext
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
 from .models import Anketa, Lang_categori, Otkl
-from .forms import PostForm, AnketaForm, AuthUserForm, OtklForm
+from .forms import PostForm, AnketaForm, AuthUserForm, OtklForm,OtklikForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 class StartPageView(ListView):
@@ -81,23 +81,17 @@ def startsheet(request):
 #   return render(request, 'main/login-form.html')
 
 def otklikform(request,anket_id):
-    context = {
-        'anket_id': anket_id
-
-    }
-    anketas = Anketa.objects.all()
     if request.method == 'POST':
-        form = OtklForm(request.POST)
+        form = OtklikForm(request.POST)
         if form.is_valid():
-            instance = form.save(commit=False)
-            instance.Otkl_User = request.user
-            instance.Anketa = Anketa.objects.get(id=anket_id)
-            instance.save()
+            otklik = form.save(commit=False)
+            otklik.Anketa_id = anket_id  # Устанавливаем значение поля Anketa_id
+            otklik.save()
             return render(request, 'main/form2.html')
     else:
-        form = OtklForm()
-    return render(request, 'main/form.html', {'form': form, 'anket_id': anket_id, 'anketas': anketas})
-    # return render(request,'main/form.html', {'form': form,'anket_id': anket_id} )
+        form = OtklikForm()
+
+    return render(request, 'main/form.html', {'form': form})
 
 
 def show_anket(request,anket_id):

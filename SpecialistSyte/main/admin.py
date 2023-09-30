@@ -37,3 +37,11 @@ class Main_categoriAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Main_categori, Main_categoriAdmin)
+
+
+class OtklikAdmin(admin.ModelAdmin):
+    list_display = ('id','FIO')
+    search_fields = ('id','FIO')
+
+
+admin.site.register(Otklik, OtklikAdmin)

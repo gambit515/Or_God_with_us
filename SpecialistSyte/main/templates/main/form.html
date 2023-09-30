@@ -62,9 +62,18 @@
 			
             <label class="otpr">Вы действительно хотите отправить отклик на вакансию?{{anket_id}}</label>
 
-            <form id = "form-group" method="post" enctype="multipart/form-data" >
+            <form method="post">
                 {% csrf_token %}
-                <p><input class="button-reg" type="submit"></p>
+                {% for field in form %}
+                    <div class="field">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}
+                            <span class="error">{{ field.errors }}</span>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                <button type="submit">Откликнуться</button>
             </form>
             
 
