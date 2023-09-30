@@ -85,7 +85,7 @@ class Soft_categori(models.Model):
 
 
 class Main_categori(models.Model):
-    Tittle = models.CharField('Категории софта',max_length=50)
+    Tittle = models.CharField('Основные категория',max_length=50)
 
     def __str__(self):
         return self.Tittle
@@ -94,6 +94,6 @@ class Main_categori(models.Model):
        return reverse('main_cat', kwargs = {'main_cat': self.pk})
 
     class Meta:
-        verbose_name = "Основная категория"
-        verbose_name_plural = "Основная категория"
+        verbose_name = "Основные категория"
+        verbose_name_plural = "Основные категория"
         ordering = ['Tittle']
