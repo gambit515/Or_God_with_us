@@ -20,10 +20,6 @@ html, body {
     height: 100%;
 }
 
-.wrapper, .main {
-    height: inherit;
-}
-
 .btn {
     margin-left: auto;
     margin-top: 20px;
