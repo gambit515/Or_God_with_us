@@ -50,35 +50,25 @@ class TestView(CreateView): # new
     template_name = 'main/test.html'
     success_url = reverse_lazy('main')
 
-class MainView(CreateView): # new
-    model = Anketa
-    form_class = OtklForm
-    template_name = 'main/mainsheet.html'
-    success_url = reverse_lazy('main')
-    def get(self,request):
-        anketas =  Anketa.objects.all()
-        #soft_cat = Soft_categori.objects.all()
-        lang_cat = Lang_categori.objects.all()
-        form = OtklForm
-        context = {
-            'anketas':anketas,
-            #'soft_cat':soft_cat,
-            'lang_cat':lang_cat,
-            'form':form,
-            'soft_cat_selected': 0,
-            'lang_cat_selected': 0,
-        }
-        return render(request, 'main/mainsheet.html',context)
-    def form_valid(self,form):
-        self.object = form.save(commit=False)
-        self.object.Otkl_User = self.request.user
-        self.object.save()
-        return super().form_valid(form)
+def MainView(request):
+    form_class = OtklForm  # Ваша форма (если есть)
+    query = request.GET.get('q', '')
+    lang_cat = Lang_categori.objects.all()
+    results = Anketa.objects.filter(Tittle__icontains=query)
+    context = {
+        'anketas': results,  # Переименовали anketas в results, так как это результаты поиска
+        # 'soft_cat': soft_cat,
+        'results': results,
+        'lang_cat': lang_cat,
+        'soft_cat_selected': 0,
+        'lang_cat_selected': 0,
+    }
+
+    return render(request, 'main/mainsheet.html', context)
 
 def startsheet(request):
     return render(request, 'main/startsheet.html')
-#def login(request):
-#   return render(request, 'main/login-form.html')
+
 
 def otklikform(request,anket_id):
     if request.method == 'POST':
@@ -143,10 +133,14 @@ class ProfileView(LoginRequiredMixin,TemplateView): # new
 
 def show_soft_cat(request,soft_cat_id):
     anketas = Anketa.objects.filter(Soft_cat_id=soft_cat_id)
+    query = request.GET.get('q', '')
+    results = anketas.objects.filter(Tittle__icontains=query)  # Фильтруйте анкеты по полю Tittle
     #soft_cat = Soft_categori.objects.all()
     lang_cat = Lang_categori.objects.all()
+
     context = {
         'anketas': anketas,
+        'results': results,
         #'soft_cat': soft_cat,
         'lang_cat': lang_cat,
         'soft_cat_selected': soft_cat_id,
@@ -157,17 +151,21 @@ def show_soft_cat(request,soft_cat_id):
 
 def show_lang_cat(request,lang_cat_id):
     anketas = Anketa.objects.filter(Lang_cat_id=lang_cat_id)
+    query = request.GET.get('q', '')
+    results = anketas.filter(Tittle__icontains=query)  # Фильтруйте анкеты по полю Tittle
     #soft_cat = Soft_categori.objects.all()
     lang_cat = Lang_categori.objects.all()
     context = {
         'anketas': anketas,
         #'soft_cat': soft_cat,
+        'results': results,
         'lang_cat': lang_cat,
         'soft_cat_selected': 0,
         'lang_cat_selected': lang_cat_id,
     }
 
     return render(request, 'main/mainsheet.html', context)
+
 
 class MyprojectLoginView(LoginView):
     model = User
