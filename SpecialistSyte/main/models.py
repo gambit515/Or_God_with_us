@@ -53,7 +53,8 @@ class Anketa(models.Model):
         ordering = ['Tittle']
 
 class Lang_categori(models.Model):
-    Tittle = models.CharField('Язык программирования',max_length=50)
+    Tittle = models.CharField('Категория',max_length=50)
+    MainCategory = models.CharField('Главная категория', max_length=50)
 
     def __str__(self):
         return self.Tittle
