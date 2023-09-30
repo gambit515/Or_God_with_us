@@ -8,7 +8,6 @@
     <title>Вакансии</title>
 </head>
 <body>
-    <body>
     <header class="header">
         <div class="logo">
             <a href="{% url 'main' %}"><img src="{% static 'main/images/full-logo 2.svg' %}" class="logo-image" width="70" /></a>
@@ -16,7 +15,7 @@
         <div class="menu">
             <ul class="menu-list">
                 <li>
-                    <a href="#" class="partners request-link">Партнеры</a>
+                    <a href="{% url 'partners' %}" class="partners request-link">Партнеры</a>
                 </li>
                 <li>
                     <a href="{% url 'about' %}" class="about request-link">О нас</a>

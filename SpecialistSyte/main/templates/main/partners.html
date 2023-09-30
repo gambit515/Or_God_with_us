@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/partners.css' %}">
+    <title>Вакансии</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'main' %}"><img src="{% static 'main/images/full-logo 2.svg' %}" class="logo-image" width="70" /></a>
+        </div>
+        <div class="menu">
+            <ul class="menu-list">
+                <li>
+                    <a href="{% url 'partners' %}" class="partners request-link">Партнеры</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}" class="about request-link">О нас</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <main class="main">
+        <div class="container">
+            <div></div><h2 class="name">Партнеры</h2></div>
+            <div class="partner">
+                <div class="photo">
+                    <img class="images" src="mchs.png" alt="Фотография">            
+                </div>                                   
+                <div class="vacancies-item" id="vacancy-item">
+                <h3>МЧС России</h3>
+                <p class="vacancy-description">
+                    МЧС (Министерство по чрезвычайным ситуациям)
+                </p>
+                <p class="skills">
+                    +7 (391) 226-44-01
+                    </p>                        
+                </div>                
+            </div>
+            <div class="partner">
+                <div class="photo">
+                    <img class="images" src="myvmeste.jpg" alt="Фотография">            
+                </div>                                   
+                <div class="vacancies-item" id="vacancy-item">
+                <h3>#МЫВМЕСТЕ</h3>
+                <p class="vacancy-description">
+                    #МЫВМЕСТЕ — общероссийский проект помощи гражданам во время кризисных ситуаций, который объединяет огромное количество неравнодушных людей. На данный момент в проекте участвует около 120 тысяч граждан, готовых оказывать поддержку и помощь каждый день.                </p>
+                <p class="skills">
+                    +7 (978) 256-11-01
+                    </p>                        
+                </div>                
+            </div>
+        </div>
+    </main>    
+</body>
+</html>

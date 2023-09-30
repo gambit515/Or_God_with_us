@@ -160,5 +160,8 @@ class Logout(LogoutView):
 class About_us_View(TemplateView):
     template_name = 'main/aboutUs.html'
 
+class PartnersView(TemplateView):
+    template_name = 'main/partners.html'
+
 def form2(request):
     return render(request, 'main/form2.html')
