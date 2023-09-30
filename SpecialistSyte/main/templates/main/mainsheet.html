@@ -56,19 +56,11 @@
         <tr>
             <td id="tdfirst" valign="top" style="list-style-type: none; font-size: 20px; text-indent: 10px;">
                 <label align="center" style="text-align: center; font-weight: bold;">Критерии поиска:</label>
-                {% if soft_cat_selected == 0 and lang_cat_selected == 0 %}
+                {% if lang_cat_selected == 0 %}
                     <li >Все анкеты</li>
                 {% else %}
                     <li><a href="{% url 'main' %}" style="color: black; ">Все анкеты</a></li>
                 {% endif %}
-
-                {% for c in soft_cat %}
-                    {% if c.pk == soft_cat_selected %}
-                        <li>{{c.Tittle}}</li>
-                    {% else %}
-                        <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
-                    {% endif %}
-                {% endfor %}
 
                 {% for c in lang_cat %}
                     {% if c.pk == lang_cat_selected %}
@@ -124,9 +116,6 @@
                                             <div class="lang_cat">
                                                 <label>{{el.Lang_cat}}</label>
                                             </div>
-                                            <div class="soft_cat">
-                                                <label>{{el.Soft_cat}}</label>
-                                            </div>
                                             <div class="author">
                                                 <label>{{el.Author}}</label>
                                             </div>
@@ -175,9 +164,6 @@
                                             </div>
                                             <div class="lang_cat">
                                                 <label>{{el.Lang_cat}}</label>
-                                            </div>
-                                            <div class="soft_cat">
-                                                <label>{{el.Soft_cat}}</label>
                                             </div>
                                             <div class="author">
                                                 <label>{{el.Author}}</label>

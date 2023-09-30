@@ -57,10 +57,8 @@ def MainView(request):
     results = Anketa.objects.filter(Tittle__icontains=query)
     context = {
         'anketas': results,  # Переименовали anketas в results, так как это результаты поиска
-        # 'soft_cat': soft_cat,
         'results': results,
         'lang_cat': lang_cat,
-        'soft_cat_selected': 0,
         'lang_cat_selected': 0,
     }
 
@@ -131,36 +129,15 @@ class ProfileView(LoginRequiredMixin,TemplateView): # new
         return render(request, 'main/profile.html', context)
 
 
-def show_soft_cat(request,soft_cat_id):
-    anketas = Anketa.objects.filter(Soft_cat_id=soft_cat_id)
-    query = request.GET.get('q', '')
-    results = anketas.objects.filter(Tittle__icontains=query)  # Фильтруйте анкеты по полю Tittle
-    #soft_cat = Soft_categori.objects.all()
-    lang_cat = Lang_categori.objects.all()
-
-    context = {
-        'anketas': anketas,
-        'results': results,
-        #'soft_cat': soft_cat,
-        'lang_cat': lang_cat,
-        'soft_cat_selected': soft_cat_id,
-        'lang_cat_selected': 0,
-    }
-
-    return render(request, 'main/mainsheet.html', context)
-
 def show_lang_cat(request,lang_cat_id):
     anketas = Anketa.objects.filter(Lang_cat_id=lang_cat_id)
     query = request.GET.get('q', '')
     results = anketas.filter(Tittle__icontains=query)  # Фильтруйте анкеты по полю Tittle
-    #soft_cat = Soft_categori.objects.all()
     lang_cat = Lang_categori.objects.all()
     context = {
         'anketas': anketas,
-        #'soft_cat': soft_cat,
         'results': results,
         'lang_cat': lang_cat,
-        'soft_cat_selected': 0,
         'lang_cat_selected': lang_cat_id,
     }
 

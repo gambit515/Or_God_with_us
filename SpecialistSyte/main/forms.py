@@ -1,4 +1,4 @@
-from .models import Anketa, Soft_categori, Lang_categori, Otkl, Otklik
+from .models import Anketa, Lang_categori, Otkl, Otklik
 from django import forms
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ValidationError
@@ -74,10 +74,9 @@ class AuthUserForm(AuthenticationForm,forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'vvod'
 class AnketaForm(forms.ModelForm):
     Lang_cat = forms.ModelChoiceField(queryset=Lang_categori.objects.all())
-    Soft_cat = forms.ModelChoiceField(queryset=Soft_categori.objects.all())
     class Meta:
         model = Anketa
-        fields = ["Tittle","Text","Text2","Photo","Lang_cat","Soft_cat","Price"]
+        fields = ["Tittle","Text","Text2","Photo","Lang_cat","Price"]
         widgets = {
             "Tittle": TextInput(attrs={
                 'class': 'vvod',

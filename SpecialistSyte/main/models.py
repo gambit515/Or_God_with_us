@@ -68,21 +68,6 @@ class Lang_categori(models.Model):
         ordering = ['Tittle']
 
 
-class Soft_categori(models.Model):
-    Tittle = models.CharField('Категории софта',max_length=50)
-
-    def __str__(self):
-        return self.Tittle
-
-    def get_absolute_url(self):
-       return reverse('soft_cat', kwargs = {'soft_cat_id': self.pk})
-
-    class Meta:
-        verbose_name = "Категории софта"
-        verbose_name_plural = "Категории софта"
-        ordering = ['Tittle']
-
-
 class Main_categori(models.Model):
     Tittle = models.CharField('Основные категория',max_length=150)
 

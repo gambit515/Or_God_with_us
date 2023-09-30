@@ -15,7 +15,6 @@ urlpatterns = [
     path('registration/',CreatePostView.as_view(), name='reg'),
     path('test/',TestView.as_view(), name='test'),
     path('ankets/<int:anket_id>/', show_anket, name='ankets'),
-    path('soft_cat/<int:soft_cat_id>/', show_soft_cat, name='soft_cat'),
     path('lang_cat/<int:lang_cat_id>/', show_lang_cat, name='lang_cat'),
     path('logout',Logout.as_view(),name='logout'),
     path('about_us/',About_us_View.as_view(), name='about'),
