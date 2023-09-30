@@ -158,7 +158,7 @@ class Logout(LogoutView):
     next_page = reverse_lazy('main')
 
 class About_us_View(TemplateView):
-    template_name = 'main/o-nas.html'
+    template_name = 'main/aboutUs.html'
 
 def form2(request):
     return render(request, 'main/form2.html')

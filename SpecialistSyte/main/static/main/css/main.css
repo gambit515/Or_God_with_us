@@ -1,0 +1,42 @@
+:root {
+    --purple-color: #cb2b99;
+    --blue-color: rgba(0, 175, 170);
+    --blue-color-op: rgba(0, 175, 170, 0.7);
+    --gray-color: #e7e1e6;
+    --header-height: 110px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.wrapper, .main {
+    height: inherit;
+}
+
+.btn {
+    margin-left: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: .375rem .75rem;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    border-width: 3px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn:hover {
+    height: calc();
+    cursor: pointer;
+}

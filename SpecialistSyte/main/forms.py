@@ -132,5 +132,49 @@ class OtklikForm(forms.ModelForm):
     class Meta:
         model = Otklik
         fields = ['FIO', 'BirthDate', 'Email', 'Phone', 'Citizenship', 'Place', 'Portfolio', 'Rezume']
-
+        '''
+        widgets = {
+            "Anketa": TextInput(attrs={
+                'class': 'input-container',
+                'type': 'text',
+                'id':'inp', 
+            }),
+            "BirthDate": TextInput(attrs={
+                'class': 'input-container',
+                'type': 'text',
+                'id':'inp',
+            }),
+            "Email": TextInput(attrs={
+                'class': 'input-container',
+                'type': 'mail',
+                'id':'inp',
+            }),
+            "Phone": TextInput(attrs={
+                'class': 'input-container',
+                'type': 'text',
+                'id':'inp',
+            }),
+            "Citizenship": TextInput(attrs={
+                'class': 'input-container',
+                'type': 'text',
+                'id':'inp',
+            }),
+            "Place": TextInput(attrs={
+                'class': 'input-container',
+                'type': 'text',
+                'id':'inp',
+            }),
+            "Portfolio": TextInput(attrs={
+                'class': 'input-container',
+                'type': 'text',
+                'id':'inp',
+            }),
+            "Rezume": TextInput(attrs={
+                'class': 'input-container',
+                'type': 'text',
+                'id':'inp',
+            }),
+            
+        }
+'''
 
