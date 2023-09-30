@@ -5,53 +5,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
-    <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-	
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Condensed&display=swap" rel="stylesheet">
-
-    <title>BeeBuzz.NET Поиск специалиста</title>
-    <link rel="stylesheet" href="{% static 'main/css/mainsheet_1.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
+    <title>Вакансии</title>
 </head>
 
 
 <body>
-
-    <header>
+    <header class="header">
         <div class="logo">
-            <table>
-                <tr>
-                    <td>
-                        <a href="{% url 'start' %}"><img src="{% static 'main/images/startsheet_2.png' %}" id="logotip" alt="" width="70" /></a>
-                    </td>
-                    <td>
-                        <div class="namelogo"><label>BeeBuzz.NET</label></div>
-                        <div class="namelogo2"><label>Сервис для поиска специалистов по оказанию услуг</label></div>
-                    </td>
-                </tr>
-            </table>
+            <a href="{% url 'main' %}"><img src="{% static 'main/images/full-logo 2.svg' %}" class="logo-image" width="70" /></a>
         </div>
-        <div class="text-sh">
-            <ul>
-                {% if request.user|has_group:"Работодатель" %}
-                <li><a id = "anket" href="{% url 'anket' %}">Создать анкету</a></li>
-                {% endif %}
-                <li><a href="{% url 'main' %}">Найти вакансию</a></li>
-                {% if request.user.is_authenticated %}
-                <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
-                {% else %}
-                <li><a id="login" href="{% url 'log' %}">Войти</a></li>
-                {% endif %}
-
-                <!--<li><a href="#">Войти</a></li>
-        <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
+        <div class="menu">
+            <ul class="menu-list">
+                <li>
+                    <a href="#" class="partners request-link">Партнеры</a>
+                </li>
+                <li>
+                    <a href="{% url 'about' %}" class="about request-link">О нас</a>
+                </li>
+                <li>
+                    <a href="{% url 'log' %}">Войти</a></li>
+                </li>
+                <li>
+                    <a href="{% url 'prof' %}">Профиль</a></li>
+                </li>
+                <li>
+                    <a href="{% url 'main' %}">Найти вакансию</a>
+                </li>
             </ul>
         </div>
     </header>
-    
     <table style="padding-bottom: 40px;">
         <tr>
             <td id="tdfirst" valign="top" style="list-style-type: none; font-size: 20px; text-indent: 10px;">

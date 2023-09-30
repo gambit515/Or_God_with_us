@@ -43,13 +43,13 @@ class AnketaView(LoginRequiredMixin,CreateView): # new
         self.object.Author = self.request.user
         self.object.save()
         return super().form_valid(form)
-
+'''
 class TestView(CreateView): # new
     model = Anketa
     form_class = AnketaForm
     template_name = 'main/test.html'
     success_url = reverse_lazy('main')
-
+'''
 def MainView(request):
     form_class = OtklForm  # Ваша форма (если есть)
     query = request.GET.get('q', '')
@@ -102,14 +102,14 @@ def show_anket(request,anket_id):
         form = OtklForm()
     return render(request,'main/fullInfoAnketa.html', {'form': form,'anket_id': anket_id,'anketas':anketas} )
     #return render(request,'main/form.html', {'form': form,'anket_id': anket_id} )
-
+'''
 def index(request):
     ankets = Anketa.objects.all()
     context = {
         'ankets' :ankets
     }
     return render(request,'main/index.html',context=context)
-
+'''
 def fullInfoSheet(request):
     ankets = Anketa.objects.all()
     context = {

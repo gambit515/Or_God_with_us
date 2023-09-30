@@ -1,0 +1,81 @@
+:root {
+    --purple-color: #cb2b99;
+    --blue-color: rgba(0, 175, 170);
+    --blue-color-op: rgba(0, 175, 170, 0.7);
+    --gray-color: #e7e1e6;
+    --header-height: 110px;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+.wrapper, .main {
+    height: inherit;
+}
+
+.btn {
+    margin-left: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: .375rem .75rem;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    border-width: 3px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn:hover {
+    height: calc();
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.header {
+    display: flex;
+    background-color: var(--blue-color);
+    height: var(--header-height);
+    align-items: center;
+    font-size: 22px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 0 90px;
+}
+
+.logo-image {
+    width: 250px;
+}
+
+.menu {
+    margin-left: auto;
+    font-weight: 600;
+}
+
+.menu-list {
+    display: flex;
+    gap: 25px;
+}
+
+.menu__categories-list-item {
+    display: flex;
+    gap: 7px;
+    align-items: center;
+}
