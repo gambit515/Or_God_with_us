@@ -33,14 +33,13 @@ class Otkl(models.Model):
 
 class Anketa(models.Model):
     Tittle = models.CharField('Название анкеты',max_length=100)
-    Text = models.TextField('Текст анкеты',max_length=1000)
+    Text = models.TextField('Описание анкеты',max_length=1000)
+    Text2 = models.TextField('Ключевые навыки', max_length=1000)
     Photo = models.ImageField('Фотография',upload_to="photos/%Y/%m/%d/")
-    Lang_cat = models.ForeignKey('Lang_categori',on_delete=models.CASCADE,verbose_name="Язык программирования")
+    Lang_cat = models.ForeignKey('Lang_categori',on_delete=models.CASCADE,verbose_name="Специальность")
     #Soft_cat = models.ForeignKey('Soft_categori', on_delete=models.CASCADE, verbose_name="Категория софта")
     Author = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, verbose_name="Автор анкеты",null=True)
-    Place = models.CharField('Место оказания услуг', max_length=100,null=True)
-    Price = models.CharField('Стоимость оказания услуг',max_length=100,null=True)
-    Time = models.CharField('Сроки оказания услуг',max_length=50,null=True)
+    Price = models.CharField('Зарплата',max_length=100,null=True)
 
     def get_absolute_url(self):
        return reverse('anket', kwargs = {'anket_id': self.pk})
@@ -48,8 +47,8 @@ class Anketa(models.Model):
     def __str__(self):
         return self.Tittle
     class Meta:
-        verbose_name = "Анкеты пользователей"
-        verbose_name_plural = "Анкеты пользователей"
+        verbose_name = "Анкеты"
+        verbose_name_plural = "Анкеты"
         ordering = ['Tittle']
 
 class Lang_categori(models.Model):

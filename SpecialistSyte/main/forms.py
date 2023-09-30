@@ -77,7 +77,7 @@ class AnketaForm(forms.ModelForm):
     Soft_cat = forms.ModelChoiceField(queryset=Soft_categori.objects.all())
     class Meta:
         model = Anketa
-        fields = ["Tittle","Text","Photo","Lang_cat","Soft_cat","Place","Price","Time"]
+        fields = ["Tittle","Text","Text2","Photo","Lang_cat","Soft_cat","Price"]
         widgets = {
             "Tittle": TextInput(attrs={
                 'class': 'vvod',
@@ -93,6 +93,13 @@ class AnketaForm(forms.ModelForm):
                 'id': 'anketa_text',
                 'autocomplete': 'anketa_text'
             }),
+            "Text2": Textarea(attrs={
+                'class': 'vvod',
+                'type': 'text',
+                'placeholder': 'Введите текст анкеты',
+                'id': 'anketa_text',
+                'autocomplete': 'anketa_text'
+            }),
             "Photo": ClearableFileInput(attrs={
                 'type': 'file',
                 'name': "Photo",
@@ -100,24 +107,10 @@ class AnketaForm(forms.ModelForm):
                 'accept': "image/*",
                 'required': "",
             }),
-            "Place": TextInput(attrs={
-                'class': 'vvod',
-                'type': 'text',
-                'placeholder': 'Введите место выполнения',
-                'id': 'anketa_place',
-                'autocomplete': 'anketa_place'
-            }),
             "Price": TextInput(attrs={
                 'class': 'vvod',
                 'type': 'text',
                 'placeholder': 'Введите плату за выполнение',
-                'id': 'anketa_price',
-                'autocomplete': 'anketa_price'
-            }),
-            "Time": TextInput(attrs={
-                'class': 'vvod',
-                'type': 'text',
-                'placeholder': 'Введите сроки выполнения',
                 'id': 'anketa_price',
                 'autocomplete': 'anketa_price'
             })
