@@ -37,11 +37,6 @@
 
     <nav class="reg">
 		<div class="register">
-			<nav class="beebuzz" align="center" style="margin-top: 30px;">
-				<div class="beebuzz_name" >
-					<h1>Отклик на заявку</h1>
-				</div>
-			</nav>
 			<hr style="border: 1px solid #222222; width: 350px; margin-top: -15px;">
 			<div class="msg"></div>
             {% for el in anketas %}
@@ -51,14 +46,10 @@
                         <img src="{{el.Photo.url}}" width="250">
                         <label class="otpr">{{el.Price}}</label>
                         <label class="otpr">{{el.Text2}}</label>
+                        <a href="{% url 'otklikform' el.id %}">Откликнуться</a>
                 {% endif %}
             {% endfor %}
-            <label class="otpr">Вы действительно хотите отправить отклик на вакансию?{{anket_id}}</label>
 
-            <form id = "form-group" method="post" enctype="multipart/form-data" >
-                {% csrf_token %}
-                <p><input class="button-reg" type="submit"></p>
-            </form>
 
 
          <!-- <input class="button-reg" type="submit" value="Откликнуться">  -->

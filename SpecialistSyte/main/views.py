@@ -80,6 +80,25 @@ def startsheet(request):
 #def login(request):
 #   return render(request, 'main/login-form.html')
 
+def otklikform(request,anket_id):
+    context = {
+        'anket_id': anket_id
+
+    }
+    anketas = Anketa.objects.all()
+    if request.method == 'POST':
+        form = OtklForm(request.POST)
+        if form.is_valid():
+            instance = form.save(commit=False)
+            instance.Otkl_User = request.user
+            instance.Anketa = Anketa.objects.get(id=anket_id)
+            instance.save()
+            return render(request, 'main/form2.html')
+    else:
+        form = OtklForm()
+    return render(request, 'main/form.html', {'form': form, 'anket_id': anket_id, 'anketas': anketas})
+    # return render(request,'main/form.html', {'form': form,'anket_id': anket_id} )
+
 
 def show_anket(request,anket_id):
 
