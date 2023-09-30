@@ -54,7 +54,8 @@ class Anketa(models.Model):
 
 class Lang_categori(models.Model):
     Tittle = models.CharField('Категория',max_length=50)
-    MainCategory = models.CharField('Главная категория', max_length=50)
+    #MainCategory = models.CharField('Главная категория', max_length=50)
+    MainCategory = models.ForeignKey('Main_categori', on_delete=models.CASCADE, verbose_name="Категория софта")
 
     def __str__(self):
         return self.Tittle
@@ -80,4 +81,19 @@ class Soft_categori(models.Model):
     class Meta:
         verbose_name = "Категории софта"
         verbose_name_plural = "Категории софта"
+        ordering = ['Tittle']
+
+
+class Main_categori(models.Model):
+    Tittle = models.CharField('Категории софта',max_length=50)
+
+    def __str__(self):
+        return self.Tittle
+
+    def get_absolute_url(self):
+       return reverse('main_cat', kwargs = {'main_cat': self.pk})
+
+    class Meta:
+        verbose_name = "Основная категория"
+        verbose_name_plural = "Основная категория"
         ordering = ['Tittle']
