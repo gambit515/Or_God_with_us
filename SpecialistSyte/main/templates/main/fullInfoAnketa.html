@@ -33,21 +33,6 @@
                 </tr>
             </table>
         </div>
-        <div class="text-sh">
-            <ul>
-                {% if request.user|has_group:"Работодатель" %}
-                <li><a id = "anket1" href="{% url 'anket' %}">Создать анкету</a></li>
-                {% endif %}
-                <li><a href="{% url 'main' %}">Найти вакансию</a></li>
-                {% if request.user.is_authenticated %}
-                <li><a id="login" href="{% url 'prof' %}">Профиль</a></li>
-                {% else %}
-                <li><a id="login" href="{% url 'log' %}">Войти</a></li>
-                {% endif %}
-                <!--<li><a href="#">Войти</a></li>
-        <<li><a href="{% url 'reg' %}" target="_blank" rel="noopener noreferrer">Зарегистрироваться</a></li>-->
-            </ul>
-        </div>
     </header>
 
     <nav class="reg">
@@ -59,14 +44,22 @@
 			</nav>
 			<hr style="border: 1px solid #222222; width: 350px; margin-top: -15px;">
 			<div class="msg"></div>
-			
+            {% for el in anketas %}
+                {% if el.id == anket_id %}
+                        <label class="otpr">{{el.Tittle}}</label>
+                        <label class="otpr">{{el.Text}}</label>
+                        <img src="{{el.Photo.url}}" width="250">
+                        <label class="otpr">{{el.Price}}</label>
+                        <label class="otpr">{{el.Text2}}</label>
+                {% endif %}
+            {% endfor %}
             <label class="otpr">Вы действительно хотите отправить отклик на вакансию?{{anket_id}}</label>
 
             <form id = "form-group" method="post" enctype="multipart/form-data" >
                 {% csrf_token %}
                 <p><input class="button-reg" type="submit"></p>
             </form>
-            
+
 
          <!-- <input class="button-reg" type="submit" value="Откликнуться">  -->
 
@@ -77,7 +70,7 @@
         <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
     </div>
 
-        
+
 
 </body>
 </html>

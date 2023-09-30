@@ -82,9 +82,12 @@ def startsheet(request):
 
 
 def show_anket(request,anket_id):
+
     context = {
         'anket_id': anket_id
+
     }
+    anketas = Anketa.objects.all()
     if request.method == 'POST':
         form = OtklForm(request.POST)
         if form.is_valid():
@@ -95,10 +98,8 @@ def show_anket(request,anket_id):
             return render(request, 'main/form2.html')
     else:
         form = OtklForm()
-
-    return render(request,'main/form.html', {'form': form} )
-    #return  HttpResponse(f"Оображение анкет с id ={anket_id}")
-    #return render(request, 'main/form.html', context)
+    return render(request,'main/fullInfoAnketa.html', {'form': form,'anket_id': anket_id,'anketas':anketas} )
+    #return render(request,'main/form.html', {'form': form,'anket_id': anket_id} )
 
 def index(request):
     ankets = Anketa.objects.all()
@@ -106,6 +107,14 @@ def index(request):
         'ankets' :ankets
     }
     return render(request,'main/index.html',context=context)
+
+def fullInfoSheet(request):
+    ankets = Anketa.objects.all()
+    context = {
+        'ankets' :ankets
+    }
+    return render(request,'main/fullInfoAnketa.html',context=context)
+
 
 class ProfileView(LoginRequiredMixin,TemplateView): # new
     template_name = 'main/profile.html'
