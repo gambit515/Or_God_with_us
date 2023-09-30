@@ -53,7 +53,7 @@ class Anketa(models.Model):
         ordering = ['Tittle']
 
 class Lang_categori(models.Model):
-    Tittle = models.CharField('Категория',max_length=50)
+    Tittle = models.CharField('Специальность',max_length=50)
     #MainCategory = models.CharField('Главная категория', max_length=50)
     MainCategory = models.ForeignKey('Main_categori', on_delete=models.CASCADE, verbose_name="Категория софта")
 
@@ -64,8 +64,8 @@ class Lang_categori(models.Model):
        return reverse('lang_cat', kwargs = {'lang_cat_id': self.pk})
 
     class Meta:
-        verbose_name = "Языки программирования"
-        verbose_name_plural = "Языки программирования"
+        verbose_name = "Специальности"
+        verbose_name_plural = "Специальности"
         ordering = ['Tittle']
 
 

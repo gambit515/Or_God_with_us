@@ -31,9 +31,9 @@ class Lang_catAdmin(admin.ModelAdmin):
 admin.site.register(Lang_categori, Lang_catAdmin)
 
 
-class Soft_catAdmin(admin.ModelAdmin):
+class Main_categoriAdmin(admin.ModelAdmin):
     list_display = ('id','Tittle')
     search_fields = ('id','Tittle')
 
 
-admin.site.register(Soft_categori, Soft_catAdmin)
+admin.site.register(Main_categori, Main_categoriAdmin)
