@@ -25,7 +25,7 @@ class Otkl(models.Model):
     Anketa = models.ForeignKey('Anketa', on_delete=models.CASCADE, blank=True, verbose_name="Анкета")
     Otkl_User = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, verbose_name="Откликнувшийся пользователь")
     def __str__(self):
-        return self.Anketa
+        return str(self.id)
     class Meta:
         verbose_name = "Откликания на анкеты"
         verbose_name_plural = "Откликания на анкеты"
