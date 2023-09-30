@@ -64,20 +64,7 @@ def MainView(request):
     }
 
     return render(request, 'main/main.html', context)
-def show_lang_cat(request,lang_cat_id):
-    anketas = Anketa.objects.filter(Lang_cat_id=lang_cat_id)
-    query = request.GET.get('q', '')
-    results = anketas.filter(Tittle__icontains=query)  # Фильтруйте анкеты по полю Tittle
-    lang_cat = Lang_categori.objects.all()
-    context = {
-        'anketas': anketas,
-        'results': results,
-        'lang_cat': lang_cat,
-        'lang_cat_selected': lang_cat_id,
-        'query': query,
-    }
 
-    return render(request, 'main/main.html', context)
 def startsheet(request):
     return render(request, 'main/startsheet.html')
 
@@ -141,6 +128,22 @@ class ProfileView(LoginRequiredMixin,TemplateView): # new
             'otkl': otkl,
         }
         return render(request, 'main/profile.html', context)
+
+
+def show_lang_cat(request,lang_cat_id):
+    anketas = Anketa.objects.filter(Lang_cat_id=lang_cat_id)
+    query = request.GET.get('q', '')
+    results = anketas.filter(Tittle__icontains=query)  # Фильтруйте анкеты по полю Tittle
+    lang_cat = Lang_categori.objects.all()
+    context = {
+        'anketas': anketas,
+        'results': results,
+        'lang_cat': lang_cat,
+        'lang_cat_selected': lang_cat_id,
+        'query': query,
+    }
+
+    return render(request, 'main/main.html', context)
 
 
 class MyprojectLoginView(LoginView):

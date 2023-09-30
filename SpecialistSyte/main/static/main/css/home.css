@@ -77,7 +77,6 @@ main {
 .menu__categories {
     height: 150px;
     width: 250px;
-    overflow-y: scroll;
     border-radius: 20px;
     padding: 5px;
 }

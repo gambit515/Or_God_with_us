@@ -29,7 +29,30 @@
             <h1 class="open-vacan">Открытые вакансии</h1>
             <div class="aside-menu">
                 <div class="menu__categories">
-                    <ul class="menu__categories-list">
+                   <! <ul class="menu__categories-list">
+
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category" id="category1" data-category="1">
+                            <label for="category1">Категория 1</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category" id="category2" data-category="2">
+                            <label for="category2">Категория 2</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category" id="category3" data-category="3">
+                            <label for="category3">Категория 3</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category" id="category4" data-category="4">
+                            <label for="category4">Категория 4</label>
+                        </li>
+                        <li class="menu__categories-list-item">
+                            <input type="radio" name="category" id="category5" data-category="5">
+                            <label for="category5">Категория 5</label>
+                        </li>
+                        <!--
+
                         <li class="menu__categories-list-item">
                             <input type="radio" name="category">
                             <label>Один</label>
@@ -61,21 +84,25 @@
                         <li class="menu__categories-list-item">
                             <input type="radio" name="category">
                             <label>Один</label>
-                        </li>
+                        </li>-->
                     </ul>
                 </div>
                 <div class="menu__subcategories menu__categories">
                     <ul class="menu__subcategories-list">
                         <li>
-                            {% for c in lang_cat %}
-                            {% if c.MainCategory.id == 1 %}
-                                {% if c.pk == lang_cat_selected %}
-                                    <li>{{c.Tittle}}</li>
-                                {% else %}
-                                    <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
+                            <div id="category-content-1" class="category-content">
+                                {% for c in lang_cat %}
+                                {% if c.MainCategory.id == 1 %}
+                                    {% if c.pk == lang_cat_selected %}
+                                        <li>{{c.Tittle}}</li>
+                                    {% else %}
+                                        <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
+                                    {% endif %}
                                 {% endif %}
-                            {% endif %}
-                            {% endfor %}
+                                {% endfor %}
+                            </div>
+
+                    <div id="category-content-2" class="category-content">
                         {% for c in lang_cat %}
                             {% if c.MainCategory.id == 2 %}
                                 {% if c.pk == lang_cat_selected %}
@@ -85,6 +112,8 @@
                                 {% endif %}
                             {% endif %}
                             {% endfor %}
+                        </div>
+                    <div id="category-content-3" class="category-content">
                         {% for c in lang_cat %}
                             {% if c.MainCategory.id == 3 %}
                                 {% if c.pk == lang_cat_selected %}
@@ -94,6 +123,8 @@
                                 {% endif %}
                             {% endif %}
                             {% endfor %}
+                        </div>
+                        <div id="category-content-4" class="category-content">
                         {% for c in lang_cat %}
                             {% if c.MainCategory.id == 4 %}
                                 {% if c.pk == lang_cat_selected %}
@@ -103,6 +134,8 @@
                                 {% endif %}
                             {% endif %}
                             {% endfor %}
+                            </div>
+                            <div id="category-content-5" class="category-content">
                         {% for c in lang_cat %}
                             {% if c.MainCategory.id == 5 %}
                                 {% if c.pk == lang_cat_selected %}
@@ -112,24 +145,7 @@
                                 {% endif %}
                             {% endif %}
                             {% endfor %}
-                        <!--
-                            <li class="menu__categories-list-item">
-                                <input type="radio" name="subcategory">
-                                <label>Один</label>
-                            </li>
-                            <li class="menu__categories-list-item">
-                                <input type="radio" name="subcategory">
-                                <label>Один</label>
-                            </li>
-                            <li class="menu__categories-list-item">
-                                <input type="radio" name="subcategory">
-                                <label>Один</label>
-                            </li>
-                            <li class="menu__categories-list-item">
-                                <input type="radio" name="subcategory">
-                                <label>Один</label>
-                            </li>
-                           -->
+                                </div>
                         </li>
                     </ul>
                 </div>
@@ -160,47 +176,29 @@
                     </div>
                 </div>
                 {% endfor %}
-                <!--
-                <div class="vacancies-list">
-                    <div class="vacancies-item" id="vacancy-item">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                        <p class="vacancy-description">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Eaque optio nostrum quas cumque, nemo officia error dolore corporis iure illum accusamus eum, 
-                            ipsa minima rem laboriosam culpa, voluptas fugiat neque!
-                        </p>
-                        <p class="skills">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Eaque optio nostrum quas cumque, nemo officia error dolore corporis iure illum accusamus eum, 
-                            ipsa minima rem laboriosam culpa, voluptas fugiat neque!
-                        </p>
-                        <p class="salary">
-                            0
-                        </p>
-                    </div>
-                </div>
-                <div class="vacancies-list">
-                    <div class="vacancies-item" id="vacancy-item">
-                        <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-                        <p class="vacancy-description">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Eaque optio nostrum quas cumque, nemo officia error dolore corporis iure illum accusamus eum, 
-                            ipsa minima rem laboriosam culpa, voluptas fugiat neque!
-                        </p>
-                        <p class="skills">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                            Eaque optio nostrum quas cumque, nemo officia error dolore corporis iure illum accusamus eum, 
-                            ipsa minima rem laboriosam culpa, voluptas fugiat neque!
-                        </p>
-                        <p class="salary">
-                            0
-                        </p>
-                    </div>
-                </div>-->
             </div>
         </div>
     </main>
+            <script>
+                const categoryButtons = document.querySelectorAll('[data-category]');
+                const categoryContents = document.querySelectorAll('.category-content');
 
+                // Добавьте обработчик событий для каждой кнопки
+                categoryButtons.forEach(button => {
+                    button.addEventListener('change', function () {
+                        // Получите выбранную категорию из data-category
+                        const selectedCategory = this.getAttribute('data-category');
+
+                        // Скрыть все контенты категорий
+                        categoryContents.forEach(content => {
+                            content.style.display = 'none';
+                        });
+
+                        // Отобразить выбранный контент
+                        document.getElementById(`category-content-${selectedCategory}`).style.display = 'block';
+                    });
+                });
+            </script>
     <script src="{% static 'main/js/main.js' %}"></script>
 </body>
 </html>
