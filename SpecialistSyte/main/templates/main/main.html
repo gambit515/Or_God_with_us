@@ -67,6 +67,52 @@
                 <div class="menu__subcategories menu__categories">
                     <ul class="menu__subcategories-list">
                         <li>
+                            {% for c in lang_cat %}
+                            {% if c.MainCategory.id == 1 %}
+                                {% if c.pk == lang_cat_selected %}
+                                    <li>{{c.Tittle}}</li>
+                                {% else %}
+                                    <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
+                                {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        {% for c in lang_cat %}
+                            {% if c.MainCategory.id == 2 %}
+                                {% if c.pk == lang_cat_selected %}
+                                    <li>{{c.Tittle}}</li>
+                                {% else %}
+                                    <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
+                                {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        {% for c in lang_cat %}
+                            {% if c.MainCategory.id == 3 %}
+                                {% if c.pk == lang_cat_selected %}
+                                    <li>{{c.Tittle}}</li>
+                                {% else %}
+                                    <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
+                                {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        {% for c in lang_cat %}
+                            {% if c.MainCategory.id == 4 %}
+                                {% if c.pk == lang_cat_selected %}
+                                    <li>{{c.Tittle}}</li>
+                                {% else %}
+                                    <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
+                                {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        {% for c in lang_cat %}
+                            {% if c.MainCategory.id == 5 %}
+                                {% if c.pk == lang_cat_selected %}
+                                    <li>{{c.Tittle}}</li>
+                                {% else %}
+                                    <li><a href="{{ c.get_absolute_url }}" style="color: black;">{{c.Tittle}}</a> </li>
+                                {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        <!--
                             <li class="menu__categories-list-item">
                                 <input type="radio" name="subcategory">
                                 <label>Один</label>
@@ -83,10 +129,7 @@
                                 <input type="radio" name="subcategory">
                                 <label>Один</label>
                             </li>
-                            <li class="menu__categories-list-item">
-                                <input type="radio" name="subcategory">
-                                <label>Один</label>
-                            </li>
+                           -->
                         </li>
                     </ul>
                 </div>
