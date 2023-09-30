@@ -60,6 +60,7 @@ def MainView(request):
         'results': results,
         'lang_cat': lang_cat,
         'lang_cat_selected': 0,
+        'query': query,
     }
 
     return render(request, 'main/mainsheet.html', context)
@@ -139,6 +140,7 @@ def show_lang_cat(request,lang_cat_id):
         'results': results,
         'lang_cat': lang_cat,
         'lang_cat_selected': lang_cat_id,
+        'query': query,
     }
 
     return render(request, 'main/mainsheet.html', context)
