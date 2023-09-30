@@ -92,36 +92,17 @@
     </table>
 
     <label align="center" style="margin-left: 120px; font-size: 26px; padding: 10px; display: block;">Оставленные Вами заявки:</label>
-
-    <table align="center" border="1" style="margin-left: 300px;">
-        <tr>
-            <td style="width: 300px;">
-                <label>Название заявки:<br></label>
-            </td>
-            <td style="width: 300px;">
-                <label>e-mail:<br></label>
-            </td>
-            <td style="width: 300px;">
-                <label>Имя пользователя:<br></label>
-            </td>
-        </tr>
-        
-        {% for c in otkl %}
-        {% if request.user == c.Anketa.Author %}
-        <tr>
-            <td>
-                <h4>{{c.Anketa}}</h4>
-            </td>
-            <td>
-                <h4>{{c.Otkl_User.email}}</h4>
-            </td>
-            <td>
-                <h4>{{c.Otkl_User.first_name}}</h4>
-            </td>
-        </tr>
-        {% endif %}
-        {% endfor %}
-    </table>
+    {% for otklik in otkl %}
+        <h2>{{ otklik.FIO }}</h2>
+        <p>Дата рождения: {{ otklik.BirthDate }}</p>
+        <p>Почта: {{ otklik.Email }}</p>
+        <p>Телефон: {{ otklik.Phone }}</p>
+        <p>Гражданство: {{ otklik.Citizenship }}</p>
+        <p>Место жительства: {{ otklik.Place }}</p>
+        <p>Ссылка на портфолио: {{ otklik.Portfolio }}</p>
+        <p>Резюме: {{ otklik.Rezume }}</p>
+        <p>Время отправки: {{ otklik.DatePost }}</p>
+    {% endfor %}
   
     
     <script >

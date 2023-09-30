@@ -93,6 +93,60 @@
 
             <td>
                 <table >
+                    {% if results %}
+                        <ul>
+                            {% for el in results %}
+                                <table>
+                                <tr>
+                                    <td>
+                                        <div class="photo" style="margin-top: 15px;">
+                                            <img src="{{el.Photo.url}}" width="250">
+                                        </div>
+
+                                    </td>
+                                    <td valign="top">
+                                        <div class="anketa" style="margin-top: 15px">
+                                            <div class="tittle">
+                                            </div>
+                                            <div class="tittle">
+                                                <h5>{{el.Tittle}}</h5>
+                                            </div>
+                                            <div class="text">
+                                                <label>{{el.Text}}</label>
+                                            </div>
+                                            <div class="status">
+                                                <label>{{el.Status}}</label>
+                                            </div>
+                                            <div class="lang_cat">
+                                                <label>{{el.Lang_cat}}</label>
+                                            </div>
+                                            <div class="soft_cat">
+                                                <label>{{el.Soft_cat}}</label>
+                                            </div>
+                                            <div class="author">
+                                                <label>{{el.Author}}</label>
+                                            </div>
+                                        </div>
+                                        <a href="{% url 'ankets' el.pk %}">Читать пост</a>
+                                        <!--
+                                        <a href="#" align="right" valign="bottom"
+                                        style="text-decoration: none;
+                                        text-align: center;
+                                        font-size: 16px;
+                                        display: block;
+                                        margin: 15px 40px 15px 700px;
+                                        padding: 10px;
+                                        border: none;
+                                        background: #222222;
+                                        color:#fbfbfb;">
+                                        Откликнуться</a>  -->
+                                    </td>
+                                    <hr style="border: 1px solid black;">
+                                </tr>
+                            </table>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
                         {% for el in anketas %}
                             <table>
                                 <tr>
@@ -125,9 +179,7 @@
                                                 <label>{{el.Author}}</label>
                                             </div>
                                         </div>
-                                         {% if request.user|has_group:"Специалист" %}
                                         <a href="{% url 'ankets' el.pk %}">Читать пост</a>
-                                        {%endif%}
                                         <!--
                                         <a href="#" align="right" valign="bottom"
                                         style="text-decoration: none;
@@ -146,6 +198,7 @@
                             </table>
 
                         {% endfor %}
+                    {% endif %}
                 </table>
             </td>
         </tr>

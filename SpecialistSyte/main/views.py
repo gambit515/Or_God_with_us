@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.template import RequestContext
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
-from .models import Anketa, Lang_categori, Otkl
+from .models import Anketa, Lang_categori, Otkl, Otklik
 from .forms import PostForm, AnketaForm, AuthUserForm, OtklForm,OtklikForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -134,7 +134,7 @@ class ProfileView(LoginRequiredMixin,TemplateView): # new
     login_url = reverse_lazy('log')
 
     def get(self, request):
-        otkl = Otkl.objects.all()
+        otkl = Otklik.objects.all()
         context = {
             'otkl': otkl,
         }
