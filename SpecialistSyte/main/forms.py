@@ -1,4 +1,4 @@
-from .models import Anketa, Lang_categori, Otkl, Otklik
+from .models import Anketa, Lang_categori, Otklik
 from django import forms
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ValidationError
@@ -115,19 +115,6 @@ class AnketaForm(forms.ModelForm):
             })
         }
 
-class OtklForm(forms.ModelForm):
-    class Meta:
-        model = Otkl
-        fields = ['Otkl_User','Anketa']
-        widgets = {
-            "Anketa": TextInput(attrs={
-                'class': 'vvod',
-                'type': 'text',
-                'placeholder': 'Введите номер анкеты',
-                'id': 'anketa_tittle',
-                'autocomplete': 'anketa_tittle'
-            }),
-        }
 class OtklikForm(forms.ModelForm):
     class Meta:
         model = Otklik

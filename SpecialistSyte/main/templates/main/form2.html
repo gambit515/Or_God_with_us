@@ -7,6 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
     <title>Вакансии</title>
+    <style>
+
+        h1 {
+            font-size: 36px; /* Измените размер шрифта по вашему желанию */
+            text-align: center;
+        }
+
+        a {
+            font-size: 24px; /* Измените размер шрифта по вашему желанию */
+            color: black; /* Черный цвет ссылки */
+            text-decoration: none; /* Убрать подчеркивание */
+        }
+    </style>
 </head>
 
 
@@ -40,26 +53,15 @@
         </div>
     </header>
 
-    <nav class="reg">
-		<div class="register">
-			<nav class="beebuzz" align="center" style="margin-top: 30px;">
-				<div class="beebuzz_name" >с
-					<h1>Отклик на заявку</h1>
-				</div>
-			</nav>
-			<hr style="border: 1px solid #222222; width: 350px; margin-top: -15px;">
-			<div class="msg"></div>{% load auth_extras %}
-			
-            <label class="otpr">Отклик успешно отправлен</label>
+    <h1>ЗАПРОС УСПЕШНО ОТПРАВЛЕН</h1>
+    <a href="{% url 'main' %}">Вернуться на главную</a>
 
-          <a href="{% url 'main' %}">Вернуться на главную<a>
+    <div class="podval" valign="bottom" style="margin-top: 650px;">
 
-        </div>
-    </nav>
-
-    <div class="podval" valign="bottom" style="margin-top: 625px;">
-        <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
     </div>
-
+<footer class="footer">
+        Коломенская, 26, Красноярск, Красноярский край, 660037, а/я 6213<br>
+        Почта: <a href="mailto:skc@skc-fmba.ru">skc@skc-fmba.ru</a>
+    </footer>
 </body>
 </html>
