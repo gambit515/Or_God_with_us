@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.template import RequestContext
 from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
-from .models import Anketa, Soft_categori, Lang_categori, Otkl
+from .models import Anketa, Lang_categori, Otkl
 from .forms import PostForm, AnketaForm, AuthUserForm, OtklForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -57,12 +57,12 @@ class MainView(CreateView): # new
     success_url = reverse_lazy('main')
     def get(self,request):
         anketas =  Anketa.objects.all()
-        soft_cat = Soft_categori.objects.all()
+        #soft_cat = Soft_categori.objects.all()
         lang_cat = Lang_categori.objects.all()
         form = OtklForm
         context = {
             'anketas':anketas,
-            'soft_cat':soft_cat,
+            #'soft_cat':soft_cat,
             'lang_cat':lang_cat,
             'form':form,
             'soft_cat_selected': 0,
@@ -121,11 +121,11 @@ class ProfileView(LoginRequiredMixin,TemplateView): # new
 
 def show_soft_cat(request,soft_cat_id):
     anketas = Anketa.objects.filter(Soft_cat_id=soft_cat_id)
-    soft_cat = Soft_categori.objects.all()
+    #soft_cat = Soft_categori.objects.all()
     lang_cat = Lang_categori.objects.all()
     context = {
         'anketas': anketas,
-        'soft_cat': soft_cat,
+        #'soft_cat': soft_cat,
         'lang_cat': lang_cat,
         'soft_cat_selected': soft_cat_id,
         'lang_cat_selected': 0,
@@ -135,11 +135,11 @@ def show_soft_cat(request,soft_cat_id):
 
 def show_lang_cat(request,lang_cat_id):
     anketas = Anketa.objects.filter(Lang_cat_id=lang_cat_id)
-    soft_cat = Soft_categori.objects.all()
+    #soft_cat = Soft_categori.objects.all()
     lang_cat = Lang_categori.objects.all()
     context = {
         'anketas': anketas,
-        'soft_cat': soft_cat,
+        #'soft_cat': soft_cat,
         'lang_cat': lang_cat,
         'soft_cat_selected': 0,
         'lang_cat_selected': lang_cat_id,
