@@ -31,7 +31,7 @@
     <main class="main">
         <div class="container">
             <h1 class="open-vacan">Открытые вакансии</h1>
-            <form method="get">
+            <form class="search" method="get">
                 <input type="text" name="q" placeholder="Поиск..." value="{{ query }}">
                 <button type="submit">Поиск</button>
             </form>
@@ -152,19 +152,19 @@
                 <div class="vacancies-list">
                     <div class="vacancies-item" id="vacancy-item">
                         <h3>{{el.Tittle}}</h3>
-                        <p class="vacancy-description">
+                        <p class="vacancy-description more">
                             {{el.Text}}
                         </p>
-                        <label>{{el.Lang_cat}}</label>
-                        <label>{{el.Status}}</label>
-                        <label>{{el.Price}}</label>
-                        <img src="{{el.Photo.url}}" width="250">
+                        <span class="more">{{el.Lang_cat}}</span>
+                        <span>{{el.Status}}</span>
+                        <span>{{el.Price}}</span>
+                        <img class="more" src="{{el.Photo.url}}" width="250">
                         <p class="skills">
                             {{el.Text2}}
                         </p>
                         <p class="salary">
                         </p>
-                        <a href="{% url 'otklikform' el.id %}">Откликнуться</a>
+                        <a class="response-btn" href="{% url 'otklikform' el.id %}">Откликнуться</a>
                     </div>
                 </div>
                 {% endfor %}
