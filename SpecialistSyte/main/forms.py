@@ -132,9 +132,9 @@ class OtklikForm(forms.ModelForm):
     class Meta:
         model = Otklik
         fields = ['FIO', 'BirthDate', 'Email', 'Phone', 'Citizenship', 'Place', 'Portfolio', 'Rezume']
-        '''
+        
         widgets = {
-            "Anketa": TextInput(attrs={
+            "FIO": TextInput(attrs={
                 'class': 'input-container',
                 'type': 'text',
                 'id':'inp', 
@@ -176,5 +176,5 @@ class OtklikForm(forms.ModelForm):
             }),
             
         }
-'''
+
 

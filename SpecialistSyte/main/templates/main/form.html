@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
     <title>Вакансии</title>
 </head>
 
@@ -36,20 +37,16 @@
             </ul>
         </div>
     </header>
-
-    <nav class="reg">
+    <main class="main">
 		<div class="register">
-			<nav class="beebuzz" align="center" style="margin-top: 30px;">
-				<div class="beebuzz_name" >
-					<h1>Отклик на заявку</h1>
-				</div>
-			</nav>
-			<hr style="border: 1px solid #222222; width: 350px; margin-top: -15px;">
+			<div class="beebuzz_name" >
+                <h1>Отклик на заявку</h1>
+            </div>
 			<div class="msg"></div>
 			
-            <label class="otpr">Вы действительно хотите отправить отклик на вакансию?{{anket_id}}</label>
+            <span class="otpr">Вы действительно хотите отправить отклик на вакансию?{{anket_id}}</span>
 
-            <form method="post">
+            <form method="post" class="request-form">
                 {% csrf_token %}
                 {% for field in form %}
                     <div class="field">
@@ -60,14 +57,14 @@
                         {% endif %}
                     </div>
                 {% endfor %}
-                <button type="submit">Откликнуться</button>
+                <button class="btn response-btn" type="submit">Откликнуться</button>
             </form>
 
 
          <!-- <input class="button-reg" type="submit" value="Откликнуться">  -->
 
         </div>
-    </nav>
+    </main>
 
     <div class="podval" valign="bottom" style="margin-top: 625px;">
         <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
