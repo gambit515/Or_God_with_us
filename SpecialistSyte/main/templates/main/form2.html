@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'main/css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/done.css' %}">
+
     <title>Вакансии</title>
     <style>
 
@@ -52,14 +54,11 @@
             </ul>
         </div>
     </header>
-
-    <h1>ЗАПРОС УСПЕШНО ОТПРАВЛЕН</h1>
-    <a href="{% url 'main' %}">Вернуться на главную</a>
-
-    <div class="podval" valign="bottom" style="margin-top: 650px;">
-
-    </div>
-<footer class="footer">
+    <main class="main">
+        <h1>ЗАПРОС УСПЕШНО ОТПРАВЛЕН</h1>
+        <a class="back" href="{% url 'main' %}""  >Вернуться на главную</a>
+    </main>
+    <footer class="footer">
         Коломенская, 26, Красноярск, Красноярский край, 660037, а/я 6213<br>
         Почта: <a href="mailto:skc@skc-fmba.ru">skc@skc-fmba.ru</a>
     </footer>

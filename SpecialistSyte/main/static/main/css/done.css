@@ -1,0 +1,14 @@
+@import url(main.css);
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100% - var(--header-height));
+}
+
+.back {
+    color: var(--purple-color);
+    margin: 0 auto;
+    width: fit-content;
+}
