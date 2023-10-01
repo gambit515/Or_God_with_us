@@ -1,19 +1,6 @@
 from django.contrib import admin
 from .models import *
-# Register your models here.
 
-#class UsersAdmin(admin.ModelAdmin):
-#   list_display = ('id','Login','UserType','Photo')
-#   search_fields = ('id','Login','UserType')
-
-
-#admin.site.register(Users, UsersAdmin)
-class OtklAdmin(admin.ModelAdmin):
-    list_display = ('id','Anketa','Otkl_User')
-    search_fields = ('id','Anketa','Otkl_User')
-
-
-admin.site.register(Otkl, OtklAdmin)
 
 class AnketaAdmin(admin.ModelAdmin):
     list_display = ('id','Tittle')
