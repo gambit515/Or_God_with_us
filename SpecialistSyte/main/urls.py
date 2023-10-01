@@ -5,8 +5,8 @@ from .views import *
 
 
 urlpatterns = [
-    path('',StartPageView.as_view(), name = 'start'),
-    path('main/',MainView, name = 'main'),
+    #path('',StartPageView.as_view(), name = 'start'),
+    path('',MainView, name = 'main'),
     path('otklikform/<int:anket_id>/',otklikform, name = 'otklikform'),
     path('profile/',ProfileView.as_view(), name = 'prof'),
     path('login/',MyprojectLoginView.as_view(), name = 'log'),
