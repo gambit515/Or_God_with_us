@@ -9,68 +9,61 @@
     <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
     <title>Вакансии</title>
 </head>
-
-
 <body>
-    <header class="header">
-        <div class="logo">
-            <a href="{% url 'main' %}"><img src="{% static 'main/images/full-logo 2.svg' %}" class="logo-image" width="70" /></a>
-        </div>
-        <div class="menu">
-            <ul class="menu-list">
-                <li>
-                    <a href="{% url 'partners' %}" class="partners request-link">Партнеры</a>
-                </li>
-                <li>
-                    <a href="{% url 'about' %}" class="about request-link">О нас</a>
-                </li>
-                <!--<li>
-
-                    <a href="{% url 'log' %}">Войти</a></li>
-                </li>
-                <li>
-                    <a href="{% url 'prof' %}">Профиль</a></li>
-                </li>-->
-                <li>
-                    <a href="{% url 'main' %}">Найти вакансию</a>
-                </li>
-            </ul>
-        </div>
-    </header>
-    <main class="main">
-		<div class="register">
-			<div class="beebuzz_name" >
-                <h1>Отклик на заявку</h1>
+    <div class="wrapper">
+        <header class="header">
+            <div class="logo">
+                <a href="{% url 'main' %}"><img src="{% static 'main/images/full-logo 2.svg' %}" class="logo-image" width="70" /></a>
             </div>
-			<div class="msg"></div>
-			
-            <span class="otpr">Вы действительно хотите отправить отклик на вакансию?{{anket_id}}</span>
-
-            <form method="post" class="request-form">
-                {% csrf_token %}
-                {% for field in form %}
-                    <div class="field">
-                        {{ field.label_tag }}
-                        {{ field }}
-                        {% if field.errors %}
-                            <span class="error">{{ field.errors }}</span>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-                <button class="btn response-btn" type="submit">Откликнуться</button>
-            </form>
-
-
-         <!-- <input class="button-reg" type="submit" value="Откликнуться">  -->
-
-        </div>
-    </main>
-
-    <div class="podval" valign="bottom" style="margin-top: 625px;">
-        <p> Контактная информация: &emsp;Phone:+7(902)**** ; &emsp;Email: GambitCorp@gmail.com; &emsp;Адрес: г.Красноярск, КрасРаб 31А; </p>
+            <div class="menu">
+                <ul class="menu-list">
+                    <li>
+                        <a href="{% url 'partners' %}" class="partners request-link">Партнеры</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}" class="about request-link">О нас</a>
+                    </li>
+                    <!--<li>
+    
+                        <a href="{% url 'log' %}">Войти</a></li>
+                    </li>
+                    <li>
+                        <a href="{% url 'prof' %}">Профиль</a></li>
+                    </li>-->
+                    <li>
+                        <a href="{% url 'main' %}">Найти вакансию</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <main class="main">
+            <div class="register">
+                <div class="beebuzz_name" >
+                    <h1>Отклик на заявку</h1>
+                </div>
+                <div class="msg"></div>
+                
+                <span class="otpr">Вы действительно хотите отправить отклик на вакансию?{{anket_id}}</span>
+    
+                <form method="post" class="request-form">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="field">
+                            {{ field.label_tag }}
+                            {{ field }}
+                            {% if field.errors %}
+                                <span class="error">{{ field.errors }}</span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <button class="btn response-btn" type="submit">Откликнуться</button>
+                </form>
+            </div>
+        </main>
+        <footer class="footer">
+            Коломенская, 26, Красноярск, Красноярский край, 660037, а/я 6213<br>
+            Почта: <a href="mailto:skc@skc-fmba.ru">skc@skc-fmba.ru</a>
+        </footer>
     </div>
-
-        
-
 </body>
 </html>
